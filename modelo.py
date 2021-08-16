@@ -43,7 +43,6 @@ if __name__ == "__main__":
     p2 = Pessoa(nome = "Maria", sobrenome = "Marcondes", dt_nascimento = "07/10/1998", genero = "F", cpf = "052.732.827-44", carteirinha_sus = "0983218",
                 endereco = "327 Velha", cidade = "Blumenau", cep = "091230213", email = "mariamarcondes@gmail.com", senha = "mariazinha",)
 
-
     db.session.add(p1)
     db.session.add(p2)
     db.session.commit()
