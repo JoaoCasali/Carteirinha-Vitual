@@ -1,35 +1,52 @@
+from ast import Num
 from config import *
 class Pessoa(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(100))
-    sobrenome = db.Column(db.String(100))
-    dt_nascimento = db.Column(db.String(100))
-    genero = db.Column(db.String(1))
-    cpf = db.Column(db.String(100))
-    carteirinha_sus = db.Column(db.String(100))
-    endereco = db.Column(db.String(100))
-    cidade = db.Column(db.String(100))
-    cep = db.Column(db.String(100))
-    email = db.Column(db.String(100))
-    senha = db.Column(db.String(100))
+    Id = db.Column(db.Integer, primary_key=True)
+    NomeCompleto = db.Column(db.String(200))
+    DtNascimento = db.Column(db.String(100))
+    Genero = db.Column(db.String(1))
+    Cpf = db.Column(db.String(100))
+    Email = db.Column(db.String(100))
+    Senha = db.Column(db.String(100))
     def __str__(self):
-        return str(self.id)+ ', ' + self.nome + ', '+ self.sobrenome + ', '+ self.dt_nascimento + ', ' + self.genero + ', ' + self.cpf + ', ' + \
-        self.carteirinha_sus + ', ' + self.endereco + ', ' + self.cidade + ', ' + self.cep + ', ' + self.email + ', ' + self.senha
+        return str(self.Id)+ ', ' + self.NomeCompleto + ', ' + self.Dt_Nascimento + ', ' + self.Genero + ', ' + self.Cpf + ', ' + \
+        + self.Email + ', ' + self.Senha
+    
+class Unidade_Saude(db.Model):
+    Id = db.Column(db.Integer, primary_key=True)
+    Nome = db.Column(db.String(200))
+    Cep = db.Column(db.String(100))
+    Complemento = db.Column(db.String(100))
+    CodVerificacao = db.Column(db.String(10))
+
+    def __str__(self):
+        return str(self.Id)+ ', ' + self.Nome + ', ' + self.Cep + ', ' + self.Complemento + ', ' + self.CodVerificacao
     
     def json(self):
         return {
-            "id": self.id,
-            "nome": self.nome,
-            "sobrenome": self.sobrenome,
-            "dt_nascimento": self.dt_nascimento,
-            "genero": self.genero,
-            "cpf": self.cpf,
-            "carteirinha_sus": self.carteirinha_sus,
-            "endereco": self.endereco,
-            "cidade": self.cidade,
-            "cep": self.cep,
-            "email": self.email,
-            "senha": self.senha
+            "id": self.Id,
+            "nome": self.NomeCompleto,
+            "Cep": self.Cep,
+            "Complemento": self.Complemento,
+            "CodVerificacao": self.CodVerificacao
+        }
+class Funcionario(Pessoa):
+    CodVerificacao = db.Column(db.String(10))
+    UnidadeSaudeId = db.Column(db.Integer, db.ForgeinKey(Unidade_Saude.Id), nullable = False)
+    UnidadeSaude = db.relationship('Unidade_Saude')
+
+    def json(self):
+        return {
+            "id": self.Id,
+            "nome": self.NomeCompleto,
+            "dt_nascimento": self.DtNascimento,
+            "genero": self.Genero,
+            "cpf": self.Cpf,
+            "email": self.Email,
+            "senha": self.Senha,
+            "CodVerificacao": self.CodVerificacao,
+            "UnidadeSaudeId": self.UnidadeSaudeId,
+            "UnidadeSaude": self.UnidadeSaude.json()
         }
 
 if __name__ == "__main__":
@@ -43,13 +60,13 @@ if __name__ == "__main__":
     p2 = Pessoa(nome = "Maria", sobrenome = "Marcondes", dt_nascimento = "07/10/1998", genero = "F", cpf = "052.732.827-44", carteirinha_sus = "0983218",
                 endereco = "327 Velha", cidade = "Blumenau", cep = "091230213", email = "mariamarcondes@gmail.com", senha = "mariazinha",)
 
-
+    
     db.session.add(p1)
     db.session.add(p2)
     db.session.commit()
 
-    # todas = db.session.query(Pessoa).all()
+    todas = db.session.query(Pessoa).all()
 
-    # for i in todas:
-    #     print(i)
-    #     print(i.json())
+    for i in todas:
+        print(i)
+        print(i.json())
