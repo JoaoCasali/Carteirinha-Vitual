@@ -1,13 +1,13 @@
 from config import *
-from modelo import Pessoa
+from modelo import Funcionario
 @app.route("/")
 def padrao():
     return "backend operante"
-@app.route("/listar_pessoas")
-def listar_plantas():
-    pessoas = db.session.query(Pessoa).all()
+@app.route("/listar_funcionario")
+def listar_funcionarios():
+    funcionarios = db.session.query(Funcionario).all()
     retorno = []
-    for i in pessoas:
+    for i in funcionarios:
         retorno.append(i.json())
 
     resposta = jsonify(retorno)
