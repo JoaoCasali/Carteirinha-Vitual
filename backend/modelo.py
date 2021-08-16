@@ -54,6 +54,8 @@ class Funcionario(Pessoa):
             "UnidadeSaudeId": self.UnidadeSaudeId,
             "UnidadeSaude": self.UnidadeSaude.json() # Reciclando a função da classe Unidade_Saude
         }
+class Cliente(Pessoa):
+    Cep = db.Column(db.String(50))
 
 # Bloqueia as seguintes funções quando importado
 if __name__ == "__main__":
