@@ -89,7 +89,30 @@ class Cidadao(Pessoa):
             "Complemento": self.Complemento,
             "temComorbidades": self.temComorbidades,
             "TipoComorbidade": self.TipoComorbidades
-}
+            }
+class Agendamento(db.Model):
+    Id = db.Column(db.Integer, primary_key=True)
+    Vacina = db.Column(db.String(200))
+    DtAgendamento = db.Column(db.String(200))
+    IdCidadao = db.Column(db.Integer, db.ForeignKey(Pessoa.Id), nullable = True)
+    UnidadeSaudeId = db.Column(db.Integer, db.ForeignKey(Unidade_Saude.Id), nullable = True)
+    Cidadao = db.relationship('Pessoa')
+    UnidadeSaude = db.relationship('Unidade_Saude')
+
+    def __str__(self):
+        return f'{str(self.Id)}, {self.Vacina}, {self.DtAgendamento}, {str(self.IdCidadao)}, {str(self.UnidadeSaudeId)}, {self.Cidadao}, s{self.UnidadeSaude}'
+    
+    def json(self):
+        return {
+            "id": self.Id,
+            "Vacina": self.Vacina,
+            "DtAgendamento": self.DtAgendamento,
+            "IdCidadao": self.IdCidadao,
+            "UnidadeSaudeId": self.UnidadeSaudeId,
+            "Cidadao": self.Cidadao.json(),
+            "UnidadeSaude": self.UnidadeSaude.json(),
+            }
+
 # Bloqueia as seguintes funções quando importado
 if __name__ == "__main__":
     
@@ -106,16 +129,24 @@ if __name__ == "__main__":
     
     c1 = Cidadao(NomeCompleto = "Djenifer Lima", DtNascimento = "20/05/2003", Genero = "F", Cpf = "180.728.569-58", Email = "limadjenifer@gmail.com", \
     Senha = "joaolindoS2", Cep = "16476261", Complemento = "666", temComorbidades = True, TipoComorbidades = "Cardiopatia|miope|Feia")
+    a1 = Agendamento(Vacina = "Covid-19", DtAgendamento = "27/09/2021", Cidadao = c1, UnidadeSaude = us1)
     # Adiciona na lista de commit
     db.session.add(us1)
     db.session.add(f1)
     db.session.add(c1)
+    db.session.add(a1)
     db.session.commit() # Grava os dados no banco de dados
 
-    Todos = db.session.query(Pessoa).all() # Traz os dados do banco para uma lista 
+    TodosPessoa = db.session.query(Pessoa).all() # Traz os dados do banco para uma lista 
     # Imprime as informações
     print("")
-    for i in Todos:
+    for i in TodosPessoa:
+        print(i)
+        print(i.json())
+        print("")
+
+    TodosAgendamento = db.session.query(Agendamento).all()
+    for i in TodosAgendamento:
         print(i)
         print(i.json())
         print("")
