@@ -10,7 +10,14 @@ class Pessoa(db.Model):
     Cpf = db.Column(db.String(100))
     Email = db.Column(db.String(100))
     Senha = db.Column(db.String(100))
-
+    type = db.Column(db.String(50)) # Discriminador
+    __mapper_args__ = {
+        'polymorphic_identity':'pessoa', 
+        'polymorphic_on':type # nome do campo que vincula os filhos
+    }
+    def __str__(self):
+        return f'{self.Id}, {self.NomeCompleto}, {self.DtNascimento}, {self.Genero}, {self.Cpf}, {self.Email}, {self.Senha}'
+        
 # Classe que representa uma unidade de saúde
 class Unidade_Saude(db.Model):
     Id = db.Column(db.Integer, primary_key=True)
@@ -20,7 +27,7 @@ class Unidade_Saude(db.Model):
     CodVerificacao = db.Column(db.String(10)) # Será adiocionado um código para a verificação de funcionários
 
     def __str__(self):
-        return str(self.Id)+ ', ' + self.Nome + ', ' + self.Cep + ', ' + self.Complemento + ', ' + self.CodVerificacao
+        return f'{str(self.Id)}, {self.Nome}, {self.Cep}, {self.Complemento}, {self.CodVerificacao}'
     
     def json(self):
         return {
@@ -36,10 +43,12 @@ class Funcionario(Pessoa):
     CodVerificacao = db.Column(db.String(10)) # Certificação do funcionário
     UnidadeSaudeId = db.Column(db.Integer, db.ForeignKey(Unidade_Saude.Id), nullable = True)
     UnidadeSaude = db.relationship('Unidade_Saude') # Associação com a unid. de saúde
+    __mapper_args__ = { 
+        'polymorphic_identity':'funcionário',
+    }
 
     def __str__(self):
-        return str(self.Id) + ', ' + self.NomeCompleto + ', ' + self.DtNascimento + ', ' + self.Genero + ', ' + self.Cpf + ', ' + \
-        self.Email + ', ' + self.Senha + ', ' + self.CodVerificacao + ', ' + str(self.UnidadeSaudeId)
+        return f'{super().__str__()}, {self.CodVerificacao}, {str(self.UnidadeSaudeId)}, {str(self.UnidadeSaude)}, {self.type}' 
 
     def json(self):
         return {
@@ -60,10 +69,12 @@ class Cidadao(Pessoa):
     Complemento = db.Column(db.String(50))
     temComorbidades = db.Column(db.Boolean)
     TipoComorbidades = db.Column(db.String(200))
+    __mapper_args__ = { 
+        'polymorphic_identity':'cidadão',
+    }
 
     def __str__(self):
-        return str(self.Id) + ', ' + self.NomeCompleto + ', ' + self.DtNascimento + ', ' + self.Genero + ', ' + self.Cpf + ', ' + self.Email + ', ' +\
-        self.Senha + ', ' + self.Cep + ', ' + self.Complemento + ', ' + str(self.temComorbidades) + ', ' + self.TipoComorbidades
+        return f'{super().__str__()}, {self.Cep}, {self.Complemento}, {str(self.temComorbidades)}, {self.TipoComorbidades}, {self.type}'
     
     def json(self):
         return {
@@ -101,17 +112,11 @@ if __name__ == "__main__":
     db.session.add(c1)
     db.session.commit() # Grava os dados no banco de dados
 
-    TodosFuncionarios = db.session.query(Funcionario).all() # Traz os dados do banco para uma lista 
-    TodosCidadao = db.session.query(Cidadao).all() # Traz os dados do banco para uma lista
+    Todos = db.session.query(Pessoa).all() # Traz os dados do banco para uma lista 
     # Imprime as informações
     print("")
-    for i in TodosCidadao:
+    for i in Todos:
         print(i)
         print(i.json())
         print("")
     
-    for i in TodosFuncionarios:
-        print("")
-        print(i)
-        print(i.json())
-        print("")
