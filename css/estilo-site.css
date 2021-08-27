@@ -1,48 +1,209 @@
 *{
 	font-family: 'arial';
-	margin: 0px;
-	scroll-behavior: smooth;
+	margin: 0;
 	padding: 0;
+	scroll-behavior: smooth;
+	box-sizing: border-box;
 }
-.menuCima{
+body{
+	position: relative;
+	min-height: 100vh;
 	width: 100%;
-	height: auto;
-	padding-left: 1%;
-	background-color: #0266a8;
+	overflow: hidden;
 }
-.menuCima::before {
-	content: "";
-	position: absolute;
-	top: 0; left: 0;
-	width: 100%; height: 100%;
-	background-image: url("../img/FundoMenu.png");
-	background-size: 100px 100px;
-	background-repeat: repeat-x;
-	background-position-y: -25px;
-	filter: opacity(50%) invert() blur(0.5px);
-}
-.menuCima h3 a{
-	color: white;
-	text-decoration: none;
-}
-.menuLateral{
+.menu_lateral{
 	position: fixed;
-	text-align: center;
-	background-color: #066aab;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 78px;
+	background-color: #0d6efd;
+	padding: 6px 14px;
+	transition: all 0.5s ease;
+}
+.menu_lateral.active{
+	width: 240px;
+}
+.menu_lateral .logo_container .logo{
+	color: white;
+	display: flex;
+	height: 50px;
+	width: 100%;
+	align-items: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.5s ease;
+}
+.menu_lateral.active .logo_container .logo{
+	opacity: 1;
+	pointer-events: none;
+}
+.logo_container .logo i{
+	font-size: 28px;
+	margin-right: 5px;
+}
+.logo_container .logo .logo_nome{
+	opacity: 0;
+	pointer-events: none;
+	font-size: 20px;
+	font-weight: 400;
+	transition: all 0.5s ease;
+}
+.menu_lateral.active .logo .logo_nome{
+	opacity: 1;
+	pointer-events: auto;
+}
+.menu_lateral #botao{
+	position: absolute;
+	color: white;
+	left: 40%;
+	top: 6px;
+	font-size: 25px;
+	height: 50px;
 	width: 50px;
-	height: 100vh;
+	text-align: center;
+	line-height: 50px;
+	transform: translateX(-30%);
+}
+.menu_lateral.active #botao{
+	left: 90%;
+}
+.menu_lateral ul{
+	margin-top: 20px;
+}
+.menu_lateral ul li{
+	position: relative;
+	height: 50px;
+	width: 100%;
+	margin: 0 5px;
+	list-style: none;
+	line-height: 50px;
+}
+.menu_lateral ul li .tooltip{
+	position: absolute;
+	height: 35px;
+	width: 122px;
+	left: 122px;
+	top: 0;
+	transform: translate(-50%, -50%);
+	border-radius: 6px;
+	background-color: white;
+	line-height: 35px;
+	text-align: center;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	transition: 0s;
+	opacity: 0;
+	pointer-events: none;
+	display: block;
+}
+.menu_lateral.active ul li .tooltip{
+	display: none;
+}
+.menu_lateral ul li:hover .tooltip{
+	transition: all 0.5s ease;
+	opacity: 1;
+	top: 50%;
+}
+.menu_lateral ul li a{
+	color: white;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	transition: all 0.2s ease;
+	border-radius: 12px;
+	white-space: nowrap;
+}
+.menu_lateral ul li a:hover{
+	color: #0d6efd;
+	background-color: white;
+}
+.menu_lateral ul li i{
+	height: 50px;
+	min-width: 50px;
+	border-radius: 12px;
+	line-height: 50px;
+	text-align: center;
+	
+}
+.menu_lateral .nome_link{
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.5 ease;
+}
+.menu_lateral.active .nome_link{
+	opacity: 1;
+	pointer-events: auto;
+}
+.menu_lateral .profile_content{
+	position: absolute;
+	color: white;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+.menu_lateral .profile_content .profile{
+	position: relative;
+	padding: 10px 6px;
+	height: 60px;
+	background-color: blue;
+}
+.profile_content .profile .profile_details{
+	display: flex;
+	align-items: center;
+	opacity: 0;
+	pointer-events: none;
+	white-space: nowrap;
+}
+.menu_lateral.active .profile .profile_details{
+	opacity: 1;
+	pointer-events: auto;
+}
+.profile .profile_details img{
+	height: 45px;
+	width: 45px;
+	object-fit: cover;
+	border-radius: 12px;
+}
+.profile .profile_details .nome_trabalho{
+	margin-left: 10px;
+}
+.profile .profile_details .nome{
+	font-size: 15px;
+	font-weight: 400;
+}
+.profile .profile_details .trabalho{
+	font-size: 12px;
+	font-weight: 400;
+}
+.profile #log_out{
+	position: absolute;
+	left: 55%;
+	bottom: 5px;
+	transform: translateX(-50%);
+	min-width: 50px;
+	line-height: 50px;
+	font-size: 30px;
+	border-radius: 12px;
+}
+.menu_lateral.active .profile #log_out{
+	left: 88%;
+	font-size: 25px;
+}
+.menu_lateral.active ~ .estilo{
+	left: 240px;
+	width: calc(100% - 240px);
+
 }
 .estilo{
-	margin-top: 0px;
-	margin-right: auto;
-	margin-left: auto;
+	position: absolute;
+	left: 78px;
+	width: calc(100% - 78px);
+	height: 100%;
+	padding: 1%;
 	background-color: white;
 	font-size: 18px;
 	text-align: justify;
-	width: 80%;
-	height: 100%;
-	box-shadow: 0px 6px 10px;
-	padding: 1%;
+	transition: all 0.5s ease;
 }
 p{
 	margin-right: 30px;

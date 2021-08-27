@@ -1,3 +1,3 @@
-$( document ).ready(function() {
-    alert("oii");
-  });
+// $( document ).ready(function() {
+//     alert("oii");
+//   });
