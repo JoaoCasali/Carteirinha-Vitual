@@ -16,13 +16,15 @@ body{
 	top: 0;
 	left: 0;
 	height: 100%;
-	width: 78px;
+	width: 50px;
 	background-color: #0d6efd;
-	padding: 6px 14px;
+	padding: 6px 5px;
 	transition: all 0.5s ease;
+	z-index: 1;
 }
 .menu_lateral.active{
 	width: 240px;
+	padding: 6px 14px;
 }
 .menu_lateral .logo_container .logo{
 	color: white;
@@ -63,7 +65,7 @@ body{
 	width: 50px;
 	text-align: center;
 	line-height: 50px;
-	transform: translateX(-30%);
+	transform: translateX(-35%);
 }
 .menu_lateral.active #botao{
 	left: 90%;
@@ -75,7 +77,6 @@ body{
 	position: relative;
 	height: 50px;
 	width: 100%;
-	margin: 0 5px;
 	list-style: none;
 	line-height: 50px;
 }
@@ -90,7 +91,7 @@ body{
 	background-color: white;
 	line-height: 35px;
 	text-align: center;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 5px 20px black;
 	transition: 0s;
 	opacity: 0;
 	pointer-events: none;
@@ -118,12 +119,12 @@ body{
 	background-color: white;
 }
 .menu_lateral ul li i{
+	font-size: 25px;
 	height: 50px;
 	min-width: 50px;
 	border-radius: 12px;
 	line-height: 50px;
 	text-align: center;
-	
 }
 .menu_lateral .nome_link{
 	opacity: 0;
@@ -192,18 +193,17 @@ body{
 .menu_lateral.active ~ .estilo{
 	left: 240px;
 	width: calc(100% - 240px);
-
 }
 .estilo{
-	position: absolute;
+	position: relative;
 	left: 78px;
 	width: calc(100% - 78px);
 	height: 100%;
 	padding: 1%;
-	background-color: white;
 	font-size: 18px;
 	text-align: justify;
 	transition: all 0.5s ease;
+	z-index: 0;
 }
 p{
 	margin-right: 30px;
@@ -223,7 +223,7 @@ hr{
 	border-width: 2px;
 	margin-bottom: 15px;
 }
-body h1{
+.estilo h1{
 	color: #0d6efd;
 	text-align: center;
 	font-weight: bolder;
