@@ -11,6 +11,7 @@ body{
 	width: 100%;
 	overflow: hidden;
 }
+/* Layout do menu quando contraido*/
 .menu_lateral{
 	position: fixed;
 	top: 0;
@@ -18,61 +19,85 @@ body{
 	height: 100%;
 	width: 50px;
 	background-color: #0266A8;
-	padding: 6px 5px;
+	padding: 6px 1px;
 	transition: all 0.5s ease;
-	z-index: 1;
+	/* Colocando ele para ficar acima de tudo na página */
+	z-index: 1; 
 }
+/* Mudando o desing do hr */
+.menu_lateral hr{
+	border: 1px solid white;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+/* Layout quando aberto */
 .menu_lateral.active{
 	width: 240px;
 	padding: 6px 14px;
 }
+/* Estilizando a parte onde fica a logo do site */
 .menu_lateral .logo_container .logo{
 	color: white;
 	display: flex;
 	height: 50px;
 	width: 100%;
 	align-items: center;
+	/* Deixando a logo transparente quando o menu esiver fechado */
 	opacity: 0;
 	pointer-events: none;
 	transition: all 0.5s ease;
 }
+/* Deixando a logo visivel quando o menu estiver aberto */
 .menu_lateral.active .logo_container .logo{
 	opacity: 1;
 	pointer-events: none;
 }
+/* Estilizando a imagem da logo */
 .logo_container .logo i{
 	font-size: 28px;
 	margin-right: 5px;
 }
+/* Estilizando o nome do site */
 .logo_container .logo .logo_nome{
-	opacity: 0;
 	pointer-events: none;
 	font-size: 20px;
 	font-weight: 400;
 	transition: all 0.5s ease;
 }
-.menu_lateral.active .logo .logo_nome{
-	opacity: 1;
-	pointer-events: auto;
-}
+/* Estilizando o botão que abre o menu */
 .menu_lateral #botao{
 	position: absolute;
 	color: white;
-	left: 40%;
+	left: 2%;
 	top: 6px;
 	font-size: 25px;
 	height: 50px;
 	width: 50px;
 	text-align: center;
 	line-height: 50px;
-	transform: translateX(-35%);
+	border-radius: 12px;
+	transition: all 0.2s ease;
 }
+/* Estilizando o botão quando o menu está aberto */
 .menu_lateral.active #botao{
-	left: 90%;
+	left: 83%;
 }
+/* Adicionando hover no botão para quando o menu está fechado */
+.menu_lateral #botao:hover{
+	color: #0266A8;
+	background-color: white;
+}
+/* Configurando para o hover não aparecer no menu aberto */
+.menu_lateral.active #botao:hover{
+	color: white;
+	background-color: transparent;
+}
+/* Configurando a lista */
 .menu_lateral ul{
 	margin-top: 20px;
+	padding: 0px;
 }
+/* Posicionando os itens da lista */
 .menu_lateral ul li{
 	position: relative;
 	height: 50px;
@@ -80,13 +105,16 @@ body{
 	list-style: none;
 	line-height: 50px;
 }
+/* Estilizando e posicionando as dicas */
 .menu_lateral ul li .tooltip{
+	/* Posicionando */
 	position: absolute;
 	height: 35px;
 	width: 122px;
 	left: 122px;
 	top: 0;
 	transform: translate(-50%, -50%);
+	/* Estilizando */
 	border-radius: 6px;
 	background-color: white;
 	line-height: 35px;
@@ -95,16 +123,20 @@ body{
 	transition: 0s;
 	opacity: 0;
 	pointer-events: none;
+	/* Fazendo com que ele só apareça quando o menu estiver fechado */
 	display: block;
 }
+/* Fazendo com que as dicas não apareçam quando o menu está aberto */
 .menu_lateral.active ul li .tooltip{
 	display: none;
 }
+/* Fazendo com que as dicas só apareçam quando o mouse passar por cima */
 .menu_lateral ul li:hover .tooltip{
 	transition: all 0.5s ease;
 	opacity: 1;
 	top: 50%;
 }
+/* Estilizando os links para navegação */
 .menu_lateral ul li a{
 	color: white;
 	display: flex;
@@ -114,10 +146,12 @@ body{
 	border-radius: 12px;
 	white-space: nowrap;
 }
+/* Adicionando hover para os links */
 .menu_lateral ul li a:hover{
 	color: #0266A8;
 	background-color: white;
 }
+/* Estilizando os icones de navegação */
 .menu_lateral ul li i{
 	font-size: 25px;
 	height: 50px;
@@ -126,15 +160,18 @@ body{
 	line-height: 50px;
 	text-align: center;
 }
+/* Fazendo com que o nome não apareça no menu fechado */
 .menu_lateral .nome_link{
 	opacity: 0;
 	pointer-events: none;
 	transition: all 0.5 ease;
 }
+/* Fazendo o nome aparecer no menu aberto */
 .menu_lateral.active .nome_link{
 	opacity: 1;
 	pointer-events: auto;
 }
+/* Estilizando o profile */
 .menu_lateral .profile_content{
 	position: absolute;
 	color: white;
@@ -142,12 +179,15 @@ body{
 	left: 0;
 	width: 100%;
 }
+/* Posicionando e estilizando onde fica as informações */
 .menu_lateral .profile_content .profile{
 	position: relative;
 	padding: 10px 6px;
 	height: 60px;
 	background-color: #014d81;
+	transition: all 0.4s ease;
 }
+/* Posicionando as informações e omitindo elas com o menu fechado*/
 .profile_content .profile .profile_details{
 	display: flex;
 	align-items: center;
@@ -155,45 +195,55 @@ body{
 	pointer-events: none;
 	white-space: nowrap;
 }
+/* Apresentando as informações quando o menu está aberto */
 .menu_lateral.active .profile .profile_details{
 	opacity: 1;
 	pointer-events: auto;
 }
+/* Estilizando a imagem de perfil */
 .profile .profile_details img{
 	height: 45px;
 	width: 45px;
 	object-fit: cover;
 	border-radius: 12px;
 }
+/* Posicionando as informações */
 .profile .profile_details .nome_trabalho{
 	margin-left: 10px;
 }
+/* Estilizando o nome do usuário */
 .profile .profile_details .nome{
 	font-size: 15px;
 	font-weight: 400;
 }
+/* Estilizando o trabalho do usuário */
 .profile .profile_details .trabalho{
 	font-size: 12px;
 	font-weight: 400;
 }
+/* Estilizando o botão de logout */
 .profile #log_out{
 	position: absolute;
-	left: 55%;
+	left: 46%;
 	bottom: 5px;
-	transform: translateX(-50%);
 	min-width: 50px;
 	line-height: 50px;
-	font-size: 30px;
+	font-size: 25px;
 	border-radius: 12px;
+	transform: translateX(-50%);
+	text-align: center;
 }
+/* Estilizando e posicionando o botão quando o menu estiver aberto */
 .menu_lateral.active .profile #log_out{
 	left: 88%;
 	font-size: 25px;
 }
+/* Posicionando a classe estilo quando o menu estiver aberto */
 .menu_lateral.active ~ .estilo{
 	left: 240px;
 	width: calc(100% - 240px);
 }
+/* Classe onde fica todo o conteúdo da página */
 .estilo{
 	position: relative;
 	left: 78px;
@@ -205,11 +255,13 @@ body{
 	transition: all 0.5s ease;
 	z-index: 0;
 }
+/* Estilizando a tag p */
 p{
 	margin-right: 30px;
 	margin-left: 30px;
 	text-indent: 30px;
 }
+/* Formatando a tag p */
 p:first-letter{
 	text-transform: uppercase;
 }
@@ -218,11 +270,7 @@ p a{
 	color: #0266A8;
 	font-weight: bolder;
 }
-hr{
-	border-color: black;
-	border-width: 2px;
-	margin-bottom: 15px;
-}
+/* Estilizando a tag h1 */
 .estilo h1{
 	color: #0266A8;
 	text-align: center;
