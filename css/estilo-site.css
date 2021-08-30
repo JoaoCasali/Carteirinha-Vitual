@@ -17,7 +17,7 @@ body{
 	left: 0;
 	height: 100%;
 	width: 50px;
-	background-color: #0d6efd;
+	background-color: #0266A8;
 	padding: 6px 5px;
 	transition: all 0.5s ease;
 	z-index: 1;
@@ -115,7 +115,7 @@ body{
 	white-space: nowrap;
 }
 .menu_lateral ul li a:hover{
-	color: #0d6efd;
+	color: #0266A8;
 	background-color: white;
 }
 .menu_lateral ul li i{
@@ -146,7 +146,7 @@ body{
 	position: relative;
 	padding: 10px 6px;
 	height: 60px;
-	background-color: blue;
+	background-color: #014d81;
 }
 .profile_content .profile .profile_details{
 	display: flex;
@@ -215,7 +215,7 @@ p:first-letter{
 }
 p a{
 	text-decoration: none;
-	color: #0d6efd;
+	color: #0266A8;
 	font-weight: bolder;
 }
 hr{
@@ -224,7 +224,7 @@ hr{
 	margin-bottom: 15px;
 }
 .estilo h1{
-	color: #0d6efd;
+	color: #0266A8;
 	text-align: center;
 	font-weight: bolder;
 }
