@@ -81,7 +81,7 @@ class Cidadao(Pessoa):
             "Id": self.Id,
             "Nome": self.NomeCompleto,
             "DtNascimento": self.DtNascimento,
-            "genero": self.Genero,
+            "Genero": self.Genero,
             "Cpf": self.Cpf,
             "Email": self.Email,
             "Senha": self.Senha,
@@ -104,7 +104,7 @@ class Agendamento(db.Model):
     
     def json(self):
         return {
-            "id": self.Id,
+            "Id": self.Id,
             "Vacina": self.Vacina,
             "DtAgendamento": self.DtAgendamento,
             "IdCidadao": self.IdCidadao,
