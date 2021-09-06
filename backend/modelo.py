@@ -31,8 +31,8 @@ class Unidade_Saude(db.Model):
     
     def json(self):
         return {
-            "id": self.Id,
-            "nome": self.Nome,
+            "Id": self.Id,
+            "Nome": self.Nome,
             "Cep": self.Cep,
             "Complemento": self.Complemento,
             "CodVerificacao": self.CodVerificacao
@@ -52,13 +52,13 @@ class Funcionario(Pessoa):
 
     def json(self):
         return {
-            "id": self.Id,
-            "nome": self.NomeCompleto,
-            "dt_nascimento": self.DtNascimento,
-            "genero": self.Genero,
-            "cpf": self.Cpf,
-            "email": self.Email,
-            "senha": self.Senha,
+            "Id": self.Id,
+            "Nome": self.NomeCompleto,
+            "DtNascimento": self.DtNascimento,
+            "Genero": self.Genero,
+            "Cpf": self.Cpf,
+            "Email": self.Email,
+            "Senha": self.Senha,
             "CodVerificacao": self.CodVerificacao,
             "UnidadeSaudeId": self.UnidadeSaudeId,
             "UnidadeSaude": self.UnidadeSaude.json() # Reciclando a função da classe Unidade_Saude
@@ -78,13 +78,13 @@ class Cidadao(Pessoa):
     
     def json(self):
         return {
-            "id": self.Id,
-            "nome": self.NomeCompleto,
-            "dt_nascimento": self.DtNascimento,
+            "Id": self.Id,
+            "Nome": self.NomeCompleto,
+            "DtNascimento": self.DtNascimento,
             "genero": self.Genero,
-            "cpf": self.Cpf,
-            "email": self.Email,
-            "senha": self.Senha,
+            "Cpf": self.Cpf,
+            "Email": self.Email,
+            "Senha": self.Senha,
             "Cep": self.Cep,
             "Complemento": self.Complemento,
             "temComorbidades": self.temComorbidades,

@@ -2,7 +2,7 @@ $(document).ready(function() {
     $("#botao").click(function(){
 		$(".menu_lateral").toggleClass("active");
 	});
-    
+
 	var counter = 1;
 	setInterval(function(){
 		$('#radio' + counter)[0].checked = true;
@@ -23,8 +23,18 @@ $(document).ready(function() {
                 alert("erro ao ler dados, verifique o backend");
             }
         });
-        function listar_pessoas(agendamentos) {
-            alert(agendamentos)
+        function listar_agendamentos(agendamentos) {
+            linha = ''
+            for (var i in agendamentos){
+                lin = '<tr>' +
+                'td' + agendamentos[i].Id + '</td>' +
+                'td' + agendamentos[i].Vacina + '</td>' +
+                'td' + agendamentos[i].DtAgendamento + '</td>' +
+                'td' + agendamentos[i].UnidadeSaude.Nome + '</td>' +
+                '<tr>';
+                linha = linha + lin;
+            };
+            $('#corpoTabelaAgendamentos').append(linha);
         }
 
     });
