@@ -2,6 +2,7 @@ $(document).ready(function() {
     $("#botao").click(function(){
 		$(".menu_lateral").toggleClass("active");
 	});
+    
 	var counter = 1;
 	setInterval(function(){
 		$('#radio' + counter)[0].checked = true;
@@ -14,16 +15,16 @@ $(document).ready(function() {
 	$("#listar_pessoas").click(function(){
         
         $.ajax({
-            url: 'http://127.0.0.1:5000/listar_pessoas',
+            url: 'http://localhost:5000/listar_agendamentos',
             method: 'GET',
             dataType: 'json', // os dados são recebidos no formato json
-            success: listar_pessoas, // chama a função listar_plantas para processar o resultado
+            success: listar_agendamentos, // chama a função listar_plantas para processar o resultado
             error: function() {
                 alert("erro ao ler dados, verifique o backend");
             }
         });
-        function listar_pessoas(pessoas) {
-            alert(pessoas)
+        function listar_pessoas(agendamentos) {
+            alert(agendamentos)
         }
 
     });

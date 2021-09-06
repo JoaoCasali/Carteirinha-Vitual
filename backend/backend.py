@@ -6,22 +6,24 @@ def padrao():
 
 @app.route("/listar_pessoas")
 def listar_pessoas():
-    Pessoas = db.session.query(Pessoa).all()
+    pessoas = db.session.query(Pessoa).all()
     retorno = []
-    for i in Pessoas:
+    for i in pessoas:
         retorno.append(i.json())
 
     resposta = jsonify(retorno)
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 
 @app.route("/listar_agendamentos")
 def listar_agendamentos():
-    Agendamentos = db.session.query(Agendamento).all()
+    agendamentos = db.session.query(Agendamento).all()
     retorno = []
-    for i in Agendamentos:
+    for i in agendamentos:
         retorno.append(i.json())
 
     resposta = jsonify(retorno)
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 
 app.run(debug=True)
