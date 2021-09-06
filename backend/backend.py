@@ -3,6 +3,7 @@ from modelo import Pessoa, Agendamento
 @app.route("/")
 def padrao():
     return "backend operante"
+
 @app.route("/listar_pessoas")
 def listar_pessoas():
     Pessoas = db.session.query(Pessoa).all()
@@ -12,6 +13,7 @@ def listar_pessoas():
 
     resposta = jsonify(retorno)
     return resposta
+
 @app.route("/listar_agendamentos")
 def listar_agendamentos():
     Agendamentos = db.session.query(Agendamento).all()

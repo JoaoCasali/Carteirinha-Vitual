@@ -1,5 +1,5 @@
 $(document).ready(function() {	  
-	$("#botao").click(function(){
+    $("#botao").click(function(){
 		$(".menu_lateral").toggleClass("active");
 	});
 	var counter = 1;
@@ -11,16 +11,20 @@ $(document).ready(function() {
 		}
 	}, 5000);
 
-	$.ajax({
-		url: 'http://localhost:5000/listar_agendamentos',
-		method: 'GET',
-		dataType: 'json', // os dados são recebidos no formato json
-		success: listar_agendamentos, // chama a função listar_agendamentos para processar o resultado
-		error: function() {
-			alert("erro ao ler dados, verifique o backend");
-		}
-	});
-	function listar_agendamentos(resultado){
-		alert(resultado)
-	}
+	$("#listar_pessoas").click(function(){
+        
+        $.ajax({
+            url: 'http://127.0.0.1:5000/listar_pessoas',
+            method: 'GET',
+            dataType: 'json', // os dados são recebidos no formato json
+            success: listar_pessoas, // chama a função listar_plantas para processar o resultado
+            error: function() {
+                alert("erro ao ler dados, verifique o backend");
+            }
+        });
+        function listar_pessoas(pessoas) {
+            alert(pessoas)
+        }
+
+    });
 });
