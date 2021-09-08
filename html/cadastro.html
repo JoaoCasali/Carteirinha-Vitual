@@ -8,39 +8,49 @@
  	    <meta name="author" content="IFC Produções">
  	    <meta http-equiv="refresh" content="300">
 		<!-- Link do bootstrap -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 		<!-- Link do jquerry -->
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 		<!-- script do cadastro -->
-		<script src="../script/cadastroscript.js"></script>
+		<script src="../script/cadastro.js"></script>
 		<!-- Icone da página -->
 		<link rel="shortcut icon" type="image/x-icon" href="../img/seringa-icon.png">
 		<!-- Estilo padrão -->
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
 		<!-- Estilo único do cadastro -->
-		<link rel="stylesheet" type="text/css" href="../css/estilo-cadastro.css">
+		<link rel="stylesheet" type="text/css" href="../css/cadastro.css">
 
 	</head>
     <body class="fundo bg-primary">
+		<!-- Formulário de cadastro -->
 		<div class="estilo-contato">
 			<h2>Cadastro</h2>
+			<!-- Inicio do formulário -->
+			<!-- Classe que deixa bonito o sistema de validação -->
 			<form class="was-validated">
-				<div class="col-12">
+				<!-- Primeira Linha -->
+				<div class="row">
+					<!-- Input do nome -->
 					<div class="input-group">
-						<span class="input-group-text">Nome e sobrenome</span>
-						<input type="text" aria-label="Nome" class="form-control" placeholder="Nome"required>
-						<input type="text" aria-label="sobrenome" class="form-control" placeholder="Sobrenome" required>
+						<span class="input-group-text">Nome completo</span>
+						<input type="text" aria-label="Nome" class="form-control" placeholder="Nome Completo" required>
 					</div>
 				</div>
 				<br>
+				<!-- Segunda linha -->
 				<div class="row g-3">
+					<!-- Primeira coluna -->
 					<div class="col-7" style="margin-right: 6%;">
+						<!-- Input da data de nascimento -->
 						<div class="input-group">
 							<span class="input-group-text">Data de nascimento</span>
 							<input type="date" aria-label="Nome" class="form-control" required>
 						</div>
 					</div>
+					<!-- Segunda coluna -->
 					<div class="col">
+						<!-- Rarios para escolher o genero da pessoa -->
 						<div class="form-check form-check-inline">
 							<input class="form-check-input" type="radio" name="genero" id="GeneroMasculino" value="option1" required>
 							<label class="form-check-label" for="inlineRadio1">Masculino</label>
@@ -52,66 +62,70 @@
 					</div>
 				</div>
 				<br>
+				<!-- Terceira linha -->
 				<div class="row g-3">
+					<!-- Primeira coluna -->
 					<div class="col">
+						<!-- Input do CPF -->
 						<div class="input-group">
 							<span class="input-group-text">CPF</span>
 							<input type="text" name="cpf" aria-label="cpf" class="form-control" placeholder="CPF" id="cpf" maxlength="14" onkeypress="mascara_cpf()" required>
 						</div>
-					</div>
-					<div class="col">
-						<div class="input-group">
-							<span class="input-group-text">Carteira do SUS</span>
-							<input type="text" aria-label="Carteira SUS" class="form-control" placeholder="Carteira do SUS" maxlength="15" required>
-						</div>
-					</div>
+					</div>					
 				</div>
 				<br>
+				<!-- Quarta linha -->
 				<div class="row g-3">
+					<!-- Primeira coluna -->
 					<div class="col">
-						<div class="input-group">
-							<span class="input-group-text">Endereço</span>
-							<input type="text" class="form-control" id="inputendereco" placeholder="1234 Main St" required>
-						</div>
-					</div>
-					<div class="col">
-						<div class="input-group">
-							<span class="input-group-text">Cidade</span>
-							<input type="text" class="form-control" id="inputcidade" placeholder="Cidade" required>
-						</div>
-					</div>
-					<div class="col">
+						<!-- Input do CEP -->
 						<div class="input-group">
 							<span class="input-group-text">CEP</span>
 							<input type="text" class="form-control" id="inputcep" placeholder="CEP" required>
 						</div>
 					</div>
+					<!-- Segunda linha -->
+					<div class="col">
+						<!-- Input do Complemento -->
+						<div class="input-group">
+							<span class="input-group-text">Complemento</span>
+							<input type="text" class="form-control" id="inputcidade" placeholder="Complemento">
+						</div>
+					</div>
 				</div>
 				<hr>
+				<!-- Quinta linha -->
 				<div class="row g-3">
+					<!-- Input do email -->
 					<div class="col">
 						<label for="inputEmail4" class="form-label">Email</label>
 						<input type="email" class="form-control" id="inputEmail4" required>
 					</div>
+					<!-- Confirmação de email -->
 					<div class="col">
 						<label for="inputEmail4" class="form-label">Confirmar email</label>
 						<input type="email" class="form-control" id="inputEmail4" required>
 					</div>
 				</div>
+				<!-- Sexta linha -->
 				<div class="row g-3">
+					<!-- Input de senha -->
 					<div class="col">
 						<label for="inputEmail4" class="form-label">Senha</label>
 						<input type="password" class="form-control" id="inputEmail4" required>
 					</div>
+					<!-- Confirmação de senha -->
 					<div class="col">
 						<label for="inputEmail4" class="form-label">Confirmar senha</label>
 						<input type="password" class="form-control" id="inputsenha" required>
 					</div>
 				</div>
 				<br>
-				<div style="text-align: center;">
-					<input type="submit" class="btn btn-success" id="submit" required>
-					<p><a href="login.html">se já possui conta, clique aqui!</a></p>
+				<div class="row g-3">
+					<div style="text-align: center;">
+						<input type="submit" class="btn btn-success" id="submit" required>
+						<p><a href="login.html">se já possui conta, clique aqui!</a></p>
+					</div>
 				</div>
 			</form>
 		</div>

@@ -17,6 +17,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
 		<!-- Link para o js -->
 		<script src="../script/main.js"></script>
+		<script src="../script/agendamento.js"></script>
 		<!-- Link para os icones -->
 		<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	</head>
@@ -110,8 +111,11 @@
 			<br>
 			<h1>Agendamento</h1>
 			<br>
+			<!-- Inicio da tabela que mostrará os agendamentos -->
 			<table class="tabela table table-hover">
+				<!-- Cabeçalho da tabela -->
 				<thead>
+					<!-- Informações base -->
 				  	<tr>
 						<th scope="col">#</th>
 						<th scope="col">Vacina</th>
@@ -119,6 +123,7 @@
 						<th scope="col">Unidade de Saúde</th>
 					</tr>
 				</thead>
+				<!-- Corpo da tabela, onde as informações do banco de dados serão impressas -->
 				<tbody id="corpoTabelaAgendamentos"></tbody>
 			</table>
 		</div>
