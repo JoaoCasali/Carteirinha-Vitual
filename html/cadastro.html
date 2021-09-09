@@ -34,7 +34,7 @@
 					<!-- Input do nome -->
 					<div class="input-group">
 						<span class="input-group-text">Nome completo</span>
-						<input type="text" aria-label="Nome" class="form-control" placeholder="Nome Completo" required>
+						<input type="text" aria-label="Nome" class="form-control" id="inputNome" placeholder="Nome Completo" required>
 					</div>
 				</div>
 				<br>
@@ -45,7 +45,7 @@
 						<!-- Input da data de nascimento -->
 						<div class="input-group">
 							<span class="input-group-text">Data de nascimento</span>
-							<input type="date" aria-label="Nome" class="form-control" required>
+							<input type="date" aria-label="Nome" class="form-control" required id="inputData">
 						</div>
 					</div>
 					<!-- Segunda coluna -->
@@ -53,11 +53,11 @@
 						<!-- Rarios para escolher o genero da pessoa -->
 						<div class="form-check form-check-inline">
 							<input class="form-check-input" type="radio" name="genero" id="GeneroMasculino" value="option1" required>
-							<label class="form-check-label" for="inlineRadio1">Masculino</label>
-						  </div>
-						  <div class="form-check form-check-inline">
+							<label class="form-check-label" for="GeneroMasculino">Masculino</label>
+						</div>
+						<div class="form-check form-check-inline">
 							<input class="form-check-input" type="radio" name="genero" id="GeneroFeminino" value="option2" required>
-							<label class="form-check-label" for="inlineRadio2">Feminino</label>
+							<label class="form-check-label" for="GeneroFeminino">Feminino</label>
 						</div>
 					</div>
 				</div>
@@ -69,7 +69,7 @@
 						<!-- Input do CPF -->
 						<div class="input-group">
 							<span class="input-group-text">CPF</span>
-							<input type="text" name="cpf" aria-label="cpf" class="form-control" placeholder="CPF" id="cpf" maxlength="14" onkeypress="mascara_cpf()" required>
+							<input type="text" name="cpf" aria-label="cpf" class="form-control" placeholder="CPF" id="inputCpf" minlength="14" maxlength="14" required>
 						</div>
 					</div>					
 				</div>
@@ -81,7 +81,7 @@
 						<!-- Input do CEP -->
 						<div class="input-group">
 							<span class="input-group-text">CEP</span>
-							<input type="text" class="form-control" id="inputcep" placeholder="CEP" required>
+							<input type="text" class="form-control" id="inputCep" placeholder="CEP" minlength="9" maxlength="9" required>
 						</div>
 					</div>
 					<!-- Segunda linha -->
@@ -89,7 +89,7 @@
 						<!-- Input do Complemento -->
 						<div class="input-group">
 							<span class="input-group-text">Complemento</span>
-							<input type="text" class="form-control" id="inputcidade" placeholder="Complemento">
+							<input type="text" class="form-control" id="inputComplemento" placeholder="Complemento">
 						</div>
 					</div>
 				</div>
@@ -98,26 +98,26 @@
 				<div class="row g-3">
 					<!-- Input do email -->
 					<div class="col">
-						<label for="inputEmail4" class="form-label">Email</label>
-						<input type="email" class="form-control" id="inputEmail4" required>
+						<label for="inputEmail" class="form-label">Email</label>
+						<input type="email" class="form-control" id="inputEmail" required>
 					</div>
 					<!-- Confirmação de email -->
 					<div class="col">
-						<label for="inputEmail4" class="form-label">Confirmar email</label>
-						<input type="email" class="form-control" id="inputEmail4" required>
+						<label for="inputConfirEmail" class="form-label">Confirmar email</label>
+						<input type="email" class="form-control" id="inputConfirEmail4" required>
 					</div>
 				</div>
 				<!-- Sexta linha -->
 				<div class="row g-3">
 					<!-- Input de senha -->
 					<div class="col">
-						<label for="inputEmail4" class="form-label">Senha</label>
-						<input type="password" class="form-control" id="inputEmail4" required>
+						<label for="inputSenha" class="form-label">Senha</label>
+						<input type="password" class="form-control" id="inputSenha" required>
 					</div>
 					<!-- Confirmação de senha -->
 					<div class="col">
-						<label for="inputEmail4" class="form-label">Confirmar senha</label>
-						<input type="password" class="form-control" id="inputsenha" required>
+						<label for="inputConfirSenha" class="form-label">Confirmar senha</label>
+						<input type="password" class="form-control" id="inputConfirSenha" required>
 					</div>
 				</div>
 				<br>
@@ -130,5 +130,4 @@
 			</form>
 		</div>
     </body>
-
 </html>
