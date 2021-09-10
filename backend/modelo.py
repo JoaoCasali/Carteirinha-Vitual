@@ -10,10 +10,10 @@ class Pessoa(db.Model):
     Cpf = db.Column(db.String(100))
     Email = db.Column(db.String(100))
     Senha = db.Column(db.String(100))
-    type = db.Column(db.String(50)) # Discriminador
+    Type = db.Column(db.String(50)) # Discriminador
     __mapper_args__ = {
         'polymorphic_identity':'pessoa', 
-        'polymorphic_on':type # nome do campo que vincula os filhos
+        'polymorphic_on':Type # nome do campo que vincula os filhos
     }
     def __str__(self):
         return f'{self.Id}, {self.NomeCompleto}, {self.DtNascimento}, {self.Genero}, {self.Cpf}, {self.Email}, {self.Senha}'
@@ -48,12 +48,12 @@ class Funcionario(Pessoa):
     }
 
     def __str__(self):
-        return f'{super().__str__()}, {self.CodVerificacao}, {str(self.UnidadeSaudeId)}, {str(self.UnidadeSaude)}, {self.type}' 
+        return f'{super().__str__()}, {self.CodVerificacao}, {str(self.UnidadeSaudeId)}, {str(self.UnidadeSaude)}, {self.Type}' 
 
     def json(self):
         return {
             "Id": self.Id,
-            "Nome": self.NomeCompleto,
+            "NomeCompleto": self.NomeCompleto,
             "DtNascimento": self.DtNascimento,
             "Genero": self.Genero,
             "Cpf": self.Cpf,
@@ -61,7 +61,8 @@ class Funcionario(Pessoa):
             "Senha": self.Senha,
             "CodVerificacao": self.CodVerificacao,
             "UnidadeSaudeId": self.UnidadeSaudeId,
-            "UnidadeSaude": self.UnidadeSaude.json() # Reciclando a função da classe Unidade_Saude
+            "UnidadeSaude": self.UnidadeSaude.json(), # Reciclando a função da classe Unidade_Saude
+            "Type": self.Type
         }
 # Classe filho que representa um cliente da und. de saúde       
 class Cidadao(Pessoa):
@@ -74,12 +75,12 @@ class Cidadao(Pessoa):
     }
 
     def __str__(self):
-        return f'{super().__str__()}, {self.Cep}, {self.Complemento}, {str(self.temComorbidades)}, {self.TipoComorbidades}, {self.type}'
+        return f'{super().__str__()}, {self.Cep}, {self.Complemento}, {str(self.temComorbidades)}, {self.TipoComorbidades}, {self.Type}'
     
     def json(self):
         return {
             "Id": self.Id,
-            "Nome": self.NomeCompleto,
+            "NomeCompleto": self.NomeCompleto,
             "DtNascimento": self.DtNascimento,
             "Genero": self.Genero,
             "Cpf": self.Cpf,
@@ -88,7 +89,8 @@ class Cidadao(Pessoa):
             "Cep": self.Cep,
             "Complemento": self.Complemento,
             "temComorbidades": self.temComorbidades,
-            "TipoComorbidade": self.TipoComorbidades
+            "TipoComorbidade": self.TipoComorbidades,
+            "Type": self.Type
             }
 class Agendamento(db.Model):
     Id = db.Column(db.Integer, primary_key=True)

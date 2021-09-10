@@ -50,13 +50,13 @@
 					</div>
 					<!-- Segunda coluna -->
 					<div class="col">
-						<!-- Rarios para escolher o genero da pessoa -->
+						<!-- Radios para escolher o genero da pessoa -->
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="genero" id="GeneroMasculino" value="option1" required>
+							<input class="form-check-input" type="radio" name="genero" id="GeneroMasculino" value="M" required>
 							<label class="form-check-label" for="GeneroMasculino">Masculino</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="genero" id="GeneroFeminino" value="option2" required>
+							<input class="form-check-input" type="radio" name="genero" id="GeneroFeminino" value="F" required>
 							<label class="form-check-label" for="GeneroFeminino">Feminino</label>
 						</div>
 					</div>
@@ -84,7 +84,7 @@
 							<input type="text" class="form-control" id="inputCep" placeholder="CEP" minlength="9" maxlength="9" required>
 						</div>
 					</div>
-					<!-- Segunda linha -->
+					<!-- Segunda coluna -->
 					<div class="col">
 						<!-- Input do Complemento -->
 						<div class="input-group">
@@ -92,6 +92,29 @@
 							<input type="text" class="form-control" id="inputComplemento" placeholder="Complemento">
 						</div>
 					</div>
+				</div>
+				<br>
+				<div class="row g-3">
+					<div class="col-3">
+						<div class="input-group">
+							<span class="input-group-text">Possui comorbidade?</span>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="temComorbidades" id="NaoTem" value="true" required>
+								<label class="form-check-label" for="NaoTem">Sim</label>
+							</div>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="temComorbidades" id="Tem" value="false" required>
+							<label class="form-check-label" for="Tem">Não</label>
+						</div>
+					</div>
+					<div class="col">
+						<div class="input-group">
+							<span class="input-group-text">Tipo da comorbidade</span>
+							<input type="text" class="form-control" id="TipoComorbidades" placeholder="Tipo de comorbidade">
+						</div>
+					</div>
+
 				</div>
 				<hr>
 				<!-- Quinta linha -->
@@ -123,7 +146,7 @@
 				<br>
 				<div class="row g-3">
 					<div style="text-align: center;">
-						<input type="submit" class="btn btn-success" id="submit" required>
+						<input type="submit" class="btn btn-success" id="cadastrarPessoa">
 						<p><a href="login.html">se já possui conta, clique aqui!</a></p>
 					</div>
 				</div>
