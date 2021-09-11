@@ -233,6 +233,45 @@ body{
 	transform: translateX(-50%);
 	text-align: center;
 }
+/* Posicionando onde fica o botão de login */
+.menu_lateral .login_content{
+	position: absolute;
+	color: white;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	transition: all 0.4s ease;
+}
+/* Posicionando o botão de login quando o menu estiver aberto */
+.menu_lateral.active .login_content{
+	width: 30%;
+	left: 35%;
+	right: auto;
+}
+/* Estilizando o contorno do botão de login */
+.login_content .login{
+	position: relative;
+	padding: 10px 6px;
+	height: 60px;
+	background-color: #014d81;
+	transition: all 0.4s ease;
+}
+/* Estilizando o contorno do botão de login quando o menu estiver aberto */
+.menu_lateral.active .login_content .login{
+	border-radius: 12px;
+}
+/* Posicionando o botão de login */
+.login #log_in{
+	position: absolute;
+	left: 46%;
+	bottom: 5px;
+	min-width: 50px;
+	line-height: 50px;
+	font-size: 25px;
+	border-radius: 12px;
+	transform: translateX(-50%);
+	text-align: center;
+}
 /* Estilizando e posicionando o botão quando o menu estiver aberto */
 .menu_lateral.active .profile #log_out{
 	left: 88%;
@@ -243,6 +282,7 @@ body{
 	left: 240px;
 	width: calc(100% - 240px);
 }
+
 /* Classe onde fica todo o conteúdo da página */
 .estilo{
 	position: relative;
@@ -365,4 +405,8 @@ p a{
 }
 #radio4:checked ~ .navigation-auto .auto-bnt4{
 	background: #0266A8;
+}
+
+.invisivel{
+	display: none;
 }

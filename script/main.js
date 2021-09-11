@@ -5,4 +5,14 @@ $(document).ready(function() {
 		// Adiciona a classe no menu_lateral caso não tenha, caso tenha, remove dele
 		$(".menu_lateral").toggleClass("active");
 	});
+	$("#log_in").click(function(){
+		// Fazendo com que as informações do individuo apareça quando clicar em login
+		$(".profile_content").removeClass("invisivel");
+		$(".login_content").addClass("invisivel");
+	});
+	$("#log_out").click(function(){
+		// Fazendo com que as informações do individuo desapareça quando clicar em logout
+		$(".profile_content").addClass("invisivel");
+		$(".login_content").removeClass("invisivel");
+	});
 });
