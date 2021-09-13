@@ -22,13 +22,13 @@
 		<link rel="stylesheet" type="text/css" href="../css/cadastro.css">
 
 	</head>
-    <body class="fundo bg-primary">
+    <body class="fundo">
 		<!-- Formulário de cadastro -->
 		<div class="estilo-contato">
 			<h2>Cadastro</h2>
 			<!-- Inicio do formulário -->
 			<!-- Classe que deixa bonito o sistema de validação -->
-			<form id="meucadastro">
+			<form id="meucadastro" autocomplete="off">
 				<!-- Primeira Linha -->
 				<div class="row">
 					<!-- Input do nome -->
@@ -95,26 +95,27 @@
 				</div>
 				<br>
 				<div class="row g-3">
-					<div class="col-3">
-						<div class="input-group">
-							<span class="input-group-text">Possui comorbidade?</span>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="temComorbidades" id="NaoTem" value="true" required>
-								<label class="form-check-label" for="NaoTem">Sim</label>
-							</div>
-						</div>
+					<div class="col">
+						<span class="input-group-text">Possui comorbidade?</span>
+					</div>
+					<div class="col">
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="temComorbidades" id="Tem" value="false" required>
+							<input class="form-check-input" type="radio" name="temComorbidades" id="Tem" value="true" required>
+							<label class="form-check-label" for="NaoTem">Sim</label>
+						</div>
+					
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="temComorbidades" id="NaoTem" value="false" required>
 							<label class="form-check-label" for="Tem">Não</label>
 						</div>
 					</div>
-					<div class="col">
-						<div class="input-group">
-							<span class="input-group-text">Tipo da comorbidade</span>
-							<input type="text" class="form-control" id="TipoComorbidades" placeholder="Tipo de comorbidade">
-						</div>
+				</div>
+				<br>
+				<div class="row invisivel" id="aparecerComorbidade">
+					<div class="input-group">
+						<span class="input-group-text">Tipo da comorbidade</span>
+						<input type="text" class="form-control" id="TipoComorbidades" placeholder="Tipo de comorbidade">
 					</div>
-
 				</div>
 				<hr>
 				<!-- Quinta linha -->
@@ -136,7 +137,7 @@
 					<!-- Input de senha -->
 					<div class="col">
 						<label for="inputSenha" class="form-label">Senha</label>
-						<input type="password" class="form-control" id="inputSenha" required>
+						<input type="password" class="form-control" id="inputSenha" minlength="8" maxlength="18" required>
 					</div>
 					<!-- Confirmação de senha -->
 					<div class="col">
@@ -148,7 +149,7 @@
 				<br>
 				<div class="row g-3">
 					<div style="text-align: center;">
-						<input type="submit" class="btn btn-success" id="verificacao">
+						<input type="submit" class="btn btn-site" id="verificacao" style="margin-bottom: 3%;">
 						<p><a href="login.html">se já possui conta, clique aqui!</a></p>
 					</div>
 				</div>
