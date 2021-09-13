@@ -126,12 +126,12 @@ if __name__ == "__main__":
 
     # Inputs de informações
     us1 = Unidade_Saude(Nome = "Postinho da esquina", Cep = "10475221", Complemento = "Numero 14542", CodVerificacao = "hbf467hefn")
-    f1 = Funcionario(NomeCompleto = "João Casali", DtNascimento = "11/07/2003", Genero = "M", Cpf = "052.827.732-44", Email = "joaocasali@gmail.com", \
+    f1 = Funcionario(NomeCompleto = "João Casali", DtNascimento = "2003-07-11", Genero = "M", Cpf = "052.827.732-44", Email = "joaocasali@gmail.com", \
     Senha = "joaozinho123", UnidadeSaude = us1, CodVerificacao = "hbf467hefn")
     
-    c1 = Cidadao(NomeCompleto = "Djenifer Lima", DtNascimento = "20/05/2003", Genero = "F", Cpf = "180.728.569-58", Email = "limadjenifer@gmail.com", \
+    c1 = Cidadao(NomeCompleto = "Djenifer Lima", DtNascimento = "2003-05-20", Genero = "F", Cpf = "180.728.569-58", Email = "limadjenifer@gmail.com", \
     Senha = "joaolindoS2", Cep = "16476261", Complemento = "666", temComorbidades = True, TipoComorbidades = "Cardiopatia|miope|Feia")
-    a1 = Agendamento(Vacina = "Covid-19", DtAgendamento = "27/09/2021", Cidadao = c1, UnidadeSaude = us1)
+    a1 = Agendamento(Vacina = "Covid-19", DtAgendamento = "2021-09-27", Cidadao = c1, UnidadeSaude = us1)
     # Adiciona na lista de commit
     db.session.add(us1)
     db.session.add(f1)
