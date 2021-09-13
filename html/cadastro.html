@@ -28,13 +28,13 @@
 			<h2>Cadastro</h2>
 			<!-- Inicio do formulário -->
 			<!-- Classe que deixa bonito o sistema de validação -->
-			<form class="was-validated">
+			<form id="meucadastro">
 				<!-- Primeira Linha -->
 				<div class="row">
 					<!-- Input do nome -->
 					<div class="input-group">
 						<span class="input-group-text">Nome completo</span>
-						<input type="text" aria-label="Nome" class="form-control" id="inputNome" placeholder="Nome Completo" required>
+						<input type="text" name="NomeCompleto" class="form-control" id="inputNome" placeholder="Nome Completo" required>
 					</div>
 				</div>
 				<br>
@@ -45,7 +45,7 @@
 						<!-- Input da data de nascimento -->
 						<div class="input-group">
 							<span class="input-group-text">Data de nascimento</span>
-							<input type="date" aria-label="Nome" class="form-control" required id="inputData">
+							<input type="date" name="DtNascimento" class="form-control" required id="inputData">
 						</div>
 					</div>
 					<!-- Segunda coluna -->
@@ -127,7 +127,8 @@
 					<!-- Confirmação de email -->
 					<div class="col">
 						<label for="inputConfirEmail" class="form-label">Confirmar email</label>
-						<input type="email" class="form-control" id="inputConfirEmail4" required>
+						<input type="email" class="form-control" id="inputConfirEmail" required>
+						<span class="invalido invisivel" id="EmailErrado">Os emails não batem!</span>
 					</div>
 				</div>
 				<!-- Sexta linha -->
@@ -141,12 +142,13 @@
 					<div class="col">
 						<label for="inputConfirSenha" class="form-label">Confirmar senha</label>
 						<input type="password" class="form-control" id="inputConfirSenha" required>
+						<span class="invalido invisivel" id="SenhaErrada">As senhas não batem!</span>
 					</div>
 				</div>
 				<br>
 				<div class="row g-3">
 					<div style="text-align: center;">
-						<input type="submit" class="btn btn-success" id="cadastrarPessoa">
+						<input type="submit" class="btn btn-success" id="verificacao">
 						<p><a href="login.html">se já possui conta, clique aqui!</a></p>
 					</div>
 				</div>
