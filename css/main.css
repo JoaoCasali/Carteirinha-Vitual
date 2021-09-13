@@ -406,7 +406,11 @@ p a{
 #radio4:checked ~ .navigation-auto .auto-bnt4{
 	background: #0266A8;
 }
-
 .invisivel{
 	display: none;
+}
+#logar{
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
 }
