@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Carteira virtual</title>
+	    <meta charset="utf-8">
+	    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	    <meta name="description" content="SISTEMA DE CONTROLE DE VACINAÇÃO">
+  	    <meta name="keywords" content="Vacinação, corona, doenças, virus, vacina, sus">
+ 	    <meta name="author" content="IFC Produções">
+ 	    <meta http-equiv="refresh" content="300">
+		<!-- Link do bootstrap -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+		<!-- Link do jquerry -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<!-- Icone de seguinga na aba -->
+		<link rel="shortcut icon" type="image/x-icon" href="../img/seringa-icon.png">
+		<!-- Estilo padrão no site -->
+		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<!-- Link para o js -->
+		<script src="../script/main.js"></script>
+		<script src="../script/index.js"></script>
+		<!-- Link para os icones -->
+		<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	</head>
+    <body>
+		<!-- Inicio do menu lateral  -->
+		<div class="menu_lateral">
+			<!-- Parte que fica  a logo e o botão para abrir o menu-->
+			<div class="logo_container">
+				<!-- Imagem da logo e nome -->
+				<div class="logo">
+					<!-- Icone de mais -->
+					<i class='bx bx-plus-medical'></i>
+					<!-- Nome do site -->
+					<div class="logo_nome">Carteirinha Virtual</div>
+				</div>
+				<!-- Botão para abrir o menu -->
+				<i class='bx bx-menu' id='botao'></i>
+			</div>
+			<!-- Inicio da lista do menu -->
+			<ul class="lista">
+				<hr>
+				<!-- Primeiro item da lista -->
+				<li>
+					<!-- Link para a Home do site -->
+					<a href="index.html">
+						<!-- Icone Home -->
+						<i class='bx bx-home'></i>
+						<!-- Nome do item da lista -->
+						<span class="nome_link">Página inicial</span>
+					</a>
+					<!-- Tooltip -->
+					<span class="tooltip">Página inicial</span>
+				</li>
+				<!-- Segundo item da lista -->
+				<li>
+					<!-- Link para o a aba calendário -->
+					<a href="calendario.html">
+						<!-- Icone de calendário -->
+						<i class='bx bx-calendar'></i>
+						<!-- Nome do item da lista -->
+						<span class="nome_link">Calendario</span>
+					</a>
+					<!-- Tooltip -->
+					<span class="tooltip">Calendario</span>
+				</li>
+				<li>
+					<!-- Terceiro item da lista -->
+					<a href="info.html">
+						<!-- Icone de informação -->
+						<i class='bx bx-info-circle'></i>
+						<!-- Nome do item da lista -->
+						<span class="nome_link">Informações</span>
+					</a>
+					<!-- Tooltip -->
+					<span class="tooltip">Informações</span>
+				</li>
+				<hr>
+				<li>
+					<!-- Quarto item da lista -->
+					<a href="agendamento.html">
+						<!-- Icone de calendário + -->
+						<i class='bx bx-calendar-plus'></i>
+						<!-- Nome do item da lista -->
+						<span class="nome_link">Agendamento</span>
+					</a>
+					<!-- Tooltip -->
+					<span class="tooltip">Agendamento</span>
+				</li>
+			</ul>
+			<!-- Iniciando a parte do profile -->
+			<div class="profile_content invisivel">
+				<!-- Conteudo -->
+				<div class="profile">
+					<div class="profile_details">
+						<!-- Imagem do usuário -->
+						<img src="../img/fotoperfil.jpg" alt="">
+						<!-- Parte onde se escreve o nome e o trabalho do usuário -->
+						<div class="nome_trabalho">
+							<!-- Nome do usuário -->
+							<div class="Nome">João Vitor</div>
+							<!-- Função dele -->
+							<div class="trabalho">Vagabundo</div>
+						</div>
+					</div>
+					<!-- Botão de deslogar -->
+					<i class='bx bx-log-out' id="log_out"></i>
+				</div>
+			</div>
+			<div class="login_content">
+				<div class="login">
+					<i class='bx bx-log-in' id="log_in" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+				</div>
+			</div>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Login</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="row">
+								<!-- Input do email -->
+								<div class="col">
+									<label for="loginEmail" class="form-label">Email</label>
+									<input type="email" class="form-control" id="loginEmail" placeholder="exemplo@gmail.com" required>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<!-- Input do email -->
+								<div class="col">
+									<label for="loginSenha" class="form-label">Senha</label>
+									<input type="password" class="form-control" id="loginSenha" placeholder="exemplo123" required>
+								</div>
+							</div>
+							<br>
+							<button type="button" class="bnt btn-primary" id="logar">Logar</button>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<a href="cadastro.html">Não possui conta? Clique aqui!</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="estilo">
+			<br>
+			<h1>Carteira Virtual</h1>
+			<br>
+			<!-- Container onde os slides ficam -->
+			<div class="container">
+				<!-- Primeira linha -->
+				<div class="row">
+					<!-- Primeira coluna -->
+					<div class="col">
+						<!-- Slide de informações -->
+						<div class="info-slides">
+							<div class="slide1">Tenha sempre a carteira de vacinação na palma da sua mão, sem riscos de perdas, monitore suas vacinas
+                                pendentes e agendadas sem sair de casa.</div><br>
+							<div class="slide2">O site irá oferecer serviços que ultrapassam as barreiras de uma simples carteira de vacinação, como a
+                                função de agendar vacinas pelo próprio sistema online.</div><br>
+							<div class="slide3">Além de vacinas, o site disponibiliza o procedimento de agendamento de consultas, sempre informando todas
+                                as especificações do processo, bem como o local onde fora agendado e as informações do proficional de saúde responsável.</div>
+						</div>
+					</div>
+					<!-- Segunda coluna -->
+					<div class="col">
+						<!-- Slide de imagens -->
+						<div class="slider">
+							<div class="slides">
+								<!-- Botões de transição dos slides -->
+								<input type="radio" name="radio-bnt" id="radio1">
+								<input type="radio" name="radio-bnt" id="radio2">
+								<input type="radio" name="radio-bnt" id="radio3">
+								<input type="radio" name="radio-bnt" id="radio4">
+								<!-- Imagens dos slides -->
+								<div class="slide first">
+									<a href="calendario.html"><img src="../img/calendario.jpg" alt="Calendario"></a>
+								</div>
+								<div class="slide">
+									<a href="agendamento.html"><img src="../img/vacinas.jpeg" alt="Agendamento de vacina"></a>
+								</div>
+								<div class="slide">
+									<a href="agendamento.html"><img src="../img/marcar-consulta.jpg" alt="Agendamento de consulta"></a>
+								</div>
+								<div class="slide">
+									<a href="info.html"><img src="../img/informacoes.jpg" alt="Informações"></a>
+								</div>
+								<!-- Mudança aotomática dos slides -->
+								<div class="navigation-auto">
+									<div class="auto-bnt1"></div>
+									<div class="auto-bnt2"></div>
+									<div class="auto-bnt3"></div>
+									<div class="auto-bnt4"></div>
+								</div>
+							</div>
+							<!-- Mudança manual dos slides  -->
+							<div class="navigation-manual">
+								<label for="radio1" class="manual-btn"></label>
+								<label for="radio2" class="manual-btn"></label>
+								<label for="radio3" class="manual-btn"></label>
+								<label for="radio4" class="manual-btn"></label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<br>
+			<div class="paragrafo">Disponível para cidadãos e postos de saúde, o site apenas atenderá a demanda solicitada pelo SUS,
+                não estando inclusos hospitais e consultórios particulares. As funções citadas acima apenas serão disponibilizadas para 
+                os cidadãos e postos de saúde cadastrados, caso não tenha cadastro clique no link <a href="cadastro.html">Cadastre-se</a>.</div>
+		</div>
+    </body>
+
+</html>

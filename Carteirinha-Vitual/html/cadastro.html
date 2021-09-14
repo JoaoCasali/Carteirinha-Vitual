@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Carteira virtual - Cadastro</title>
+	    <meta charset="utf-8">
+	    <meta name="description" content="SISTEMA DE CONTROLE DE VACINAÇÃO">
+  	    <meta name="keywords" content="Vacinação, corona, doenças, virus, vacina">
+ 	    <meta name="author" content="IFC Produções">
+ 	    <meta http-equiv="refresh" content="300">
+		<!-- Link do bootstrap -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		<!-- Link do jquerry -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<!-- script do cadastro -->
+		<script src="../script/cadastro.js"></script>
+		<!-- Icone da página -->
+		<link rel="shortcut icon" type="image/x-icon" href="../img/seringa-icon.png">
+		<!-- Estilo padrão -->
+		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<!-- Estilo único do cadastro -->
+		<link rel="stylesheet" type="text/css" href="../css/cadastro.css">
+
+	</head>
+    <body class="fundo">
+		<!-- Formulário de cadastro -->
+		<div class="estilo-contato">
+			<h2>Cadastro</h2>
+			<!-- Inicio do formulário -->
+			<!-- Classe que deixa bonito o sistema de validação -->
+			<form id="meucadastro" autocomplete="off">
+				<!-- Primeira Linha -->
+				<div class="row">
+					<!-- Input do nome -->
+					<div class="input-group">
+						<span class="input-group-text">Nome completo</span>
+						<input type="text" name="NomeCompleto" class="form-control" id="inputNome" placeholder="Nome Completo" required>
+					</div>
+				</div>
+				<br>
+				<!-- Segunda linha -->
+				<div class="row g-3">
+					<!-- Primeira coluna -->
+					<div class="col-7" style="margin-right: 6%;">
+						<!-- Input da data de nascimento -->
+						<div class="input-group">
+							<span class="input-group-text">Data de nascimento</span>
+							<input type="date" name="DtNascimento" class="form-control" required id="inputData">
+						</div>
+					</div>
+					<!-- Segunda coluna -->
+					<div class="col">
+						<!-- Radios para escolher o genero da pessoa -->
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="genero" id="GeneroMasculino" value="M" required>
+							<label class="form-check-label" for="GeneroMasculino">Masculino</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="genero" id="GeneroFeminino" value="F" required>
+							<label class="form-check-label" for="GeneroFeminino">Feminino</label>
+						</div>
+					</div>
+				</div>
+				<br>
+				<!-- Terceira linha -->
+				<div class="row g-3">
+					<!-- Primeira coluna -->
+					<div class="col">
+						<!-- Input do CPF -->
+						<div class="input-group">
+							<span class="input-group-text">CPF</span>
+							<input type="text" name="cpf" aria-label="cpf" class="form-control" placeholder="CPF" id="inputCpf" minlength="14" maxlength="14" required>
+						</div>
+					</div>					
+				</div>
+				<br>
+				<!-- Quarta linha -->
+				<div class="row g-3">
+					<!-- Primeira coluna -->
+					<div class="col">
+						<!-- Input do CEP -->
+						<div class="input-group">
+							<span class="input-group-text">CEP</span>
+							<input type="text" class="form-control" id="inputCep" placeholder="CEP" minlength="9" maxlength="9" required>
+						</div>
+					</div>
+					<!-- Segunda coluna -->
+					<div class="col">
+						<!-- Input do Complemento -->
+						<div class="input-group">
+							<span class="input-group-text">Complemento</span>
+							<input type="text" class="form-control" id="inputComplemento" placeholder="Complemento">
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="row g-3">
+					<div class="col">
+						<span class="input-group-text">Possui comorbidade?</span>
+					</div>
+					<div class="col">
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="temComorbidades" id="Tem" value="true" required>
+							<label class="form-check-label" for="NaoTem">Sim</label>
+						</div>
+					
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="temComorbidades" id="NaoTem" value="false" required>
+							<label class="form-check-label" for="Tem">Não</label>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="row invisivel" id="aparecerComorbidade">
+					<div class="input-group">
+						<span class="input-group-text">Tipo da comorbidade</span>
+						<input type="text" class="form-control" id="TipoComorbidades" placeholder="Tipo de comorbidade">
+					</div>
+				</div>
+				<hr>
+				<!-- Quinta linha -->
+				<div class="row g-3">
+					<!-- Input do email -->
+					<div class="col">
+						<label for="inputEmail" class="form-label">Email</label>
+						<input type="email" class="form-control" id="inputEmail" required>
+					</div>
+					<!-- Confirmação de email -->
+					<div class="col">
+						<label for="inputConfirEmail" class="form-label">Confirmar email</label>
+						<input type="email" class="form-control" id="inputConfirEmail" required>
+						<span class="invalido invisivel" id="EmailErrado">Os emails não batem!</span>
+					</div>
+				</div>
+				<!-- Sexta linha -->
+				<div class="row g-3">
+					<!-- Input de senha -->
+					<div class="col">
+						<label for="inputSenha" class="form-label">Senha</label>
+						<input type="password" class="form-control" id="inputSenha" minlength="8" maxlength="18" required>
+					</div>
+					<!-- Confirmação de senha -->
+					<div class="col">
+						<label for="inputConfirSenha" class="form-label">Confirmar senha</label>
+						<input type="password" class="form-control" id="inputConfirSenha" required>
+						<span class="invalido invisivel" id="SenhaErrada">As senhas não batem!</span>
+					</div>
+				</div>
+				<br>
+				<div class="row g-3">
+					<div style="text-align: center;">
+						<input type="submit" class="btn btn-site" id="verificacao" style="margin-bottom: 3%;">
+						<p><a href="login.html">se já possui conta, clique aqui!</a></p>
+					</div>
+				</div>
+			</form>
+		</div>
+    </body>
+</html>
