@@ -118,15 +118,32 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<h5 class="modal-title" id="exampleModalLabel">Login</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-					...
+						<form>
+							<div class="row">
+								<!-- Input do email -->
+								<div class="col">
+									<label for="loginEmail" class="form-label">Email</label>
+									<input type="email" class="form-control" id="loginEmail" placeholder="exemplo@gmail.com" required>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<!-- Input do email -->
+								<div class="col">
+									<label for="loginSenha" class="form-label">Senha</label>
+									<input type="password" class="form-control" id="loginSenha" placeholder="exemplo123" required>
+								</div>
+							</div>
+							<br>
+							<button type="button" class="bnt btn-primary" id="logar">Logar</button>
+						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
+						<a href="cadastro.html">Não possui conta? Clique aqui!</a>
 					</div>
 				</div>
 			</div>
