@@ -44,7 +44,7 @@ class Funcionario(Pessoa):
     UnidadeSaudeId = db.Column(db.Integer, db.ForeignKey(Unidade_Saude.Id), nullable = True)
     UnidadeSaude = db.relationship('Unidade_Saude') # Associação com a unid. de saúde
     __mapper_args__ = { 
-        'polymorphic_identity':'funcionário',
+        'polymorphic_identity':'funcionario',
     }
 
     def __str__(self):
@@ -71,7 +71,7 @@ class Cidadao(Pessoa):
     temComorbidades = db.Column(db.Boolean)
     TipoComorbidades = db.Column(db.String(200))
     __mapper_args__ = { 
-        'polymorphic_identity':'cidadão',
+        'polymorphic_identity':'cidadao',
     }
 
     def __str__(self):

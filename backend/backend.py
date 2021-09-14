@@ -43,4 +43,15 @@ def incluir_cidadao():
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta # responder!
 
+@app.route("/login", methods=['post'])
+def login():
+    dados = request.get_json() #(force=True) dispensa Content-Type na requisição
+    TodasPessoas = db.session.query(Pessoa).all()
+    resposta = jsonify({"resultado": "erro", "detalhes": "Usuário não encontrado"})
+    for i in TodasPessoas:
+        if i.Email == dados['Email'] and i.Senha == dados['Senha']:
+            resposta = jsonify({"resultado": "ok", "detalhes": "Usuário encontrado", "usuario": i.json()})
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
+
 app.run(debug=True)

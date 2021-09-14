@@ -412,7 +412,7 @@ p a:hover{
 .invisivel{
 	display: none;
 }
-#logar{
+.modal-body input[type=submit]{
 	width: 70%;
 	margin-left: 15%;
 	margin-right: 15%;
@@ -420,8 +420,10 @@ p a:hover{
 .btn-site{
 	background-color: #014d81;
 	color: white;
+	transition: 0.5s;
 }
 .btn-site:hover{
+	background-color: #0266A8;
 	color: white;
 }
 .paragrafo{

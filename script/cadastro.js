@@ -86,7 +86,7 @@ $(document).ready(function() {
                // Alerta que teve sucesso
                alert("Pessoa incluída com sucesso!");
                // Redireciona para outra página
-               window.location.href = "index.html";
+               location.href = "index.html";
             } else {
                // informar mensagem de erro
                alert(retorno.resultado + ":" + retorno.detalhes);
