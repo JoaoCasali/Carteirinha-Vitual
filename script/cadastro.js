@@ -1,4 +1,10 @@
 $(document).ready(function() {
+   $('#Tem').click(function(){
+      $('#aparecerComorbidade').removeClass('invisivel');
+   });
+   $('#NaoTem').click(function(){
+      $('#aparecerComorbidade').addClass('invisivel');
+   });
    // função que não permite letras no input do CPF
    $("#inputCpf").keypress(function( event ) {
       // Se for digitado numeros, chama a função de mascara

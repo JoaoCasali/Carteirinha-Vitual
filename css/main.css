@@ -310,6 +310,9 @@ p a{
 	color: #0266A8;
 	font-weight: bolder;
 }
+p a:hover{
+	color: #014d81;
+}
 /* Estilizando a tag h1 */
 .estilo h1{
 	color: #0266A8;
@@ -413,4 +416,15 @@ p a{
 	width: 70%;
 	margin-left: 15%;
 	margin-right: 15%;
+}
+.btn-site{
+	background-color: #014d81;
+	color: white;
+}
+.btn-site:hover{
+	color: white;
+}
+.paragrafo{
+	margin-left: 5%;
+	margin-right: 5%;
 }

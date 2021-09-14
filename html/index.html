@@ -119,15 +119,32 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<h5 class="modal-title" id="exampleModalLabel">Login</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-					...
+						<form>
+							<div class="row">
+								<!-- Input do email -->
+								<div class="col">
+									<label for="loginEmail" class="form-label">Email</label>
+									<input type="email" class="form-control" id="loginEmail" placeholder="exemplo@gmail.com" required>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<!-- Input do email -->
+								<div class="col">
+									<label for="loginSenha" class="form-label">Senha</label>
+									<input type="password" class="form-control" id="loginSenha" placeholder="exemplo123" required>
+								</div>
+							</div>
+							<br>
+							<button type="button" class="bnt btn-primary" id="logar">Logar</button>
+						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
+						<a href="cadastro.html">Não possui conta? Clique aqui!</a>
 					</div>
 				</div>
 			</div>
@@ -144,10 +161,12 @@
 					<div class="col">
 						<!-- Slide de informações -->
 						<div class="info-slides">
-							<div class="slide1">Primeiro</div>
-							<div class="slide2">Segundo</div>
-							<div class="slide3">Terceiro</div>
-							<div class="slide4">Quarto</div>
+							<div class="slide1">Tenha sempre a carteira de vacinação na palma da sua mão, sem riscos de perdas, monitore suas vacinas
+                                pendentes e agendadas sem sair de casa.</div><br>
+							<div class="slide2">O site irá oferecer serviços que ultrapassam as barreiras de uma simples carteira de vacinação, como a
+                                função de agendar vacinas pelo próprio sistema online.</div><br>
+							<div class="slide3">Além de vacinas, o site disponibiliza o procedimento de agendamento de consultas, sempre informando todas
+                                as especificações do processo, bem como o local onde fora agendado e as informações do proficional de saúde responsável.</div>
 						</div>
 					</div>
 					<!-- Segunda coluna -->
@@ -162,16 +181,16 @@
 								<input type="radio" name="radio-bnt" id="radio4">
 								<!-- Imagens dos slides -->
 								<div class="slide first">
-									<img src="../img/calendario.jpg" alt="">
+									<a href="calendario.html"><img src="../img/calendario.jpg" alt="Calendario"></a>
 								</div>
 								<div class="slide">
-									<img src="../img/vacinas.jpeg" alt="">
+									<a href="agendamento.html"><img src="../img/vacinas.jpeg" alt="Agendamento de vacina"></a>
 								</div>
 								<div class="slide">
-									<img src="../img/marcar-consulta.jpg" alt="">
+									<a href="agendamento.html"><img src="../img/marcar-consulta.jpg" alt="Agendamento de consulta"></a>
 								</div>
 								<div class="slide">
-									<img src="../img/informacoes.jpg" alt="">
+									<a href="info.html"><img src="../img/informacoes.jpg" alt="Informações"></a>
 								</div>
 								<!-- Mudança aotomática dos slides -->
 								<div class="navigation-auto">
@@ -193,8 +212,9 @@
 				</div>
 			</div>	
 			<br>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ex magnam vitae temporibus corporis iusto quo distinctio expedita hic. Omnis vel non optio illum cum ducimus inventore ipsam aut rerum?</p>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptatibus quam minus nisi dolor numquam a rem maiores, corrupti quos recusandae aut nemo necessitatibus dolorem ipsa dolores veniam soluta labore!</p>
+			<div class="paragrafo">Disponível para cidadãos e postos de saúde, o site apenas atenderá a demanda solicitada pelo SUS,
+                não estando inclusos hospitais e consultórios particulares. As funções citadas acima apenas serão disponibilizadas para 
+                os cidadãos e postos de saúde cadastrados, caso não tenha cadastro clique no link <a href="cadastro.html">Cadastre-se</a>.</div>
 		</div>
     </body>
 
