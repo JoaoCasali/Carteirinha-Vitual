@@ -71,6 +71,7 @@
 							<span class="input-group-text">CPF</span>
 							<input type="text" name="cpf" aria-label="cpf" class="form-control" placeholder="CPF" id="inputCpf" minlength="14" maxlength="14" required>
 						</div>
+						<span class="invalido invisivel" id="CpfErrado" style="margin-left: 0.5%;">CPF já está em uso</span>
 					</div>					
 				</div>
 				<br>
@@ -101,12 +102,12 @@
 					<div class="col">
 						<div class="form-check form-check-inline">
 							<input class="form-check-input" type="radio" name="temComorbidades" id="Tem" value="true" required>
-							<label class="form-check-label" for="NaoTem">Sim</label>
+							<label class="form-check-label" for="Tem">Sim</label>
 						</div>
 					
 						<div class="form-check form-check-inline">
 							<input class="form-check-input" type="radio" name="temComorbidades" id="NaoTem" value="false" required>
-							<label class="form-check-label" for="Tem">Não</label>
+							<label class="form-check-label" for="NaoTem">Não</label>
 						</div>
 					</div>
 				</div>
@@ -150,7 +151,7 @@
 				<div class="row g-3">
 					<div style="text-align: center;">
 						<input type="submit" class="btn btn-site" id="verificacao" style="margin-bottom: 3%;">
-						<p><a href="login.html">se já possui conta, clique aqui!</a></p>
+						<p><a href="index.html">se já possui conta, clique aqui!</a></p>
 					</div>
 				</div>
 			</form>

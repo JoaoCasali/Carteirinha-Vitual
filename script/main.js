@@ -5,6 +5,8 @@ $(document).ready(function() {
 		$("#FunCidadao").removeClass("invisivel");
 		$(".profile_content").removeClass("invisivel");
 		$(".login_content").addClass("invisivel");
+        $('.Nome').append(sessionStorage.NomeCompleto);
+        $('.trabalho').append(sessionStorage.Type);
 	}
     $("#botao").click(function(){
 		// Adiciona a classe no menu_lateral caso não tenha, caso tenha, remove dele
@@ -28,24 +30,30 @@ $(document).ready(function() {
         });
 		function executarLogin (retorno) {
             // Se o back-end retornar ok, procede com tais funções
-            alert("Resultado: " +retorno.resultado + " Detalhes: " + retorno.detalhes);
-			sessionStorage.Type = retorno.usuario.Type;
-			sessionStorage.usuario = retorno;
-			alert(sessionStorage.usuario.usuario);
-			location.reload();
-			// if (retorno.resultado == "ok") { 
-            //    // Alerta que teve sucesso
-			   
-            //    // Redireciona para outra página
-            // } else {
-            //    // informar mensagem de erro
-            //    alert(retorno.resultado);
-            //    }            
+			if (retorno.resultado == "ok") { 
+               // Alerta que teve sucesso
+			   	alert("Resultado: " +retorno.resultado + " Detalhes: " + retorno.detalhes);
+				sessionStorage.Id = retorno.usuario.Id;
+				sessionStorage.NomeCompleto = retorno.usuario.NomeCompleto;
+				sessionStorage.DtNascimento = retorno.usuario.DtNascimento;
+				sessionStorage.Genero = retorno.usuario.Genero;
+				sessionStorage.Cpf = retorno.usuario.Cpf;
+				sessionStorage.Email = retorno.usuario.Email;
+				sessionStorage.Cep = retorno.usuario.Cep;
+				sessionStorage.Complemento = retorno.usuario.Complemento;
+				sessionStorage.temComorbidades = retorno.usuario.temComorbidades;
+				sessionStorage.TipoComorbidades = retorno.usuario.TipoComorbidades;
+				sessionStorage.Type = retorno.usuario.Type;
+				location.reload();
+               // Redireciona para outra página
+            } else {
+               // informar mensagem de erro
+			   $("#LoginIncorreto").removeClass("invisivel");
+               }            
         }
 		function erroAoLogar (retorno) {
             // informar mensagem de erro
 			alert("Erro: " +retorno.resultado + " Detalhes: " + retorno.detalhes);
-
          }
 	});
 	$("#log_out").click(function(){
@@ -53,5 +61,6 @@ $(document).ready(function() {
 		$(".profile_content").addClass("invisivel");
 		$(".login_content").removeClass("invisivel");
 		sessionStorage.clear();
+		location.href = "index.html";
 	});
 });

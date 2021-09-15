@@ -101,9 +101,9 @@
 						<!-- Parte onde se escreve o nome e o trabalho do usuário -->
 						<div class="nome_trabalho">
 							<!-- Nome do usuário -->
-							<div class="Nome">João Vitor</div>
+							<div class="Nome"></div>
 							<!-- Função dele -->
-							<div class="trabalho">Vagabundo</div>
+							<div class="trabalho"></div>
 						</div>
 					</div>
 					<!-- Botão de deslogar -->
@@ -112,20 +112,26 @@
 			</div>
 			<div class="login_content">
 				<div class="login">
-					<i class='bx bx-log-in' id="log_in" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+					<i class='bx bx-log-in' id="log_in" data-bs-toggle="modal" data-bs-target="#modalLogin"></i>
 				</div>
 			</div>
 		</div>
-		<!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<!-- Modal de Login -->
+		<div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
+					<!-- Cabeçalho do Modal -->
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModalLabel">Login</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
+					<!-- Corpo onde fica o formulário -->
 					<div class="modal-body">
+						<!-- Alerta quando o usuário erra a senha ou email -->
 						<form id="logar">
+							<div class="row invisivel" id="LoginIncorreto">
+								<span>Email ou senha incorretos!</span>
+							</div>
 							<div class="row">
 								<!-- Input do email -->
 								<div class="col">
@@ -135,16 +141,18 @@
 							</div>
 							<br>
 							<div class="row">
-								<!-- Input do email -->
+								<!-- Input da senha -->
 								<div class="col">
 									<label for="loginSenha" class="form-label">Senha</label>
 									<input type="password" class="form-control" id="loginSenha" placeholder="exemplo123" required>
 								</div>
 							</div>
 							<br>
+							<!-- Botão para fazer submit -->
 							<input type="submit" class="btn btn-site">
 						</form>
 					</div>
+					<!-- Rodapé do Modal -->
 					<div class="modal-footer">
 						<a href="cadastro.html">Não possui conta? Clique aqui!</a>
 					</div>

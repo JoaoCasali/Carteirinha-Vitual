@@ -32,13 +32,24 @@ def incluir_cidadao():
     resposta = jsonify({"resultado": "ok", "detalhes": "ok"})
     # receber as informações da nova pessoa
     dados = request.get_json() #(force=True) dispensa Content-Type na requisição
+    # Variavel que identifica se tem erros
+    semErro = True
     try: # tentar executar a operação
-      nova = Cidadao(**dados) # criar a nova pessoa
-      db.session.add(nova) # adicionar no BD
-      db.session.commit() # efetivar a operação de gravação
+        # Recuperando dados do banco para fazer validação do CPF
+        TodasPessoas = db.session.query(Pessoa).all()
+        for i in TodasPessoas:
+            # Caso o CPF passado já exista no sistema, muda a variavel semErro para False
+            if i.Cpf == dados['Cpf']:
+                resposta = jsonify({"resultado": "CPF", "detalhes": "CPF duplicado"})
+                semErro = False
+        # Caso a operação não tenha erros, faz o registro
+        if semErro == True:
+            nova = Cidadao(**dados) # criar a nova pessoa
+            db.session.add(nova) # adicionar no BD
+            db.session.commit() # efetivar a operação de gravação
     except Exception as e: # em caso de erro...
-      # informar mensagem de erro
-      resposta = jsonify({"resultado":"erro", "detalhes":str(e)})
+        # informar mensagem de erro
+        resposta = jsonify({"resultado":"erro", "detalhes":str(e)})
     # adicionar cabeçalho de liberação de origem
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta # responder!

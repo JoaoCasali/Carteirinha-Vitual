@@ -4,6 +4,7 @@ $(document).ready(function() {
    });
    $('#NaoTem').click(function(){
       $('#aparecerComorbidade').addClass('invisivel');
+      $('#TipoComorbidades').val("");
    });
    // função que não permite letras no input do CPF
    $("#inputCpf").keypress(function( event ) {
@@ -87,15 +88,15 @@ $(document).ready(function() {
                alert("Pessoa incluída com sucesso!");
                // Redireciona para outra página
                location.href = "index.html";
-            } else {
+            } else if (retorno.resultado == "CPF"){
                // informar mensagem de erro
-               alert(retorno.resultado + ":" + retorno.detalhes);
-               }            
+               $("#CpfErrado").removeClass("invisivel");
+            }            
          }
          // Função de erro
          function erroAoIncluir (retorno) {
             // informar mensagem de erro
-            alert("ERRO: "+retorno.resultado + ":" + retorno.detalhes);
+            alert("ERRO: "+retorno.resultado + ": " + retorno.detalhes);
          }
       }
    });
