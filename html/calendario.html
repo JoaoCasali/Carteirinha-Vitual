@@ -17,6 +17,8 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../img/seringa-icon.png">
 		<!-- Estilo padrão no site -->
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<!-- Estilo da página -->
+		<link rel="stylesheet" type="text/css" href="../css/calendario.css">
 		<!-- Link para o js -->
 		<script src="../script/main.js"></script>
 		<!-- Link para os icones -->
@@ -134,17 +136,21 @@
 							<div class="row">
 								<!-- Input do email -->
 								<div class="col">
-									<label for="loginEmail" class="form-label">Email</label>
-									<input type="email" class="form-control" id="loginEmail" placeholder="exemplo@gmail.com" required>
+									<div class="input-group">
+										<span class="input-group-text"><img src="../img/at.svg" alt="E-mail"></span>
+										<input type="email" class="form-control" id="loginEmail" placeholder="exemplo@gmail.com" required>
+									</div>
 								</div>
 							</div>
 							<br>
 							<div class="row">
 								<!-- Input da senha -->
 								<div class="col">
-									<label for="loginSenha" class="form-label">Senha</label>
-									<input type="password" class="form-control" id="loginSenha" placeholder="exemplo123" required>
-								</div>
+									<div class="input-group">
+										<span class="input-group-text"><img src="../img/key-fill.svg" alt="Senha"></span>
+										<input type="password" class="form-control" id="loginSenha" placeholder="exemplo123" required>
+									</div>
+									</div>
 							</div>
 							<br>
 							<!-- Botão para fazer submit -->
