@@ -4,19 +4,18 @@ p{
 	margin-left: 0%;
 	text-indent: 0%;
 }
-/*Estilizando a imagem*/
+/* Estilizando a imagem */
 img.displayed{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
-    height: 80%;
+    width: 50%;
 }
-/*Estilizando a tag h2*/
+/* Estilizando a tag h2 */
 h2{
     text-align: center;
 }
-/*Estilizando os títulos dos tópicos*/
+/* Estilizando os títulos dos tópicos */
 h4{
     margin-top: 5%;
     font-size: 18px;
@@ -24,7 +23,7 @@ h4{
     font-weight: bold;
     color: #014d81;
 }
-/*Estilizando as colunas (col)*/
+/* Estilizando as colunas (col) */
 .topico{
     margin-right: 1%;
     border-style: solid;

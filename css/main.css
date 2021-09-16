@@ -284,7 +284,30 @@ body{
 	left: 240px;
 	width: calc(100% - 240px);
 }
-
+/* Posicionamento do botão no Modal */
+.modal-body input[type=submit]{
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+/* Estilizando os botões de cadastro */
+.btn-site{
+	background-color: #014d81;
+	color: white;
+	transition: 0.5s;
+}
+.btn-site:hover{
+	background-color: #0266A8;
+	color: white;
+}
+/* Estilizando a mensagem de login incorreto */
+#LoginIncorreto{
+	color: red;
+}
+/* Classe que torna objetos invisiveis */
+.invisivel{
+	display: none;
+}
 /* Classe onde fica todo o conteúdo da página */
 .estilo{
 	position: relative;
@@ -315,27 +338,8 @@ p a{
 p a:hover{
 	color: #014d81;
 }
-/*estilizado o input de comorbidades*/
-.invisivel{
-	display: none;
-}
-/*---------------NÃO SEI O QUE ISSO FAZ @JOÃO DA UMA LUZ AQUI-----------------*/
-.modal-body input[type=submit]{
-	width: 70%;
-	margin-left: 15%;
-	margin-right: 15%;
-}
-/*Estilizando os botões de cadastro*/
-.btn-site{
-	background-color: #014d81;
-	color: white;
-	transition: 0.5s;
-}
-.btn-site:hover{
-	background-color: #0266A8;
-	color: white;
-}
-/*Estilizando a mensagem de login incorreto*/
-#LoginIncorreto{
-	color: red;
+.estilo button{
+	width: 150px;
+	margin-left: 50%;
+	transform: translate(-50%);
 }
