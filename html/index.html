@@ -17,6 +17,8 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../img/seringa-icon.png">
 		<!-- Estilo padrão no site -->
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<!-- Estilo da página -->
+		<link rel="stylesheet" type="text/css" href="../css/index.css">
 		<!-- Link para o js -->
 		<script src="../script/main.js"></script>
 		<script src="../script/index.js"></script>
@@ -135,17 +137,21 @@
 							<div class="row">
 								<!-- Input do email -->
 								<div class="col">
-									<label for="loginEmail" class="form-label">Email</label>
-									<input type="email" class="form-control" id="loginEmail" placeholder="exemplo@gmail.com" required>
+									<div class="input-group">
+										<span class="input-group-text"><img src="../img/at.svg" alt="E-mail"></span>
+										<input type="email" class="form-control" id="loginEmail" placeholder="exemplo@gmail.com" required>
+									</div>
 								</div>
 							</div>
 							<br>
 							<div class="row">
 								<!-- Input da senha -->
 								<div class="col">
-									<label for="loginSenha" class="form-label">Senha</label>
-									<input type="password" class="form-control" id="loginSenha" placeholder="exemplo123" required>
-								</div>
+									<div class="input-group">
+										<span class="input-group-text"><img src="../img/key-fill.svg" alt="Senha"></span>
+										<input type="password" class="form-control" id="loginSenha" placeholder="exemplo123" required>
+									</div>
+									</div>
 							</div>
 							<br>
 							<!-- Botão para fazer submit -->
@@ -159,73 +165,47 @@
 				</div>
 			</div>
 		</div>
+		<!--Inicio do conteúdo da home-->
 		<div class="estilo">
+		<!--Imagem ilustrada com o título-->
+			<img class="displayed" src="../img/img-home.jpg" alt="Imagem inicial">
 			<br>
-			<h1>Carteira Virtual</h1>
-			<br>
-			<!-- Container onde os slides ficam -->
+		<!--Introdução do conteúdo apresentado-->
+			<h2>Tenha acesso as ferramentas disponíveis</h2><br>
+		<!--Descrição do que o site faz-->
 			<div class="container">
-				<!-- Primeira linha -->
 				<div class="row">
-					<!-- Primeira coluna -->
-					<div class="col">
-						<!-- Slide de informações -->
-						<div class="info-slides">
-							<div class="slide1">Tenha sempre a carteira de vacinação na palma da sua mão, sem riscos de perdas, monitore suas vacinas
-                                pendentes e agendadas sem sair de casa.</div><br>
-							<div class="slide2">O site irá oferecer serviços que ultrapassam as barreiras de uma simples carteira de vacinação, como a
-                                função de agendar vacinas pelo próprio sistema online.</div><br>
-							<div class="slide3">Além de vacinas, o site disponibiliza o procedimento de agendamento de consultas, sempre informando todas
-                                as especificações do processo, bem como o local onde fora agendado e as informações do proficional de saúde responsável.</div>
-						</div>
+					<!--Coluna 1-->
+					<div class="col topico">
+						<h4>Carteira de vacinação</h4>
+						<p>Tenha sempre a carteira de vacinação na palma da sua mão, sem riscos de perdas, monitore suas vacinas
+							pendentes e agendadas sem sair de casa.</p>
 					</div>
-					<!-- Segunda coluna -->
-					<div class="col">
-						<!-- Slide de imagens -->
-						<div class="slider">
-							<div class="slides">
-								<!-- Botões de transição dos slides -->
-								<input type="radio" name="radio-bnt" id="radio1">
-								<input type="radio" name="radio-bnt" id="radio2">
-								<input type="radio" name="radio-bnt" id="radio3">
-								<input type="radio" name="radio-bnt" id="radio4">
-								<!-- Imagens dos slides -->
-								<div class="slide first">
-									<a href="calendario.html"><img src="../img/calendario.jpg" alt="Calendario"></a>
-								</div>
-								<div class="slide">
-									<a href="agendamento.html"><img src="../img/vacinas.jpeg" alt="Agendamento de vacina"></a>
-								</div>
-								<div class="slide">
-									<a href="agendamento.html"><img src="../img/marcar-consulta.jpg" alt="Agendamento de consulta"></a>
-								</div>
-								<div class="slide">
-									<a href="info.html"><img src="../img/informacoes.jpg" alt="Informações"></a>
-								</div>
-								<!-- Mudança aotomática dos slides -->
-								<div class="navigation-auto">
-									<div class="auto-bnt1"></div>
-									<div class="auto-bnt2"></div>
-									<div class="auto-bnt3"></div>
-									<div class="auto-bnt4"></div>
-								</div>
-							</div>
-							<!-- Mudança manual dos slides  -->
-							<div class="navigation-manual">
-								<label for="radio1" class="manual-btn"></label>
-								<label for="radio2" class="manual-btn"></label>
-								<label for="radio3" class="manual-btn"></label>
-								<label for="radio4" class="manual-btn"></label>
-							</div>
-						</div>
+					<!--Coluna 2-->
+					<div class="col topico">
+						<h4>Agendamento de vacinas</h4>
+						<p>O site oferecerá serviços que ultrapassam as barreiras de uma simples carteira de vacinação, como a 
+							função de agendar vacinas pelo próprio sistema online.</p>
+					</div>
+					<!--Coluna 3-->
+					<div class="col topico">
+						<h4>Agendamento de consultas</h4>
+						<p>será viável o procedimento de agendamento de consultas, informando
+							as especificações necessárias, como o local de agendamento e profissional de saúde responsável.</p>
+					</div>
+					<!--Coluna 4-->
+					<div class="col topico">
+						<h4>Acessibilidade</h4>
+						<p>Disponível para cidadãos e postos de saúde, o site apenas atenderá a demanda solicitada pelo SUS,
+							não estando inclusos hospitais e consultórios particulares.</p>
 					</div>
 				</div>
-			</div>	
+			</div><br><br>
+		<!--Botão de cadastro-->
+			<!--<div class="row">-->
+				<a class="btn btn-site" href="cadastro.html" role="button" style="width: 15%; height: 50px; font-size: 23px; text-align: center;">Cadastre-se</a>
+			<!--</div>-->
 			<br>
-			<div class="paragrafo">Disponível para cidadãos e postos de saúde, o site apenas atenderá a demanda solicitada pelo SUS,
-                não estando inclusos hospitais e consultórios particulares. As funções citadas acima apenas serão disponibilizadas para 
-                os cidadãos e postos de saúde cadastrados, caso não tenha cadastro clique no link <a href="cadastro.html">Cadastre-se</a>.</div>
 		</div>
     </body>
-
 </html>
