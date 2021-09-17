@@ -1,3 +1,7 @@
+import re
+from flask.templating import render_template
+
+from werkzeug.utils import secure_filename
 from config import *
 from modelo import Pessoa, Agendamento, Cidadao
 @app.route("/")
@@ -65,4 +69,15 @@ def login():
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 
+ALLOWED_EXTENSIONS = set(['png', 'jpeg', 'jpg'])
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@app.route("/upload_file", methods=['post'])
+def upload_file():
+    file = request.files['file']
+    path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+    file.save(path)
+    return path
+    
 app.run(debug=True)
