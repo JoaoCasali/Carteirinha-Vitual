@@ -75,9 +75,13 @@ def allowed_file(filename):
 
 @app.route("/upload_file", methods=['post'])
 def upload_file():
-    file = request.files['file']
-    path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-    file.save(path)
-    return path
+    resposta = jsonify({"mensagem":"tentando..."})
+    if request.method == 'POST':
+        file_val = request.files['file']
+        file_val.filename = "teste1.png"
+        file_val.save(os.path.join(app.config['UPLOAD_FOLDER']+file_val.filename))
+        resposta = jsonify({"mensagem":"ok"})
+
+    return resposta
     
 app.run(debug=True)
