@@ -1,0 +1,113 @@
+/*estilização do conteúdo da tabela*/
+.conteudo{
+    left: 50%;
+    margin: 0 0 0 -250px;
+    position: absolute;
+    width: 500px;
+}
+/*alinhamento dos textos da tabela*/
+.calendario{
+    text-align: center;
+}
+.conteudo .calendario header{
+    position: relative;
+}
+/*posicionamento do titulo do calendário*/
+#mes{
+    margin-top: 20px;
+    font-size: 32px;
+    text-transform: uppercase;
+}
+/*estilizando os botões de meses próximos e anteriores*/
+.btn-ant, .btn-pro{
+    position: absolute;
+    top: 50%;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    margin-top: -16px;
+    /*border: 2px solid #cbd1d2;
+    border-radius: 50%;*/
+    color: #cbd1d2;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/*posicionando os botões*/
+.btn-ant{
+    margin-top: -58%;
+    left: 80px;
+    border-radius: 10%;
+}
+.btn-pro{
+    margin-top: -58%;
+    right: 80px;
+    border-radius: 10%;
+}
+/*cor ao passar o cursor*/
+.btn-ant:hover, .btn-pro:hover{
+    background: #cbd1d2;
+    color: #f9f9f9;
+}
+.calendario, table{
+    margin-top: 20px;
+    border-collapse: collapse;   
+}
+/*estilizando os dias da semana*/
+.calendario thead{
+    background: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.calendario thead td{
+    height: 69.4px;
+}
+/*estilizando conteúdo dos dias do calendário*/
+.calendario td{
+    border: 1px solid #f9f9f9; /*#cbd1d2*/
+    height: 71.4px;
+    text-align: center;
+    width: 71.4px;
+    font-size: 24px;
+}
+.calendario tbody td{
+    cursor: pointer;
+}
+.calendario tbody td:hover{
+    background: #0266A8;
+    color: #f9f9f9;
+}
+/*estilizando a demarcação do dia atual*/
+.calendario table .dia-atual{
+    background: #014d81;
+    color: #f9f9f9;
+}
+/*estilizando as cores dos meses anteriores e próximos*/
+.calendario .mes-anterior, .calendario .proximo-mes{
+    color: #cbd1d2;
+}
+.calendario .mes-anterior:hover, .calendario .proximo-mes:hover{
+    color: #98a0a0;
+}
+/*estilização da demarcação de evento em algum dia (sem uso no momento)*/
+.evento{
+    position: relative;
+}
+.evento:after{
+    content: '';
+    width: 7px;
+    height: 7px;
+    left: 50%;
+    bottom: 7px;
+    margin: -3.5px 0 0 -3.5px;
+    background: #014d81;
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+}
+.evento:hover:after{
+    background: #f9f9f9;
+}
+.evento.dia-atual:after{
+    background: #f9f9f9;
+}
