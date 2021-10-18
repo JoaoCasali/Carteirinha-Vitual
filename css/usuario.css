@@ -1,0 +1,23 @@
+.topbar{
+    background-color: #0266A8;
+    overflow: hidden;
+}
+.topbar a{
+    float: right;
+    color: white;
+    text-align: center;
+    padding: 1% 1%;
+    text-decoration: none;
+}
+.sidebar{
+    background-color: #b5babd;
+    border: none;
+}
+.content{
+    background-color: #e1e2e3;
+    border-color:#b5babd;
+}
+.carteira h2{
+    color: #014d81;
+    font-weight: bold;
+}
