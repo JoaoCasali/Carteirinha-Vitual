@@ -18,7 +18,7 @@
 		<!-- Estilo padrão no site -->
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
 		<!-- Estilo da página -->
-		<link rel="stylesheet" type="text/css" href="../css/index.css">
+		<link rel="stylesheet" type="text/css" href="../css/usuario.css">
 		<!-- Link para o js -->
 		<script src="../script/main.js"></script>
 		<script src="../script/usuario.js"></script>
@@ -99,7 +99,7 @@
 				<div class="profile">
 					<div class="profile_details">
 						<!-- Imagem do usuário -->
-						<img src="../img/fotoperfil.jpg" alt="">
+						<a href="usuario.html"><img src="../img/fotoperfil.jpg" alt="foto de perfil"></a>
 						<!-- Parte onde se escreve o nome e o trabalho do usuário -->
 						<div class="nome_trabalho">
 							<!-- Nome do usuário -->
@@ -165,16 +165,97 @@
 				</div>
 			</div>
 		</div>
-		<!--Inicio do conteúdo da home-->
+		<!--Inicio do conteúdo da tela de usuário-->
         <div class="estilo">
-            <h1>Tela do Usuário</h1>
+            <!--<h1>Tela do Usuário</h1>
             <form id="upload-file" method="post" enctype="multipart/form-data">
                 <input type="file" name="file" class="form-control" autocomplete="off" id="imagem" required>
                 <br>
 				<input type="text" name="id" class="form-control" id="numerodapessoa">
 				<br>
                 <button type="button" class="btn btn-site" id="upload-file-btn">Enviar</button>
-            </form>
+            </form>-->
+			<div class="container">
+				<div class="profile">
+					<div class="topbar">
+						<a href="">Logout</a>
+						<a href="">Configurações</a>
+					</div>
+					<div class="row">
+						<div class="col user">
+							<div class="card text-center sidebar">
+								<div class="card-body">
+									<img src="../img/fotoperfil.jpg" alt="foto de perfil" class="rounded-circle" width="150">
+									<div class="name">
+										<br>
+										<h3>Nome do usuário</h3>
+									</div>
+								</div>
+							</div>
+							<div class="card content">
+								<div class="card-body">
+									<div class="row">
+										<div class="col info">
+											<br>
+											<h5>CPF</h5>
+										</div>
+										<div class="col text-secondary">
+											<br>
+											000.000.000-00
+										</div>
+									</div>
+									<div class="row">
+										<div class="col info">
+											<h5>Data de Nascimento</h5>
+										</div>
+										<div class="col text-secondary">
+											00/00/0000
+										</div>
+									</div>
+									<div class="row">
+										<div class="col info">
+											<h5>Sexo</h5>
+										</div>
+										<div class="col text-secondary">
+											sim
+										</div>
+									</div>
+									<div class="row">
+										<div class="col info">
+											<h5>Comorbidades</h5>
+										</div>
+										<div class="col text-secondary">
+											si ou no
+										</div>
+									</div>
+									<div class="row">
+										<div class="col info">
+											<h5>E-mail</h5>
+										</div>
+										<div class="col text-secondary">
+											xxxxx@gmail.com
+										</div>
+									</div>
+									<div class="row">
+										<div class="col info">
+											<h5>CEP</h5>
+										</div>
+										<div class="col text-secondary">
+											00000-000
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col carteira">
+							<br>
+							<h2>Carteirinha de Vacinação</h2>
+							<!--Table com as vacinas-->
+						</div>
+					</div>
+					
+				</div>
+			</div>
         </div>
     </body>
 </html>
