@@ -1,23 +1,30 @@
-.topbar{
-    background-color: #0266A8;
-    overflow: hidden;
+.FotoNome{
+    background: rgb(2,102,168);
+    background: radial-gradient(circle, rgba(2,102,168,1) 0%, rgba(1,77,129,1) 100%);
+    border-radius: 12px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
-.topbar a{
-    float: right;
-    color: white;
-    text-align: center;
-    padding: 1% 1%;
-    text-decoration: none;
-}
-.sidebar{
-    background-color: #b5babd;
-    border: none;
-}
-.content{
-    background-color: #e1e2e3;
+.conteudo{
+    background-color: white;
     border-color:#b5babd;
+    border-radius: 12px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 .carteira h2{
     color: #014d81;
     font-weight: bold;
+}
+.edicao{
+    color: white;
+    position: relative;
+}
+.iconeEdicao{
+    text-align: right;
+    padding: 5px;
+}
+.inputEdicao{
+    margin: 1%;
+    height: 30px;
 }

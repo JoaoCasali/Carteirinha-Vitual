@@ -175,72 +175,150 @@
 				<br>
                 <button type="button" class="btn btn-site" id="upload-file-btn">Enviar</button>
             </form>-->
+			<hr>
+			<h1>Perfil</h1>
+			<hr>
 			<div class="container">
-				<div class="profile">
-					<div class="topbar">
-						<a href="">Logout</a>
-						<a href="">Configurações</a>
-					</div>
-					<div class="row">
-						<div class="col user">
-							<div class="card text-center sidebar">
-								<div class="card-body">
-									<img src="../img/fotoperfil.jpg" alt="foto de perfil" class="rounded-circle" width="150">
-									<div class="name">
-										<br>
-										<h3 id="NomeUsuario"></h3>
-									</div>
-								</div>
+				<div class="row">
+					<div class="col user">
+						<div class="card text-center FotoNome">
+							<div class="iconeEdicao" id="desabilitada">
+								<i class='bx bx-lock-alt edicao'></i>
 							</div>
-							<div class="card content">
-								<div class="card-body">
+							<div class="iconeEdicao invisivel" id="habilitada">
+								<i class='bx bx bxs-lock-alt edicao'></i>
+							</div>
+							<div class="card-body">
+								<img src="../img/fotoperfil.jpg" alt="foto de perfil" class="rounded-circle" width="150">
+								<div class="name">
 									<br>
-									<div class="row">
-										<div class="col info">
-											<h5>CPF</h5>
-										</div>
-										<div class="col text-secondary" id="CPFUsuario"></div>
-									</div>
-									<div class="row">
-										<div class="col info">
-											<h5>Data de Nascimento</h5>
-										</div>
-										<div class="col text-secondary" id="DtNascimentoUsuario"></div>
-									</div>
-									<div class="row">
-										<div class="col info">
-											<h5>Sexo</h5>
-										</div>
-										<div class="col text-secondary" id="GeneroUsuario"></div>
-									</div>
-									<div class="row">
-										<div class="col info">
-											<h5>Comorbidades</h5>
-										</div>
-										<div class="col text-secondary" id="TemComorbidade"></div>
-									</div>
-									<div class="row">
-										<div class="col info">
-											<h5>E-mail</h5>
-										</div>
-										<div class="col text-secondary" id="EmailUsuario"></div>
-									</div>
-									<div class="row">
-										<div class="col info">
-											<h5>CEP</h5>
-										</div>
-										<div class="col text-secondary" id="CEPUsuario"></div>
-									</div>
+									<h3 id="NomeUsuario" style="color: white;"></h3>
 								</div>
 							</div>
 						</div>
-						<div class="col carteira">
+						<div class="card conteudo">
+							<div class="card-body">
+								<br>
+								<div class="row">
+									<div class="col info">
+										<h5>CPF</h5>
+									</div>
+									<div class="col text-secondary CPFUsuario"></div>
+								</div>
+								<div class="row">
+									<div class="col info">
+										<h5>Data de Nascimento</h5>
+									</div>
+									<div class="col text-secondary DtNascimentoUsuario"></div>
+								</div>
+								<div class="row">
+									<div class="col info">
+										<h5>Sexo</h5>
+									</div>
+									<div class="col text-secondary GeneroUsuario"></div>
+								</div>
+								<div class="row">
+									<div class="col info">
+										<h5>Comorbidades</h5>
+									</div>
+									<div class="col text-secondary TemComorbidade"></div>
+								</div>
+								<div class="row">
+									<div class="col info">
+										<h5>E-mail</h5>
+									</div>
+									<div class="col text-secondary EmailUsuario"></div>
+								</div>
+								<div class="row">
+									<div class="col info">
+										<h5>CEP</h5>
+									</div>
+									<div class="col text-secondary CEPUsuario"></div>
+								</div>
+							</div>
+						</div>
+						<div class="card conteudo invisivel">
+							<div class="card-body">
+								<br>
+								<div class="row">
+									<div class="col info">
+										<h5>CPF</h5>
+									</div>
+									<div class="col">
+										<input type="text" class="form-control text-secondary inputEdicao CPFUsuario" id="CPFUsuario">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col info">
+										<h5>Data de Nascimento</h5>
+									</div>
+									<div class="col">
+										<input type="text" class="form-control text-secondary inputEdicao DtNascimentoUsuario" id="DtNascimentoUsuario">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col info">
+										<h5>Sexo</h5>
+									</div>
+									<div class="col">
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" name="genero" id="GeneroMasculino" value="M">
+											<label class="form-check-label" for="GeneroMasculino">Masculino</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" name="genero" id="GeneroFeminino" value="F">
+											<label class="form-check-label" for="GeneroFeminino">Feminino</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col info">
+										<h5>Comorbidades</h5>
+									</div>
+									<div class="col">
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" name="comorbidade" id="TemComorbidade" value="true">
+											<label class="form-check-label" for="TemComorbidade">Possuo</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" name="comorbidade" id="NaoTemComorbidade" value="false">
+											<label class="form-check-label" for="NaoTemComorbidade">Não possuo</label>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col info">
+										<h5>E-mail</h5>
+									</div>
+									<div class="col">
+										<input type="text" class="form-control text-secondary inputEdicao EmailUsuario" id="EmailUsuario">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col info">
+										<h5>CEP</h5>
+									</div>
+									<div class="col">
+										<input type="text" class="form-control text-secondary inputEdicao CEPUsuario" id="CEPUsuario">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-7">			
+									<button type="button" class="btn btn-danger">Cancelar</button>
+								</div>
+								<div class="col-3">
+									<button type="button" class="btn btn-success">Salvar mudanças</button>
+								</div>
+							</div>
 							<br>
-							<h2>Carteirinha de Vacinação</h2>
-							<!--Table com as vacinas-->
 						</div>
 					</div>
-					
+					<div class="col carteira">
+						<br>
+						<h2>Carteirinha de Vacinação</h2>
+						<!--Table com as vacinas-->
+					</div>
 				</div>
 			</div>
         </div>
