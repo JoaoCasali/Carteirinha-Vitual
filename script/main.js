@@ -33,6 +33,7 @@ $(document).ready(function() {
 			if (retorno.resultado == "ok") { 
                // Alerta que teve sucesso
 			   	alert("Resultado: " +retorno.resultado + " Detalhes: " + retorno.detalhes);
+				// salva os dados em uma sessão
 				sessionStorage.Id = retorno.usuario.Id;
 				sessionStorage.NomeCompleto = retorno.usuario.NomeCompleto;
 				sessionStorage.DtNascimento = retorno.usuario.DtNascimento;

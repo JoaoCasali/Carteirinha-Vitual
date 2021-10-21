@@ -83,5 +83,15 @@ def upload_file():
         resposta = jsonify({"mensagem":"ok"})
 
     return resposta
-    
+
+@app.route("/atualizar_cadastro", methods=['post'])
+def atualizar_cadastro():
+    dados = request.get_json() #(force=True) dispensa Content-Type na requisição
+    TodasPessoas = db.session.query(Pessoa).all()
+    cidadao = Cidadao.query.filter_by(Cpf=dados['Cpf']).first()
+    cidadao.NomeCompleto = dados['NomeCompleto']
+    cidadao.DtNascimento = dados['NomeCompleto']
+    cidadao.Genero = dados['NomeCompleto']
+
+
 app.run(debug=True)
