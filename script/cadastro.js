@@ -1,4 +1,5 @@
 $(document).ready(function() {
+   // Faz com que caixa de input apareça ou desapareça dependendo do radio comorbidade
    $('#Tem').click(function(){
       $('#aparecerComorbidade').removeClass('invisivel');
    });
