@@ -1,5 +1,6 @@
 import re
 from flask.templating import render_template
+from sqlalchemy.sql.elements import Null
 
 from werkzeug.utils import secure_filename
 from config import *
@@ -86,12 +87,15 @@ def upload_file():
 
 @app.route("/atualizar_cadastro", methods=['post'])
 def atualizar_cadastro():
+    
     dados = request.get_json() #(force=True) dispensa Content-Type na requisição
-    TodasPessoas = db.session.query(Pessoa).all()
     cidadao = Cidadao.query.filter_by(Cpf=dados['Cpf']).first()
-    cidadao.NomeCompleto = dados['NomeCompleto']
-    cidadao.DtNascimento = dados['NomeCompleto']
-    cidadao.Genero = dados['NomeCompleto']
-
-
+    cidadao.DtNascimento = dados['DtNascimento']
+    cidadao.Genero = dados['Genero']
+    cidadao.Cpf = dados['Cpf']
+    cidadao.Email = dados['Email']
+    cidadao.Cep = dados['Cep']
+    db.session.commit()
+    resposta = jsonify({"resultado": "ok", "detalhes": "Mudanças executadas!", "usuario": cidadao.json()})
+    return resposta
 app.run(debug=True)

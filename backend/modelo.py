@@ -165,7 +165,7 @@ if __name__ == "__main__":
     Senha = "joaozinho123", UnidadeSaude = us1, CodVerificacao = "hbf467hefn")
     
     c1 = Cidadao(NomeCompleto = "Djenifer Lima", DtNascimento = "2003-05-20", Genero = "F", Cpf = "180.728.569-58", Email = "limadjenifer@gmail.com", \
-    Senha = "joaolindoS2", Cep = "16476261", Complemento = "666", temComorbidades = True, TipoComorbidades = "Cardiopatia|miope|Feia")
+    Senha = "joaolindoS2", Cep = "16476261", Complemento = "ap 666", temComorbidades = True, TipoComorbidades = "Cardiopatia|miope|Feia")
     a1 = Agendamento(Vacina = "Covid-19", DtAgendamento = "2021-09-27", Cidadao = c1, UnidadeSaude = us1)
     e1 = Estoque(QtdVacina = "300", Descricao = "Covid-19 pfizer", UnidadeSaude = us1)
     # Adiciona na lista de commit

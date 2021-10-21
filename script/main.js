@@ -43,7 +43,7 @@ $(document).ready(function() {
 				sessionStorage.Cep = retorno.usuario.Cep;
 				sessionStorage.Complemento = retorno.usuario.Complemento;
 				sessionStorage.temComorbidades = retorno.usuario.temComorbidades;
-				sessionStorage.TipoComorbidades = retorno.usuario.TipoComorbidades;
+				sessionStorage.TipoComorbidade = retorno.usuario.TipoComorbidade;
 				sessionStorage.Type = retorno.usuario.Type;
 				location.reload();
                // Redireciona para outra página

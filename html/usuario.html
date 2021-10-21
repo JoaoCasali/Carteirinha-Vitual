@@ -192,7 +192,8 @@
 								<img src="../img/fotoperfil.jpg" alt="foto de perfil" class="rounded-circle" width="150">
 								<div class="name">
 									<br>
-									<h3 id="NomeUsuario" style="color: white;"></h3>
+									<h3 class="NomeUsuario" style="color: white;"></h3>
+									<input type="text" class="form-control text-secondary inputEdicao NomeUsuario invisivel" id="NomeUsuario">
 								</div>
 							</div>
 						</div>
@@ -223,6 +224,12 @@
 									</div>
 									<div class="col text-secondary TemComorbidade"></div>
 								</div>
+								<div class="row" id="MostrarComorbidade">
+									<div class="col info">
+										<h5>Tipo da comorbidade</h5>
+									</div>
+									<div class="col text-secondary TipoComorbidades"></div>
+								</div>
 								<div class="row">
 									<div class="col info">
 										<h5>E-mail</h5>
@@ -234,6 +241,12 @@
 										<h5>CEP</h5>
 									</div>
 									<div class="col text-secondary CEPUsuario"></div>
+								</div>
+								<div class="row">
+									<div class="col info">
+										<h5>Complemento</h5>
+									</div>
+									<div class="col text-secondary Complemento"></div>
 								</div>
 							</div>
 						</div>
@@ -286,6 +299,14 @@
 										</div>
 									</div>
 								</div>
+								<div class="row invisivel" id="EsconderComorbidade">
+									<div class="col info">
+										<h5>Tipo de Comorbidade</h5>
+									</div>
+									<div class="col">
+										<input type="text" class="form-control text-secondary inputEdicao TipoComorbidade" id="TipoComorbidade">
+									</div>
+								</div>
 								<div class="row">
 									<div class="col info">
 										<h5>E-mail</h5>
@@ -302,13 +323,21 @@
 										<input type="text" class="form-control text-secondary inputEdicao CEPUsuario" id="CEPUsuario">
 									</div>
 								</div>
+								<div class="row">
+									<div class="col info">
+										<h5>Complemento</h5>
+									</div>
+									<div class="col">
+										<input type="text" class="form-control text-secondary inputEdicao Complemento" id="Complemento">
+									</div>
+								</div>
 							</div>
 							<div class="row">
 								<div class="col-7">			
 									<button type="button" class="btn btn-danger">Cancelar</button>
 								</div>
 								<div class="col-3">
-									<button type="button" class="btn btn-success">Salvar mudanças</button>
+									<button type="button" class="btn btn-success" id="SalvarMudancas">Salvar mudanças</button>
 								</div>
 							</div>
 							<br>
