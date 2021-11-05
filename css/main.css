@@ -343,3 +343,9 @@ p a:hover{
 	margin-left: 50%;
 	transform: translate(-50%);
 }
+.red{
+	color: red;
+}
+.green{
+	color: #198754;
+}

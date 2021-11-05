@@ -9,7 +9,7 @@ $(document).ready(function() {
             $("#EsconderComorbidade").addClass('invisivel');
             $("#TipoComorbidade").val('');
         }
-     });
+    });
      // Função caso cliquem no botão de adição
     $(".iconeEdicao").click(function(){
         // Adiciona ou remove a classe invisivel para esconder ou mostrar o sistema de edição de dados
@@ -40,6 +40,57 @@ $(document).ready(function() {
     $('.EmailUsuario').append(sessionStorage.Email);
     $('.CEPUsuario').append(sessionStorage.Cep);
     $('.Complemento').append(sessionStorage.Complemento);
+
+    // Retorno de dados das vacinas
+    // Chamada do metodo ajax para consultar o back-end
+    $.ajax({
+        // Chamando o back-end
+        url: 'http://localhost:5000/listar_vacinas',
+        // Metodo Get para buscar dados
+        method: 'GET',
+        // Tipo de dados que receberá
+        dataType: 'json',
+        // Caso não tenha erros, executará a função listar_agendamentos
+        success: listar_vacinas,
+        // Em caso de erro, imprimirá a mensagem
+        error: function() {
+            alert("erro ao ler dados, verifique o backend");
+        }
+    });
+    // Função que será chamada caso o back-end seja chamado com sucesso
+    // Função que coloca os dados em uma tabela
+    function listar_vacinas(vacinas) {
+        // Variável que armagenará os dados que serão impressos
+        tabela = ''
+        // For que lerá item por item da tabela agendamentos
+        for (var i in vacinas){
+            if (i == 0){
+                linha = '<div class="row">';
+            } else if (i%3 == 0){
+                linha = linha + '</div>';
+                tabela = tabela + linha;
+                linha = '<div class="row">';
+            }
+            if (vacinas[i].Status == 'R'){
+                statusFinal = '<p class="green">' + 'Recebido' + '</p>';
+            } else {
+                statusFinal = '<p class="red">' + 'Agendado' + '</p>';
+            }
+            coluna = 
+            '<div class="col vacina">' +
+            '<h5>' + vacinas[i].NomeVacina + '</h5>' +
+            '<hr>' +
+            statusFinal +
+            '<p>' + vacinas[i].Data + '</p>' +
+            '</div>';
+            linha = linha + coluna;
+            if (i == vacinas.length - 1){
+                tabela = tabela + linha;
+            }
+        };
+        // Adicionando as informações na tabela
+        $('#tabelaVacina').append(tabela);
+    }
 
     // Função que é acionada ao clicar no botão de salvar mudanças 
     $("#SalvarMudancas").click(function(){
@@ -74,30 +125,6 @@ $(document).ready(function() {
             success: ExecutarMudancas, // Mostra uma mensagem indicando o sucesso na operação adiciona as novas informações no sessionStorage
             error: ErroAoMudar // Caso de erro, mostra uma mensagem indicando o tal
         });
-		function ExecutarMudancas (retorno) {
-            // Se o back-end retornar ok, procede com tais funções
-			if (retorno.resultado == "ok") { 
-               // Alerta que teve sucesso
-			   	alert("Resultado: " +retorno.resultado + " Detalhes: " + retorno.detalhes);
-				// salva os dados em uma sessão
-				sessionStorage.Id = retorno.usuario.Id;
-				sessionStorage.NomeCompleto = retorno.usuario.NomeCompleto;
-				sessionStorage.DtNascimento = retorno.usuario.DtNascimento;
-				sessionStorage.Genero = retorno.usuario.Genero;
-				sessionStorage.Cpf = retorno.usuario.Cpf;
-				sessionStorage.Email = retorno.usuario.Email;
-				sessionStorage.Cep = retorno.usuario.Cep;
-				sessionStorage.Complemento = retorno.usuario.Complemento;
-				sessionStorage.temComorbidades = retorno.usuario.temComorbidades;
-				sessionStorage.TipoComorbidade = retorno.usuario.TipoComorbidade;
-				sessionStorage.Type = retorno.usuario.Type;
-				location.reload(); // Recarrega a página
-            };           
-        }
-		function ErroAoMudar (retorno) {
-            // informar mensagem de erro
-			alert("Erro: " +retorno.resultado + " Detalhes: " + retorno.detalhes);
-        };
     });
 
     // $('#numerodapessoa').val(sessionStorage.Id);
@@ -116,6 +143,31 @@ $(document).ready(function() {
     //     });
     // });
 });
+
+function ExecutarMudancas (retorno) {
+    // Se o back-end retornar ok, procede com tais funções
+    if (retorno.resultado == "ok") { 
+    // Alerta que teve sucesso
+        alert("Resultado: " +retorno.resultado + " Detalhes: " + retorno.detalhes);
+        // salva os dados em uma sessão
+        sessionStorage.Id = retorno.usuario.Id;
+        sessionStorage.NomeCompleto = retorno.usuario.NomeCompleto;
+        sessionStorage.DtNascimento = retorno.usuario.DtNascimento;
+        sessionStorage.Genero = retorno.usuario.Genero;
+        sessionStorage.Cpf = retorno.usuario.Cpf;
+        sessionStorage.Email = retorno.usuario.Email;
+        sessionStorage.Cep = retorno.usuario.Cep;
+        sessionStorage.Complemento = retorno.usuario.Complemento;
+        sessionStorage.temComorbidades = retorno.usuario.temComorbidades;
+        sessionStorage.TipoComorbidade = retorno.usuario.TipoComorbidade;
+        sessionStorage.Type = retorno.usuario.Type;
+        location.reload(); // Recarrega a página
+    };           
+}
+function ErroAoMudar (retorno) {
+    // informar mensagem de erro
+    alert("Erro: " +retorno.resultado + " Detalhes: " + retorno.detalhes);
+};
 
 // Função que coloca as informações nas caixas de input
 function ValoresInput(){
@@ -141,3 +193,4 @@ function ValoresInput(){
         $("#EsconderComorbidade").addClass('invisivel'); // Omite a caixa de input do tipo de comorbidade
     };
 }
+

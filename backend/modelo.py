@@ -104,6 +104,7 @@ class Agendamento(db.Model):
     Id = db.Column(db.Integer, primary_key=True)
     Vacina = db.Column(db.String(200))
     DtAgendamento = db.Column(db.String(200))
+    Status = db.Column(db.String(1)) #Padrão: R - recebido, A - agendado
     # Conexão com o cidadão
     IdCidadao = db.Column(db.Integer, db.ForeignKey(Pessoa.Id), nullable = True)
     Cidadao = db.relationship('Pessoa')
@@ -113,7 +114,7 @@ class Agendamento(db.Model):
 
     # Formatação do print no terminal
     def __str__(self):
-        return f'{str(self.Id)}, {self.Vacina}, {self.DtAgendamento}, {str(self.IdCidadao)}, {str(self.UnidadeSaudeId)}, {self.Cidadao}, {self.UnidadeSaude}'
+        return f'{str(self.Id)}, {self.Vacina}, {self.DtAgendamento}, {self.Status}, {str(self.IdCidadao)}, {str(self.UnidadeSaudeId)}, {self.Cidadao}, {self.UnidadeSaude}'
     
     # Criando arquivo Json para envio
     def json(self):
@@ -121,6 +122,7 @@ class Agendamento(db.Model):
             "Id": self.Id,
             "Vacina": self.Vacina,
             "DtAgendamento": self.DtAgendamento,
+            "Status": self.Status,
             "IdCidadao": self.IdCidadao,
             "UnidadeSaudeId": self.UnidadeSaudeId,
             "Cidadao": self.Cidadao.json(),
@@ -154,7 +156,7 @@ class Vacina(db.Model):
     Id = db.Column(db.Integer, primary_key=True)
     NomeVacina = db.Column(db.String(50))
     Data = db.Column(db.String(10))
-    Status = db.Column(db.String(1)) #Padrão: R - recebido, P - pendente, A - agendado
+    Status = db.Column(db.String(1)) #Padrão: R - recebido, A - agendado
     # Conexão com o cidadão
     CidadaoId = db.Column(db.Integer, db.ForeignKey(Cidadao.Id), nullable = True)
     Cidadao = db.relationship('Cidadao')
@@ -190,10 +192,16 @@ if __name__ == "__main__":
     
     c1 = Cidadao(NomeCompleto = "Djenifer Lima", DtNascimento = "2003-05-20", Genero = "F", Cpf = "180.728.569-58", Email = "limadjenifer@gmail.com", \
     Senha = "joaolindoS2", Cep = "16476261", Complemento = "ap 666", temComorbidades = True, TipoComorbidades = "Cardiopatia|miope|Feia")
-    a1 = Agendamento(Vacina = "Covid-19", DtAgendamento = "2021-09-27", Cidadao = c1, UnidadeSaude = us1)
+    a1 = Agendamento(Vacina = "Covid-19", DtAgendamento = "2021-09-27", Status = "A", Cidadao = c1, UnidadeSaude = us1)
     e1 = Estoque(QtdVacina = "300", Descricao = "Covid-19 pfizer", UnidadeSaude = us1)
 
-    v1 = Vacina(NomeVacina = "Hepatite B", Data = "10/10/2010", Status = "R", Cidadao = c1)
+    v1 = Vacina(NomeVacina = "Hepatite B", Data = "10/10/2010", Status = "A", Cidadao = c1)
+    v2 = Vacina(NomeVacina = "Influenza", Data = "11/10/2010", Status = "R", Cidadao = c1)
+    v3 = Vacina(NomeVacina = "Tetravalente", Data = "12/10/2010", Status = "R", Cidadao = c1)
+    v4 = Vacina(NomeVacina = "DT", Data = "13/10/2010", Status = "R", Cidadao = c1)
+    v5 = Vacina(NomeVacina = "Pneumococo", Data = "14/10/2010", Status = "R", Cidadao = c1)
+    v6 = Vacina(NomeVacina = "POV", Data = "15/10/2010", Status = "A", Cidadao = c1)
+
 
     # Adiciona na lista de commit
     db.session.add(us1)
@@ -202,6 +210,12 @@ if __name__ == "__main__":
     db.session.add(a1)
     db.session.add(e1)
     db.session.add(v1)
+    db.session.add(v2)
+    db.session.add(v3)
+    db.session.add(v4)
+    db.session.add(v5)
+    db.session.add(v6)
+
     db.session.commit() # Grava os dados no banco de dados
 
     TodosPessoa = db.session.query(Pessoa).all() # Traz os dados do banco para uma lista 

@@ -4,7 +4,7 @@ from sqlalchemy.sql.elements import Null
 
 from werkzeug.utils import secure_filename
 from config import *
-from modelo import Pessoa, Agendamento, Cidadao
+from modelo import Pessoa, Agendamento, Cidadao, Vacina
 @app.route("/")
 def padrao():
     return "backend operante"
@@ -90,6 +90,7 @@ def atualizar_cadastro():
     
     dados = request.get_json() #(force=True) dispensa Content-Type na requisição
     cidadao = Cidadao.query.filter_by(Cpf=dados['Cpf']).first()
+    cidadao.NomeCompleto = dados['NomeCompleto']
     cidadao.DtNascimento = dados['DtNascimento']
     cidadao.Genero = dados['Genero']
     cidadao.Cpf = dados['Cpf']
@@ -98,4 +99,16 @@ def atualizar_cadastro():
     db.session.commit()
     resposta = jsonify({"resultado": "ok", "detalhes": "Mudanças executadas!", "usuario": cidadao.json()})
     return resposta
+
+@app.route("/listar_vacinas")
+def listar_vacinas():
+    vacinas = db.session.query(Vacina).all()
+    retorno = []
+    for i in vacinas:
+        retorno.append(i.json())
+
+    resposta = jsonify(retorno)
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
+
 app.run(debug=True)

@@ -37,10 +37,14 @@ h2{
     border-radius: 12px;
     text-align: center;
     padding: 5px;
+    padding-top: 10px;
 }
 .vacina h5:first-child{
     font-weight: bold;
 }
 .vacina p{
     margin: 0;
+}
+.vacina hr{
+    margin: 5px;
 }
