@@ -31,3 +31,16 @@
 h2{
     text-align: center;
 }
+.vacina{
+    margin: 1%;
+    border: 2px solid gray;
+    border-radius: 12px;
+    text-align: center;
+    padding: 5px;
+}
+.vacina h5:first-child{
+    font-weight: bold;
+}
+.vacina p{
+    margin: 0;
+}

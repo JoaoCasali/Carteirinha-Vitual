@@ -150,6 +150,30 @@ class Estoque(db.Model):
             "UnidadeSaude": self.UnidadeSaude.json()
             }
 
+class Vacina(db.Model):
+    Id = db.Column(db.Integer, primary_key=True)
+    NomeVacina = db.Column(db.String(50))
+    Data = db.Column(db.String(10))
+    Status = db.Column(db.String(1)) #Padrão: R - recebido, P - pendente, A - agendado
+    # Conexão com o cidadão
+    CidadaoId = db.Column(db.Integer, db.ForeignKey(Cidadao.Id), nullable = True)
+    Cidadao = db.relationship('Cidadao')
+    
+    # Formatação do print no terminal
+    def __str__(self):
+        return f'{str(self.Id)}, {self.NomeVacina}, {self.Data}, {str(self.Status)}, {self.CidadaoId} {self.Cidadao}'
+    
+    # Criando arquivo Json para envio
+    def json(self):
+        return {
+            "Id": self.Id,
+            "NomeVacina": self.NomeVacina,
+            "Data": self.Data,
+            "Status": self.Status,
+            "Cidadao": self.CidadaoId,
+            "CidadaoId": self.Cidadao.json()
+            }
+
 # Bloqueia as seguintes funções quando importado
 if __name__ == "__main__":
     
@@ -168,12 +192,16 @@ if __name__ == "__main__":
     Senha = "joaolindoS2", Cep = "16476261", Complemento = "ap 666", temComorbidades = True, TipoComorbidades = "Cardiopatia|miope|Feia")
     a1 = Agendamento(Vacina = "Covid-19", DtAgendamento = "2021-09-27", Cidadao = c1, UnidadeSaude = us1)
     e1 = Estoque(QtdVacina = "300", Descricao = "Covid-19 pfizer", UnidadeSaude = us1)
+
+    v1 = Vacina(NomeVacina = "Hepatite B", Data = "10/10/2010", Status = "R", Cidadao = c1)
+
     # Adiciona na lista de commit
     db.session.add(us1)
     db.session.add(f1)
     db.session.add(c1)
     db.session.add(a1)
     db.session.add(e1)
+    db.session.add(v1)
     db.session.commit() # Grava os dados no banco de dados
 
     TodosPessoa = db.session.query(Pessoa).all() # Traz os dados do banco para uma lista 
@@ -192,6 +220,12 @@ if __name__ == "__main__":
     
     TodosEstoque = db.session.query(Estoque).all()
     for i in TodosEstoque:
+        print(i)
+        print(i.json())
+        print("")
+
+    TodosVacina = db.session.query(Vacina).all()
+    for i in TodosVacina:
         print(i)
         print(i.json())
         print("")
