@@ -338,11 +338,13 @@ p a{
 p a:hover{
 	color: #014d81;
 }
+/*Formatação do botão*/
 .estilo button{
 	width: 150px;
 	margin-left: 50%;
 	transform: translate(-50%);
 }
+/*Cores das condições das vacinas*/
 .red{
 	color: red;
 }

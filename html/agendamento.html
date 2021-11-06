@@ -16,6 +16,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="../img/seringa-icon.png">
 		<!-- Estilo padrão no site -->
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<link rel="stylesheet" type="text/css" href="../css/agendamento.css">
 		<!-- Link para o js -->
 		<script src="../script/main.js"></script>
 		<script src="../script/agendamento.js"></script>
@@ -166,11 +167,75 @@
 			<br>
 			<h1>Agendamento</h1>
 			<br>
-			<!-- Inicio da tabela que mostrará os agendamentos -->
+			<div class="container">
+				<form id="meuagendamento">
+					<div class="row">
+						<div class="col">
+							<div class="form-floating">
+								<select class="form-select" required id="ag-vacina">
+								<option selected></option>
+								<option value="1">BCG</option>
+								<option value="2">Hepatite B</option>
+								<option value="3">Tetravalente</option>
+								<option value="4">VOP</option>
+								<option value="5">VORH</option>
+								<option value="6">Febre amarela</option>
+								<option value="7">SRC</option>
+								<option value="8">DTP</option>
+								<option value="9">HPV</option>
+								<option value="10">DT</option>
+								<option value="11">Influenza</option>
+								<option value="12">Pneumococo</option>
+								<option value="13">Outra</option> <!--Quando escolhida essa opção deve aparecer uma caixa para escrever-->							
+								</select>
+								<label for="floatingSelectGrid">Vacina</label>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-floating">
+								<select class="form-select" required id="ag-dose">
+								<option selected></option>
+								<option value="1">Primeira</option>
+								<option value="2">Segunda</option>
+								<option value="3">Terceira</option>
+								<option value="4">Reforço</option>
+								</select>
+								<label for="floatingSelectGrid">Dose</label>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col">
+							<div class="form-floating">
+								<select class="form-select" required id="ag-local">
+								<option selected></option>
+								<option value="1">One</option> <!--Precisa estar ligado ao bd e mostrar os postos cadastrados-->
+								</select>
+								<label for="floatingSelectGrid">Local</label>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-floating">
+								<input type="date" name="DtAgendamento" class="form-control" required id="ag-data">
+								<label for="floatingSelectGrid">Data</label>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="ag-senha">
+						<input type="password" class="form-control" id="ag-senha" placeholder="Senha de usuário" required>
+					</div>
+					<br>
+					<button class="btn btn-site">Agendar</button>
+				</form>
+			</div>
+			<!--
+			--Inicio da tabela que mostrará os agendamentos
 			<table class="tabela table table-hover">
-				<!-- Cabeçalho da tabela -->
+				--Cabeçalho da tabela
 				<thead>
-					<!-- Informações base -->
+					--Informações base
 				  	<tr>
 						<th scope="col">#</th>
 						<th scope="col">Vacina</th>
@@ -178,9 +243,11 @@
 						<th scope="col">Unidade de Saúde</th>
 					</tr>
 				</thead>
-				<!-- Corpo da tabela, onde as informações do banco de dados serão impressas -->
+				--Corpo da tabela, onde as informações do banco de dados serão impressas
 				<tbody id="corpoTabelaAgendamentos"></tbody>
 			</table>
+			-->
+
 		</div>
 
     </body>
