@@ -187,12 +187,30 @@ if __name__ == "__main__":
 
     # Inputs de informações
     us1 = Unidade_Saude(Nome = "Postinho da esquina", Cep = "10475221", Complemento = "Numero 14542", CodVerificacao = "hbf467hefn")
+    us2 = Unidade_Saude(Nome = "Posto A", Cep = "12345678", Complemento = "Numero 1549", CodVerificacao = "fghbdhhft4")
+    us3 = Unidade_Saude(Nome = "Posto B", Cep = "87654321", Complemento = "Numero 753", CodVerificacao = "zxcvbnm478")
+    us4 = Unidade_Saude(Nome = "Posto C", Cep = "87456321", Complemento = "Numero 159", CodVerificacao = "qwerty5826")
+
     f1 = Funcionario(NomeCompleto = "João Casali", DtNascimento = "2003-07-11", Genero = "M", Cpf = "052.827.732-44", Email = "joaocasali@gmail.com", \
     Senha = "joaozinho123", UnidadeSaude = us1, CodVerificacao = "hbf467hefn")
-    
+    f2 = Funcionario(NomeCompleto = "Funcionario A", DtNascimento = "1999-11-11", Genero = "F", Cpf = "123.456.789-55", Email = "funcionario.01@gmail.com", \
+    Senha = "funcionario1", UnidadeSaude = us2, CodVerificacao = "fghbdhhft4")
+    f3 = Funcionario(NomeCompleto = "Funcionario B", DtNascimento = "2000-10-10", Genero = "M", Cpf = "234.567.891-33", Email = "funcionario.02@gmail.com", \
+    Senha = "funcionario2", UnidadeSaude = us3, CodVerificacao = "zxcvbnm478")
+    f4 = Funcionario(NomeCompleto = "Funcionario C", DtNascimento = "1975-08-25", Genero = "F", Cpf = "147.258.369-24", Email = "funcionario.03@gmail.com", \
+    Senha = "funcionario3", UnidadeSaude = us4, CodVerificacao = "qwerty5826")
+
     c1 = Cidadao(NomeCompleto = "Djenifer Lima", DtNascimento = "2003-05-20", Genero = "F", Cpf = "180.728.569-58", Email = "limadjenifer@gmail.com", \
     Senha = "joaolindoS2", Cep = "16476261", Complemento = "ap 666", temComorbidades = True, TipoComorbidades = "Cardiopatia|miope|Feia")
+    c2 = Cidadao(NomeCompleto = "Cidadão A", DtNascimento = "1980-08-08", Genero = "M", Cpf = "943.167.248-51", Email = "cidadao.01@gmail.com", \
+    Senha = "cidadao1", Cep = "16385563", Complemento = "numero 154", temComorbidades = False)
+    c3 = Cidadao(NomeCompleto = "Cidadão B", DtNascimento = "1845-07-07", Genero = "F", Cpf = "485.326.256-12", Email = "cidadao.02@gmail.com", \
+    Senha = "cidadao2", Cep = "34587711", Complemento = "lote 12", temComorbidades = False)
+    c4 = Cidadao(NomeCompleto = "Cidadão C", DtNascimento = "2021-11-06", Genero = "M", Cpf = "001-002-006-45", Email = "cidadao.03@gmail.com", \
+    Senha = "cidadao3", Cep = "23698714", Complemento = "numero 45821", temComorbidades = True, TipoComorbidades = "Insuficiencia renal")
+
     a1 = Agendamento(Vacina = "Covid-19", DtAgendamento = "2021-09-27", Status = "A", Cidadao = c1, UnidadeSaude = us1)
+
     e1 = Estoque(QtdVacina = "300", Descricao = "Covid-19 pfizer", UnidadeSaude = us1)
 
     v1 = Vacina(NomeVacina = "Hepatite B", Data = "10/10/2010", Status = "A", Cidadao = c1)
@@ -205,8 +223,17 @@ if __name__ == "__main__":
 
     # Adiciona na lista de commit
     db.session.add(us1)
+    db.session.add(us2)
+    db.session.add(us3)
+    db.session.add(us4)
     db.session.add(f1)
+    db.session.add(f2)
+    db.session.add(f3)
+    db.session.add(f4)
     db.session.add(c1)
+    db.session.add(c2)
+    db.session.add(c3)
+    db.session.add(c4)
     db.session.add(a1)
     db.session.add(e1)
     db.session.add(v1)

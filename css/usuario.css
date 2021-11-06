@@ -1,3 +1,4 @@
+/*Formatação da foto de perfil*/
 .FotoNome{
     background: rgb(2,102,168);
     background: radial-gradient(circle, rgba(2,102,168,1) 0%, rgba(1,77,129,1) 100%);
@@ -5,6 +6,7 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
+/*Formatação do conteúdo presente no perfil*/
 .conteudo{
     background-color: white;
     border-color:#b5babd;
@@ -12,10 +14,12 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+/*Formatação do h2*/
 .carteira h2{
     color: #014d81;
     font-weight: bold;
 }
+/*Formatação do icone de edição*/
 .edicao{
     color: white;
     position: relative;
@@ -24,13 +28,16 @@
     text-align: right;
     padding: 5px;
 }
+/*Formatação das caixas para input*/
 .inputEdicao{
     margin: 1%;
     height: 30px;
 }
+/*Formatação do h2*/
 h2{
     text-align: center;
 }
+/*Fomatação das caixinhas com os nomes das vacinas*/
 .vacina{
     margin: 1%;
     border: 2px solid gray;
