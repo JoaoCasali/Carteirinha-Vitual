@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <title>Carteira virtual - Cadastro</title>
-	    <meta charset="utf-8">
-	    <meta name="description" content="SISTEMA DE CONTROLE DE VACINAÇÃO">
-  	    <meta name="keywords" content="Vacinação, corona, doenças, virus, vacina">
- 	    <meta name="author" content="IFC Produções">
- 	    <meta http-equiv="refresh" content="300">
-		<!-- Link do bootstrap -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-		<!-- Link do jquerry -->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-		<!-- script do cadastro -->
-		<script src="../script/cadastro.js"></script>
-		<!-- Icone da página -->
-		<link rel="shortcut icon" type="image/x-icon" href="../img/seringa-icon.png">
-		<!-- Estilo padrão -->
-		<link rel="stylesheet" type="text/css" href="../css/main.css">
-		<!-- Estilo único do cadastro -->
-		<link rel="stylesheet" type="text/css" href="../css/cadastro.css">
 
-	</head>
-    <body class="fundo">
-		<!-- Formulário de cadastro -->
-		<div class="estilo-contato">
-			<h2>Cadastro</h2>
+<head>
+	<title>Carteira virtual - Cadastro</title>
+	<meta charset="utf-8">
+	<meta name="description" content="SISTEMA DE CONTROLE DE VACINAÇÃO">
+	<meta name="keywords" content="Vacinação, corona, doenças, virus, vacina">
+	<meta name="author" content="IFC Produções">
+	<meta http-equiv="refresh" content="300">
+	<!-- Link do bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<!-- Link do jquerry -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<!-- script do cadastro -->
+	<script src="../script/cadastro.js"></script>
+	<!-- Icone da página -->
+	<link rel="shortcut icon" type="image/x-icon" href="../img/seringa-icon.png">
+	<!-- Estilo padrão -->
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<!-- Estilo único do cadastro -->
+	<link rel="stylesheet" type="text/css" href="../css/cadastro.css">
+
+</head>
+
+<body class="fundo">
+	<!-- Formulário de cadastro -->
+	<div class="estilo-contato content">
+		<h2>Cadastro</h2>
+		<!-- Aba de navegação -->
+		<div class="row" style="margin-bottom: 5px;">
+			<div class="btn-group">
+				<button type="button" id="btnCidadao" class="btn btn-site btn-nav ativo">Cidadão</button>
+				<button type="button" id="btnFuncionario" class="btn btn-site btn-nav borda-maluca">Funcionário</button>
+				<button type="button" id="btnUnidade" class="btn btn-site btn-nav borda-maluca">Unidade de Saúde</button>
+			</div>
+		</div>
+		<!-- Segunda Linha, onde está o formulário -->
+		<div class="row" style="padding-left: 2%; padding-right: 2%;">
 			<!-- Inicio do formulário -->
 			<!-- Classe que deixa bonito o sistema de validação -->
-			<form id="meucadastro" autocomplete="off">
+			<form id="cadastroCidadao" autocomplete="off">
 				<!-- Primeira Linha -->
 				<div class="row">
 					<!-- Input do nome -->
 					<div class="input-group">
 						<span class="input-group-text">Nome completo</span>
-						<input type="text" name="NomeCompleto" class="form-control" id="inputNome" placeholder="Nome Completo" required>
+						<input type="text" name="NomeCompleto" class="form-control" id="inputNome"
+							placeholder="Nome Completo" required>
 					</div>
 				</div>
 				<br>
@@ -52,11 +69,13 @@
 					<div class="col">
 						<!-- Radios para escolher o genero da pessoa -->
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="genero" id="GeneroMasculino" value="M" required>
+							<input class="form-check-input" type="radio" name="genero" id="GeneroMasculino" value="M"
+								required>
 							<label class="form-check-label" for="GeneroMasculino">Masculino</label>
 						</div>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="genero" id="GeneroFeminino" value="F" required>
+							<input class="form-check-input" type="radio" name="genero" id="GeneroFeminino" value="F"
+								required>
 							<label class="form-check-label" for="GeneroFeminino">Feminino</label>
 						</div>
 					</div>
@@ -69,10 +88,12 @@
 						<!-- Input do CPF -->
 						<div class="input-group">
 							<span class="input-group-text">CPF</span>
-							<input type="text" name="cpf" aria-label="cpf" class="form-control" placeholder="CPF" id="inputCpf" minlength="14" maxlength="14" required>
+							<input type="text" name="cpf" aria-label="cpf" class="form-control" placeholder="CPF"
+								id="inputCpf" minlength="14" maxlength="14" required>
 						</div>
-						<span class="invalido invisivel" id="CpfErrado" style="margin-left: 0.5%;">CPF já está em uso</span>
-					</div>					
+						<span class="invalido invisivel" id="CpfErrado" style="margin-left: 0.5%;">CPF já está em
+							uso</span>
+					</div>
 				</div>
 				<br>
 				<!-- Quarta linha -->
@@ -82,7 +103,8 @@
 						<!-- Input do CEP -->
 						<div class="input-group">
 							<span class="input-group-text">CEP</span>
-							<input type="text" class="form-control" id="inputCep" placeholder="CEP" minlength="9" maxlength="9" required>
+							<input type="text" class="form-control" id="inputCep" placeholder="CEP" minlength="9"
+								maxlength="9" required>
 						</div>
 					</div>
 					<!-- Segunda coluna -->
@@ -101,12 +123,14 @@
 					</div>
 					<div class="col">
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="temComorbidades" id="Tem" value="true" required>
+							<input class="form-check-input" type="radio" name="temComorbidades" id="Tem" value="true"
+								required>
 							<label class="form-check-label" for="Tem">Sim</label>
 						</div>
-					
+
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="temComorbidades" id="NaoTem" value="false" required>
+							<input class="form-check-input" type="radio" name="temComorbidades" id="NaoTem"
+								value="false" required>
 							<label class="form-check-label" for="NaoTem">Não</label>
 						</div>
 					</div>
@@ -138,7 +162,8 @@
 					<!-- Input de senha -->
 					<div class="col">
 						<label for="inputSenha" class="form-label">Senha</label>
-						<input type="password" class="form-control" id="inputSenha" minlength="8" maxlength="18" required>
+						<input type="password" class="form-control" id="inputSenha" minlength="8" maxlength="18"
+							required>
 					</div>
 					<!-- Confirmação de senha -->
 					<div class="col">
@@ -156,6 +181,15 @@
 					</div>
 				</div>
 			</form>
+			<form id="cadastroFuncionario" autocomplete="off" class="invisivel">
+				<h1>FUCIONARIO</h1>
+			</form>
+			<form id="cadastroUnidade" autocomplete="off" class="invisivel"> 
+				<h1>UNIDADE DE SAUDE</h1>
+			</form>
 		</div>
-    </body>
+
+	</div>
+</body>
+
 </html>

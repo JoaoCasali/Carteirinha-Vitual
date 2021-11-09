@@ -1,4 +1,28 @@
 $(document).ready(function() {
+   $('#btnCidadao').click(function(){
+      $('#btnCidadao').addClass('ativo');
+      $('#btnFuncionario').removeClass('ativo');
+      $('#btnUnidade').removeClass('ativo');
+      $('#cadastroCidadao').removeClass('invisivel');
+      $('#cadastroFuncionario').addClass('invisivel');
+      $('#cadastroUnidade').addClass('invisivel');
+   });
+   $('#btnFuncionario').click(function(){
+      $('#btnFuncionario').addClass('ativo');
+      $('#btnCidadao').removeClass('ativo');
+      $('#btnUnidade').removeClass('ativo');
+      $('#cadastroFuncionario').removeClass('invisivel');
+      $('#cadastroCidadao').addClass('invisivel');
+      $('#cadastroUnidade').addClass('invisivel');
+   });
+   $('#btnUnidade').click(function(){
+      $('#btnUnidade').addClass('ativo');
+      $('#btnCidadao').removeClass('ativo');
+      $('#btnFuncionario').removeClass('ativo');
+      $('#cadastroUnidade').removeClass('invisivel');
+      $('#cadastroCidadao').addClass('invisivel');
+      $('#cadastroFuncionario').addClass('invisivel');
+   });
    // Faz com que caixa de input apareça ou desapareça dependendo do radio comorbidade
    $('#Tem').click(function(){
       $('#aparecerComorbidade').removeClass('invisivel');
@@ -28,10 +52,10 @@ $(document).ready(function() {
       }
    });
    $("#verificacao").click(function(){
-      $("#meucadastro").addClass("was-validated");
+      $("#cadastroCidadao").addClass("was-validated");
    });
    // Função de envio de cadastro para o banco de dados
-   $("#meucadastro").submit(function(e) {
+   $("#cadastroCidadao").submit(function(e) {
       //Cancela a funcionalidade de envio padrão do submit
       e.preventDefault();
       // Variavel que define se tem algum erro ou não
