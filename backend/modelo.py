@@ -206,7 +206,7 @@ if __name__ == "__main__":
     Senha = "cidadao1", Cep = "16385563", Complemento = "numero 154", temComorbidades = False)
     c3 = Cidadao(NomeCompleto = "Cidadão B", DtNascimento = "1845-07-07", Genero = "F", Cpf = "485.326.256-12", Email = "cidadao.02@gmail.com", \
     Senha = "cidadao2", Cep = "34587711", Complemento = "lote 12", temComorbidades = False)
-    c4 = Cidadao(NomeCompleto = "Cidadão C", DtNascimento = "2021-11-06", Genero = "M", Cpf = "001-002-006-45", Email = "cidadao.03@gmail.com", \
+    c4 = Cidadao(NomeCompleto = "Cidadão C", DtNascimento = "2000-11-06", Genero = "F", Cpf = "001-002-006-45", Email = "cidadao.03@gmail.com", \
     Senha = "cidadao3", Cep = "23698714", Complemento = "numero 45821", temComorbidades = True, TipoComorbidades = "Insuficiencia renal")
 
     a1 = Agendamento(Vacina = "Covid-19", DtAgendamento = "2021-09-27", Status = "A", Cidadao = c1, UnidadeSaude = us1)
@@ -218,9 +218,23 @@ if __name__ == "__main__":
     v3 = Vacina(NomeVacina = "Tetravalente", Data = "12/10/2010", Status = "R", Cidadao = c1)
     v4 = Vacina(NomeVacina = "DT", Data = "13/10/2010", Status = "R", Cidadao = c1)
     v5 = Vacina(NomeVacina = "Pneumococo", Data = "14/10/2010", Status = "R", Cidadao = c1)
-    v6 = Vacina(NomeVacina = "POV", Data = "15/10/2010", Status = "A", Cidadao = c1)
+    v6 = Vacina(NomeVacina = "VOP", Data = "15/10/2010", Status = "A", Cidadao = c1)
+    v7 = Vacina(NomeVacina = "BCG", Data = "10/10/1980", Status = "R", Cidadao = c2)
+    v8 = Vacina(NomeVacina = "Hepatite B", Data = "12/10/1980", Status = "R", Cidadao = c2)
+    v9 = Vacina(NomeVacina = "Tetravalente", Data = "20/10/2000", Status = "R", Cidadao = c2)
+    v10 = Vacina(NomeVacina = "Febre Amarela", Data = "13/10/2000", Status = "R", Cidadao = c2)
+    v11 = Vacina(NomeVacina = "Pneumococo", Data = "14/10/2020", Status = "R", Cidadao = c3)
+    v12 = Vacina(NomeVacina = "Influenza", Data = "20/11/2021", Status = "A", Cidadao = c3)
+    v13 = Vacina(NomeVacina = "BCG", Data = "06/11/2000", Status = "R", Cidadao = c4)
+    v14 = Vacina(NomeVacina = "Hepatite B", Data = "06/11/2000", Status = "R", Cidadao = c4)
+    v15 = Vacina(NomeVacina = "VORH", Data = "16/12/2000", Status = "R", Cidadao = c4)
+    v16 = Vacina(NomeVacina = "Tetravalente", Data = "13/10/2002", Status = "R", Cidadao = c4)
+    v17 = Vacina(NomeVacina = "HPV", Data = "08/10/2015", Status = "R", Cidadao = c4)
+    v18 = Vacina(NomeVacina = "HPV", Data = "08/11/2015", Status = "R", Cidadao = c4)
+    v19 = Vacina(NomeVacina = "HPV", Data = "10/12/2015", Status = "R", Cidadao = c4)
 
 
+    
     # Adiciona na lista de commit
     db.session.add(us1)
     db.session.add(us2)
@@ -242,7 +256,19 @@ if __name__ == "__main__":
     db.session.add(v4)
     db.session.add(v5)
     db.session.add(v6)
-
+    db.session.add(v7)
+    db.session.add(v8)
+    db.session.add(v9)
+    db.session.add(v10)
+    db.session.add(v11)
+    db.session.add(v12)
+    db.session.add(v13)
+    db.session.add(v14)
+    db.session.add(v15)
+    db.session.add(v16)
+    db.session.add(v17)
+    db.session.add(v18)
+    db.session.add(v19)
     db.session.commit() # Grava os dados no banco de dados
 
     TodosPessoa = db.session.query(Pessoa).all() # Traz os dados do banco para uma lista 
