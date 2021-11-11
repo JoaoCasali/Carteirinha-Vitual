@@ -42,7 +42,5 @@ h2{
 }
 .btn-site{
 	font-weight: 600;
-}
-.borda-maluca{
-	border-left: 1px solid black;
+	width: 50%;
 }

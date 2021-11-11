@@ -55,3 +55,7 @@ h2{
 .vacina hr{
     margin: 5px;
 }
+#tabelaVacina{
+    overflow-y: scroll;
+    height: 555px;
+}
