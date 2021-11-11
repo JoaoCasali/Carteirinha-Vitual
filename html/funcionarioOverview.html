@@ -24,11 +24,13 @@
     <!-- Estilo padrão de cadastro -->
     <link rel="stylesheet" type="text/css" href="../css/cadastro.css">
     <!-- Estilo da página -->
-    <link rel="stylesheet" type="text/css" href="../css/cadastroFuncionario.css">
+    <link rel="stylesheet" type="text/css" href="../css/funcionarioOverview.css">
     <!-- Link para o js -->
     <script src="../script/main.js"></script>
     <!-- Link para o js do calendário-->
-    <script src="../script/cadastroFuncionario.js"></script>
+    <script src="../script/funcionarioOverview/cadastroFuncionario.js"></script>
+    <script src="../script/funcionarioOverview/tabelaFuncionario.js"></script>
+    <script src="../script/funcionarioOverview/cadastro.js"></script>
     <!-- Link para os icones -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -182,7 +184,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col">
                 <form id="cadastroFuncionario" autocomplete="off">
                     <h2>Cadastro</h2>
                     <!-- Primeira Linha -->
@@ -231,33 +233,12 @@
                                 <input type="text" name="cpf" aria-label="cpf" class="form-control" placeholder="CPF"
                                     id="inputCpf" minlength="14" maxlength="14" required>
                             </div>
-                            <span class="invalido invisivel" id="CpfErrado" style="margin-left: 0.5%;">CPF já está em
+                            <span class="red invisivel" id="CpfErrado" style="margin-left: 0.5%;">CPF já está em
                                 uso</span>
                         </div>
                     </div>
-                    <br>
-                    <!-- Quarta linha -->
-                    <div class="row g-3">
-                        <!-- Primeira coluna -->
-                        <div class="col">
-                            <!-- Input do CEP -->
-                            <div class="input-group">
-                                <span class="input-group-text">CEP</span>
-                                <input type="text" class="form-control" id="inputCep" placeholder="CEP" minlength="9"
-                                    maxlength="9" required>
-                            </div>
-                        </div>
-                        <!-- Segunda coluna -->
-                        <div class="col">
-                            <!-- Input do Complemento -->
-                            <div class="input-group">
-                                <span class="input-group-text">Complemento</span>
-                                <input type="text" class="form-control" id="inputComplemento" placeholder="Complemento">
-                            </div>
-                        </div>
-                    </div>
                     <hr>
-                    <!-- Quinta linha -->
+                    <!-- Quarta linha -->
                     <div class="row g-3">
                         <!-- Input do email -->
                         <div class="col">
@@ -268,7 +249,7 @@
                         <div class="col">
                             <label for="inputConfirEmail" class="form-label">Confirmar email</label>
                             <input type="email" class="form-control" id="inputConfirEmail" required>
-                            <span class="invalido invisivel" id="EmailErrado">Os emails não batem!</span>
+                            <span class="red invisivel" id="EmailErrado">Os emails não batem!</span>
                         </div>
                     </div>
                     <!-- Sexta linha -->
@@ -283,7 +264,7 @@
                         <div class="col">
                             <label for="inputConfirSenha" class="form-label">Confirmar senha</label>
                             <input type="password" class="form-control" id="inputConfirSenha" required>
-                            <span class="invalido invisivel" id="SenhaErrada">As senhas não batem!</span>
+                            <span class="red invisivel" id="SenhaErrada">As senhas não batem!</span>
                         </div>
                     </div>
                     <br>
@@ -297,7 +278,25 @@
                 </form>
             </div>
             <div class="col">
-                <h2>Funcionários Ativos</h2>
+                <div class="row">
+                    <h2>Funcionários Ativos</h2>
+                </div>
+                <div class="row">
+                    <table class="table table-hover table-bordered">
+                        <!-- Cabeçalho da tabela -->
+                        <thead>
+                            <!-- Informações base -->
+                            <tr>
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Unidade</th>
+                            </tr>
+                        </thead>
+                        <!-- Corpo da tabela, onde as informações do banco de dados serão impressas -->
+                        <tbody id="corpoTabelaFuncionario"></tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

@@ -34,9 +34,6 @@ h2{
 	font-weight: bolder;
 }
 /*Estilizando a cor de quando um dado está errado*/
-.invalido{
-	color: red;
-}
 .ativo{
 	background-color:  #0266A8;
 }

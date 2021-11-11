@@ -18,7 +18,10 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<!-- script do cadastro -->
-	<script src="../script/cadastro.js"></script>
+	<script src="../script/cadastro/cadastro.js"></script>
+	<script src="../script/cadastro/cadastroCidadao.js"></script>
+	<script src="../script/cadastro/cadastroUnidade.js"></script>
+
 	<!-- Icone da página -->
 	<link rel="shortcut icon" type="image/x-icon" href="../img/seringa-icon.png">
 	<!-- Estilo padrão -->
@@ -92,7 +95,7 @@
 							<input type="text" name="cpf" aria-label="cpf" class="form-control" placeholder="CPF"
 								id="inputCpf" minlength="14" maxlength="14" required>
 						</div>
-						<span class="invalido invisivel" id="CpfErrado" style="margin-left: 0.5%;">CPF já está em
+						<span class="red invisivel" id="CpfErrado" style="margin-left: 0.5%;">CPF já está em
 							uso</span>
 					</div>
 				</div>
@@ -155,7 +158,7 @@
 					<div class="col">
 						<label for="inputConfirEmail" class="form-label">Confirmar email</label>
 						<input type="email" class="form-control" id="inputConfirEmail" required>
-						<span class="invalido invisivel" id="EmailErrado">Os emails não batem!</span>
+						<span class="red invisivel" id="EmailErrado">Os emails não batem!</span>
 					</div>
 				</div>
 				<!-- Sexta linha -->
@@ -170,7 +173,7 @@
 					<div class="col">
 						<label for="inputConfirSenha" class="form-label">Confirmar senha</label>
 						<input type="password" class="form-control" id="inputConfirSenha" required>
-						<span class="invalido invisivel" id="SenhaErrada">As senhas não batem!</span>
+						<span class="red invisivel" id="SenhaErrada">As senhas não batem!</span>
 					</div>
 				</div>
 				<br>
@@ -188,49 +191,69 @@
 					<!-- Input do nome da unidade -->
 					<div class="input-group">
 						<span class="input-group-text">Nome da Unidade</span>
-						<input type="text" name="NomeUnidade" class="form-control" id="inputNome"
+						<input type="text" name="NomeUnidade" class="form-control" id="inputNomeUnidade"
 							placeholder="Nome da Unidade" required>
 					</div>
-				</div><br>
+				</div>
+				<br>
 				<!-- Segunda linha -->
-				<div class="row">
-					<!-- Input do email -->
-					<div class="col">
-						<label for="inputEmail" class="form-label">Email</label>
-						<input type="email" class="form-control" id="inputEmail" required>
-					</div>
-					<!-- Confirmação de email -->
-					<div class="col">
-						<label for="inputConfirEmail" class="form-label">Confirmar email</label>
-						<input type="email" class="form-control" id="inputConfirEmail" required>
-						<span class="invalido invisivel" id="EmailErrado">Os emails não batem!</span>
-					</div>
-				</div><br>
-				<!-- Terceira linha -->
 				<div class="row g-3">
 					<!-- Primeira coluna -->
 					<div class="col">
 						<!-- Input do CEP -->
 						<div class="input-group">
 							<span class="input-group-text">CEP</span>
-							<input type="text" class="form-control" id="inputCep" placeholder="CEP" minlength="9"
+							<input type="text" class="form-control" id="inputCepUnidade" placeholder="CEP" minlength="9"
 								maxlength="9" required>
 						</div>
+						<span class="red invisivel" id="CepErrado" style="margin-left: 0.5%;">CEP já está em
+							uso</span>
 					</div>
 					<!-- Segunda coluna -->
 					<div class="col">
 						<!-- Input do Complemento -->
 						<div class="input-group">
 							<span class="input-group-text">Complemento</span>
-							<input type="text" class="form-control" id="inputComplemento" placeholder="Complemento">
+							<input type="text" class="form-control" id="inputComplementoUnidade" placeholder="Complemento">
 						</div>
+					</div>
+				</div>
+				<br>
+				<!-- Terceira linha -->
+				<div class="row">
+					<!-- Input do email -->
+					<div class="col">
+						<label for="inputEmail" class="form-label">Email</label>
+						<input type="email" class="form-control" id="inputEmailUnidade" required>
+					</div>
+					<!-- Confirmação de email -->
+					<div class="col">
+						<label for="inputConfirEmail" class="form-label">Confirmar email</label>
+						<input type="email" class="form-control" id="inputConfirEmailUnidade" required>
+						<span class="red invisivel" id="EmailErradoUnidade">Os emails não batem!</span>
+					</div>
+				</div>
+				<br>
+				<!-- Quarta linha -->
+				<div class="row g-3">
+					<!-- Input de senha -->
+					<div class="col">
+						<label for="inputSenha" class="form-label">Senha</label>
+						<input type="password" class="form-control" id="inputSenhaUnidade" minlength="8" maxlength="18"
+							required>
+					</div>
+					<!-- Confirmação de senha -->
+					<div class="col">
+						<label for="inputConfirSenha" class="form-label">Confirmar senha</label>
+						<input type="password" class="form-control" id="inputConfirSenhaUnidade" required>
+						<span class="red invisivel" id="SenhaErradaUnidade">As senhas não batem!</span>
 					</div>
 				</div>
 				<br>
 				<!--Opção de fazer login se já for cadastrado-->
 				<div class="row g-3">
 					<div style="text-align: center;">
-						<input type="submit" class="btn btn-site" id="verificacao" style="margin-bottom: 3%;">
+						<input type="submit" class="btn btn-site" id="verificacao2" style="margin-bottom: 3%;">
 						<p>se já possui conta, <a href="index.html">clique aqui!</a></p>
 					</div>
 				</div>
