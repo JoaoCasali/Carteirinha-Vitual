@@ -22,13 +22,13 @@ class Pessoa(db.Model):
 class Unidade_Saude(db.Model):
     Id = db.Column(db.Integer, primary_key=True)
     Nome = db.Column(db.String(200))
+    Email = db.Column(db.String(100))
     Cep = db.Column(db.String(50))
     Complemento = db.Column(db.String(100))
-    CodVerificacao = db.Column(db.String(10)) # Será adiocionado um código para a verificação de funcionários
 
     # Formatação do print no terminal
     def __str__(self):
-        return f'{str(self.Id)}, {self.Nome}, {self.Cep}, {self.Complemento}, {self.CodVerificacao}'
+        return f'{str(self.Id)}, {self.Nome}, {self.Cep}, {self.Complemento}'
     
     # Criando arquivo Json para envio
     def json(self):
@@ -37,12 +37,10 @@ class Unidade_Saude(db.Model):
             "Nome": self.Nome,
             "Cep": self.Cep,
             "Complemento": self.Complemento,
-            "CodVerificacao": self.CodVerificacao
         }
 
 # Classe filho que representa um funcionário da und. de saúde
 class Funcionario(Pessoa):
-    CodVerificacao = db.Column(db.String(10)) # Certificação do funcionário
     UnidadeSaudeId = db.Column(db.Integer, db.ForeignKey(Unidade_Saude.Id), nullable = True)
     UnidadeSaude = db.relationship('Unidade_Saude') # Associação com a unid. de saúde
     __mapper_args__ = { 
@@ -51,7 +49,7 @@ class Funcionario(Pessoa):
 
     # Formatação do print no terminal
     def __str__(self):
-        return f'{super().__str__()}, {self.CodVerificacao}, {str(self.UnidadeSaudeId)}, {str(self.UnidadeSaude)}, {self.Type}' 
+        return f'{super().__str__()}, {str(self.UnidadeSaudeId)}, {str(self.UnidadeSaude)}, {self.Type}' 
 
     # Criando arquivo Json para envio
     def json(self):
@@ -63,7 +61,6 @@ class Funcionario(Pessoa):
             "Cpf": self.Cpf,
             "Email": self.Email,
             "Senha": self.Senha,
-            "CodVerificacao": self.CodVerificacao,
             "UnidadeSaudeId": self.UnidadeSaudeId,
             "UnidadeSaude": self.UnidadeSaude.json(), # Reciclando a função da classe Unidade_Saude
             "Type": self.Type
@@ -186,19 +183,19 @@ if __name__ == "__main__":
     db.create_all() # Cria as tabelas do banco de dados
 
     # Inputs de informações
-    us1 = Unidade_Saude(Nome = "Postinho da esquina", Cep = "10475221", Complemento = "Numero 14542", CodVerificacao = "hbf467hefn")
-    us2 = Unidade_Saude(Nome = "Posto A", Cep = "12345678", Complemento = "Numero 1549", CodVerificacao = "fghbdhhft4")
-    us3 = Unidade_Saude(Nome = "Posto B", Cep = "87654321", Complemento = "Numero 753", CodVerificacao = "zxcvbnm478")
-    us4 = Unidade_Saude(Nome = "Posto C", Cep = "87456321", Complemento = "Numero 159", CodVerificacao = "qwerty5826")
+    us1 = Unidade_Saude(Nome = "Postinho da esquina", Cep = "10475221", Complemento = "Numero 14542",)
+    us2 = Unidade_Saude(Nome = "Posto A", Cep = "12345678", Complemento = "Numero 1549",)
+    us3 = Unidade_Saude(Nome = "Posto B", Cep = "87654321", Complemento = "Numero 753",)
+    us4 = Unidade_Saude(Nome = "Posto C", Cep = "87456321", Complemento = "Numero 159",)
 
     f1 = Funcionario(NomeCompleto = "João Casali", DtNascimento = "2003-07-11", Genero = "M", Cpf = "052.827.732-44", Email = "joaocasali@gmail.com", \
-    Senha = "joaozinho123", UnidadeSaude = us1, CodVerificacao = "hbf467hefn")
+    Senha = "joaozinho123", UnidadeSaude = us1)
     f2 = Funcionario(NomeCompleto = "Funcionario A", DtNascimento = "1999-11-11", Genero = "F", Cpf = "123.456.789-55", Email = "funcionario.01@gmail.com", \
-    Senha = "funcionario1", UnidadeSaude = us2, CodVerificacao = "fghbdhhft4")
+    Senha = "funcionario1", UnidadeSaude = us2)
     f3 = Funcionario(NomeCompleto = "Funcionario B", DtNascimento = "2000-10-10", Genero = "M", Cpf = "234.567.891-33", Email = "funcionario.02@gmail.com", \
-    Senha = "funcionario2", UnidadeSaude = us3, CodVerificacao = "zxcvbnm478")
+    Senha = "funcionario2", UnidadeSaude = us3)
     f4 = Funcionario(NomeCompleto = "Funcionario C", DtNascimento = "1975-08-25", Genero = "F", Cpf = "147.258.369-24", Email = "funcionario.03@gmail.com", \
-    Senha = "funcionario3", UnidadeSaude = us4, CodVerificacao = "qwerty5826")
+    Senha = "funcionario3", UnidadeSaude = us4)
 
     c1 = Cidadao(NomeCompleto = "Djenifer Lima", DtNascimento = "2003-05-20", Genero = "F", Cpf = "180.728.569-58", Email = "limadjenifer@gmail.com", \
     Senha = "joaolindoS2", Cep = "16476261", Complemento = "ap 666", temComorbidades = True, TipoComorbidades = "Cardiopatia|miope|Feia")

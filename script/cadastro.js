@@ -7,14 +7,6 @@ $(document).ready(function() {
       $('#cadastroFuncionario').addClass('invisivel');
       $('#cadastroUnidade').addClass('invisivel');
    });
-   $('#btnFuncionario').click(function(){
-      $('#btnFuncionario').addClass('ativo');
-      $('#btnCidadao').removeClass('ativo');
-      $('#btnUnidade').removeClass('ativo');
-      $('#cadastroFuncionario').removeClass('invisivel');
-      $('#cadastroCidadao').addClass('invisivel');
-      $('#cadastroUnidade').addClass('invisivel');
-   });
    $('#btnUnidade').click(function(){
       $('#btnUnidade').addClass('ativo');
       $('#btnCidadao').removeClass('ativo');

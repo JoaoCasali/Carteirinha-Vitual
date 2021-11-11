@@ -34,10 +34,11 @@
 		<h2>Cadastro</h2>
 		<!-- Aba de navegação -->
 		<div class="row" style="margin-bottom: 5px;">
+			<!-- Botões switch das abas de navegação -->
 			<div class="btn-group">
-				<button type="button" id="btnCidadao" class="btn btn-site btn-nav ativo">Cidadão</button>
-				<button type="button" id="btnFuncionario" class="btn btn-site btn-nav borda-maluca">Funcionário</button>
-				<button type="button" id="btnUnidade" class="btn btn-site btn-nav borda-maluca">Unidade de Saúde</button>
+				<button type="button" id="btnCidadao" class="btn btn-site ativo">Cidadão</button>
+				<button type="button" id="btnUnidade" class="btn btn-site" style="border-left: 1px solid black;">Unidade
+					de Saúde</button>
 			</div>
 		</div>
 		<!-- Segunda Linha, onde está o formulário -->
@@ -177,15 +178,62 @@
 				<div class="row g-3">
 					<div style="text-align: center;">
 						<input type="submit" class="btn btn-site" id="verificacao" style="margin-bottom: 3%;">
-						<p><a href="index.html">se já possui conta, clique aqui!</a></p>
+						<p>se já possui conta, <a href="index.html">clique aqui!</a></p>
 					</div>
 				</div>
 			</form>
-			<form id="cadastroFuncionario" autocomplete="off" class="invisivel">
-				<h1>FUCIONARIO</h1>
-			</form>
-			<form id="cadastroUnidade" autocomplete="off" class="invisivel"> 
-				<h1>UNIDADE DE SAUDE</h1>
+			<form id="cadastroUnidade" autocomplete="off" class="invisivel">
+				<!-- Primeira Linha -->
+				<div class="row">
+					<!-- Input do nome da unidade -->
+					<div class="input-group">
+						<span class="input-group-text">Nome da Unidade</span>
+						<input type="text" name="NomeUnidade" class="form-control" id="inputNome"
+							placeholder="Nome da Unidade" required>
+					</div>
+				</div><br>
+				<!-- Segunda linha -->
+				<div class="row">
+					<!-- Input do email -->
+					<div class="col">
+						<label for="inputEmail" class="form-label">Email</label>
+						<input type="email" class="form-control" id="inputEmail" required>
+					</div>
+					<!-- Confirmação de email -->
+					<div class="col">
+						<label for="inputConfirEmail" class="form-label">Confirmar email</label>
+						<input type="email" class="form-control" id="inputConfirEmail" required>
+						<span class="invalido invisivel" id="EmailErrado">Os emails não batem!</span>
+					</div>
+				</div><br>
+				<!-- Terceira linha -->
+				<div class="row g-3">
+					<!-- Primeira coluna -->
+					<div class="col">
+						<!-- Input do CEP -->
+						<div class="input-group">
+							<span class="input-group-text">CEP</span>
+							<input type="text" class="form-control" id="inputCep" placeholder="CEP" minlength="9"
+								maxlength="9" required>
+						</div>
+					</div>
+					<!-- Segunda coluna -->
+					<div class="col">
+						<!-- Input do Complemento -->
+						<div class="input-group">
+							<span class="input-group-text">Complemento</span>
+							<input type="text" class="form-control" id="inputComplemento" placeholder="Complemento">
+						</div>
+					</div>
+				</div>
+				<br>
+				<!--Opção de fazer login se já for cadastrado-->
+				<div class="row g-3">
+					<div style="text-align: center;">
+						<input type="submit" class="btn btn-site" id="verificacao" style="margin-bottom: 3%;">
+						<p>se já possui conta, <a href="index.html">clique aqui!</a></p>
+					</div>
+				</div>
 			</form>
 		</div>
 

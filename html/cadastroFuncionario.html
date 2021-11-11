@@ -1,0 +1,306 @@
+<html lang="en">
+
+<head>
+    <title>Calendario</title>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <meta name="description" content="SISTEMA DE CONTROLE DE VACINAÇÃO">
+    <meta name="keywords" content="Vacinação, corona, doenças, virus, vacina">
+    <meta name="author" content="IFC Produções">
+    <meta http-equiv="refresh" content="300">
+    <!-- Link do bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <!-- Link do jquerry -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Icone de seringa na aba -->
+    <link rel="shortcut icon" type="image/x-icon" href="../img/seringa-icon.png">
+    <!-- Estilo padrão no site -->
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <!-- Estilo padrão de cadastro -->
+    <link rel="stylesheet" type="text/css" href="../css/cadastro.css">
+    <!-- Estilo da página -->
+    <link rel="stylesheet" type="text/css" href="../css/cadastroFuncionario.css">
+    <!-- Link para o js -->
+    <script src="../script/main.js"></script>
+    <!-- Link para o js do calendário-->
+    <script src="../script/cadastroFuncionario.js"></script>
+    <!-- Link para os icones -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Inicio do menu lateral  -->
+    <div class="menu_lateral">
+        <!-- Parte que fica  a logo e o botão para abrir o menu-->
+        <div class="logo_container">
+            <!-- Imagem da logo e nome -->
+            <div class="logo">
+                <!-- Icone de mais -->
+                <i class='bx bx-plus-medical'></i>
+                <!-- Nome do site -->
+                <div class="logo_nome">Carteirinha Virtual</div>
+            </div>
+            <!-- Botão para abrir o menu -->
+            <i class='bx bx-menu' id='botao'></i>
+        </div>
+        <!-- Inicio da lista do menu -->
+        <ul class="lista">
+            <hr>
+            <!-- Primeiro item da lista -->
+            <li>
+                <!-- Link para a Home do site -->
+                <a href="index.html">
+                    <!-- Icone Home -->
+                    <i class='bx bx-home'></i>
+                    <!-- Nome do item da lista -->
+                    <span class="nome_link">Página inicial</span>
+                </a>
+                <!-- Tooltip -->
+                <span class="tooltip">Página inicial</span>
+            </li>
+            <!-- Segundo item da lista -->
+            <li>
+                <!-- Link para o a aba calendário -->
+                <a href="calendario.html">
+                    <!-- Icone de calendário -->
+                    <i class='bx bx-calendar'></i>
+                    <!-- Nome do item da lista -->
+                    <span class="nome_link">Calendario</span>
+                </a>
+                <!-- Tooltip -->
+                <span class="tooltip">Calendario</span>
+            </li>
+            <li>
+                <!-- Terceiro item da lista -->
+                <a href="info.html">
+                    <!-- Icone de informação -->
+                    <i class='bx bx-info-circle'></i>
+                    <!-- Nome do item da lista -->
+                    <span class="nome_link">Informações</span>
+                </a>
+                <!-- Tooltip -->
+                <span class="tooltip">Informações</span>
+            </li>
+            <hr>
+            <div class="invisivel" id="FunCidadao">
+                <li>
+                    <!-- Quarto item da lista -->
+                    <a href="agendamento.html">
+                        <!-- Icone de calendário + -->
+                        <i class='bx bx-calendar-plus'></i>
+                        <!-- Nome do item da lista -->
+                        <span class="nome_link">Agendamento</span>
+                    </a>
+                    <!-- Tooltip -->
+                    <span class="tooltip">Agendamento</span>
+                </li>
+            </div>
+        </ul>
+        <!-- Iniciando a parte do profile -->
+        <div class="profile_content invisivel">
+            <!-- Conteudo -->
+            <div class="profile">
+                <div class="profile_details">
+                    <!-- Imagem do usuário -->
+                    <a href="usuario.html"><img src="../img/fotoperfil.jpg" alt="foto de perfil"></a>
+                    <!-- Parte onde se escreve o nome e o trabalho do usuário -->
+                    <div class="nome_trabalho">
+                        <!-- Nome do usuário -->
+                        <div class="Nome"></div>
+                        <!-- Função dele -->
+                        <div class="trabalho"></div>
+                    </div>
+                </div>
+                <!-- Botão de deslogar -->
+                <i class='bx bx-log-out' id="log_out"></i>
+            </div>
+        </div>
+        <div class="login_content">
+            <div class="login">
+                <i class='bx bx-log-in' id="log_in" data-bs-toggle="modal" data-bs-target="#modalLogin"></i>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de Login -->
+    <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Cabeçalho do Modal -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Corpo onde fica o formulário -->
+                <div class="modal-body">
+                    <!-- Alerta quando o usuário erra a senha ou email -->
+                    <form id="logar">
+                        <div class="row invisivel" id="LoginIncorreto">
+                            <span>Email ou senha incorretos!</span>
+                        </div>
+                        <div class="row">
+                            <!-- Input do email -->
+                            <div class="col">
+                                <div class="input-group">
+                                    <span class="input-group-text"><img src="../img/at.svg" alt="E-mail"></span>
+                                    <input type="email" class="form-control" id="loginEmail"
+                                        placeholder="exemplo@gmail.com" required>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <!-- Input da senha -->
+                            <div class="col">
+                                <div class="input-group">
+                                    <span class="input-group-text"><img src="../img/key-fill.svg" alt="Senha"></span>
+                                    <input type="password" class="form-control" id="loginSenha" placeholder="exemplo123"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <!-- Botão para fazer submit -->
+                        <input type="submit" class="btn btn-site">
+                    </form>
+                </div>
+                <!-- Rodapé do Modal -->
+                <div class="modal-footer">
+                    <a href="cadastro.html">Não possui conta? Clique aqui!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="estilo">
+        <div class="row">
+            <div class="col">
+                <h1>Visão Geral</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <form id="cadastroFuncionario" autocomplete="off">
+                    <h2>Cadastro</h2>
+                    <!-- Primeira Linha -->
+                    <div class="row">
+                        <!-- Input do nome -->
+                        <div class="input-group">
+                            <span class="input-group-text">Nome completo</span>
+                            <input type="text" name="NomeCompleto" class="form-control" id="inputNome"
+                                placeholder="Nome Completo" required>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Segunda linha -->
+                    <div class="row g-3">
+                        <!-- Primeira coluna -->
+                        <div class="col-7" style="margin-right: 6%;">
+                            <!-- Input da data de nascimento -->
+                            <div class="input-group">
+                                <span class="input-group-text">Data de nascimento</span>
+                                <input type="date" name="DtNascimento" class="form-control" required id="inputData">
+                            </div>
+                        </div>
+                        <!-- Segunda coluna -->
+                        <div class="col">
+                            <!-- Radios para escolher o genero da pessoa -->
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="genero" id="GeneroMasculino"
+                                    value="M" required>
+                                <label class="form-check-label" for="GeneroMasculino">Masculino</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="genero" id="GeneroFeminino" value="F"
+                                    required>
+                                <label class="form-check-label" for="GeneroFeminino">Feminino</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Terceira linha -->
+                    <div class="row g-3">
+                        <!-- Primeira coluna -->
+                        <div class="col">
+                            <!-- Input do CPF -->
+                            <div class="input-group">
+                                <span class="input-group-text">CPF</span>
+                                <input type="text" name="cpf" aria-label="cpf" class="form-control" placeholder="CPF"
+                                    id="inputCpf" minlength="14" maxlength="14" required>
+                            </div>
+                            <span class="invalido invisivel" id="CpfErrado" style="margin-left: 0.5%;">CPF já está em
+                                uso</span>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Quarta linha -->
+                    <div class="row g-3">
+                        <!-- Primeira coluna -->
+                        <div class="col">
+                            <!-- Input do CEP -->
+                            <div class="input-group">
+                                <span class="input-group-text">CEP</span>
+                                <input type="text" class="form-control" id="inputCep" placeholder="CEP" minlength="9"
+                                    maxlength="9" required>
+                            </div>
+                        </div>
+                        <!-- Segunda coluna -->
+                        <div class="col">
+                            <!-- Input do Complemento -->
+                            <div class="input-group">
+                                <span class="input-group-text">Complemento</span>
+                                <input type="text" class="form-control" id="inputComplemento" placeholder="Complemento">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- Quinta linha -->
+                    <div class="row g-3">
+                        <!-- Input do email -->
+                        <div class="col">
+                            <label for="inputEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="inputEmail" required>
+                        </div>
+                        <!-- Confirmação de email -->
+                        <div class="col">
+                            <label for="inputConfirEmail" class="form-label">Confirmar email</label>
+                            <input type="email" class="form-control" id="inputConfirEmail" required>
+                            <span class="invalido invisivel" id="EmailErrado">Os emails não batem!</span>
+                        </div>
+                    </div>
+                    <!-- Sexta linha -->
+                    <div class="row g-3">
+                        <!-- Input de senha -->
+                        <div class="col">
+                            <label for="inputSenha" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="inputSenha" minlength="8" maxlength="18"
+                                required>
+                        </div>
+                        <!-- Confirmação de senha -->
+                        <div class="col">
+                            <label for="inputConfirSenha" class="form-label">Confirmar senha</label>
+                            <input type="password" class="form-control" id="inputConfirSenha" required>
+                            <span class="invalido invisivel" id="SenhaErrada">As senhas não batem!</span>
+                        </div>
+                    </div>
+                    <br>
+                    <!--Opção de fazer login se já for cadastrado-->
+                    <div class="row g-3">
+                        <div style="text-align: center;">
+                            <input type="submit" class="btn btn-site" id="verificacao" style="margin-bottom: 3%;">
+                            <p>se já possui conta, <a href="index.html">clique aqui!</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <h2>Funcionários Ativos</h2>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
