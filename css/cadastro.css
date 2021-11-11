@@ -3,7 +3,6 @@ form{
 	border: 1px solid black;
 	border-radius: 10px;
 	padding: 3%;
-	margin-top: 2%;
 }
 /*Criando o degradê do background e alinhando o form*/
 .fundo{
@@ -37,4 +36,13 @@ h2{
 /*Estilizando a cor de quando um dado está errado*/
 .invalido{
 	color: red;
+}
+.ativo{
+	background-color:  #0266A8;
+}
+.btn-site{
+	font-weight: 600;
+}
+.borda-maluca{
+	border-left: 1px solid black;
 }
