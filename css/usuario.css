@@ -45,6 +45,7 @@ h2{
     text-align: center;
     padding: 5px;
     padding-top: 10px;
+    max-height: 120px;
 }
 .vacina h5:first-child{
     font-weight: bold;
@@ -57,5 +58,5 @@ h2{
 }
 #tabelaVacina{
     overflow-y: scroll;
-    height: 555px;
+    max-height: 555px;
 }

@@ -102,8 +102,8 @@ class Cidadao(Pessoa):
 # Casse que representa os agendamentos de vacina
 class Agendamento(db.Model):
     Id = db.Column(db.Integer, primary_key=True)
-    Vacina = db.Column(db.String(200))
-    DtAgendamento = db.Column(db.String(200))
+    NomeVacina = db.Column(db.String(200))
+    Data = db.Column(db.String(200))
     Status = db.Column(db.String(1)) #Padrão: R - recebido, A - agendado
     # Conexão com o cidadão
     IdCidadao = db.Column(db.Integer, db.ForeignKey(Pessoa.Id), nullable = True)
@@ -114,14 +114,14 @@ class Agendamento(db.Model):
 
     # Formatação do print no terminal
     def __str__(self):
-        return f'{str(self.Id)}, {self.Vacina}, {self.DtAgendamento}, {self.Status}, {str(self.IdCidadao)}, {str(self.UnidadeSaudeId)}, {self.Cidadao}, {self.UnidadeSaude}'
+        return f'{str(self.Id)}, {self.NomeVacina}, {self.Data}, {self.Status}, {str(self.IdCidadao)}, {str(self.UnidadeSaudeId)}, {self.Cidadao}, {self.UnidadeSaude}'
     
     # Criando arquivo Json para envio
     def json(self):
         return {
             "Id": self.Id,
-            "Vacina": self.Vacina,
-            "DtAgendamento": self.DtAgendamento,
+            "NomeVacina": self.NomeVacina,
+            "Data": self.Data,
             "Status": self.Status,
             "IdCidadao": self.IdCidadao,
             "UnidadeSaudeId": self.UnidadeSaudeId,
@@ -209,7 +209,7 @@ if __name__ == "__main__":
     c4 = Cidadao(NomeCompleto = "Cidadão C", DtNascimento = "2000-11-06", Genero = "F", Cpf = "001-002-006-45", Email = "cidadao.03@gmail.com", \
     Senha = "cidadao3", Cep = "23698714", Complemento = "numero 45821", temComorbidades = True, TipoComorbidades = "Insuficiencia renal")
 
-    a1 = Agendamento(Vacina = "Covid-19", DtAgendamento = "2021-09-27", Status = "A", Cidadao = c1, UnidadeSaude = us1)
+    a1 = Agendamento(NomeVacina = "Covid-19", Data = "2021-09-27", Status = "A", Cidadao = c1, UnidadeSaude = us1)
 
     e1 = Estoque(QtdVacina = "300", Descricao = "Covid-19 pfizer", UnidadeSaude = us1)
 

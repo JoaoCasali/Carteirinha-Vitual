@@ -43,17 +43,17 @@ $(document).ready(function() {
 
     // Retorno de dados das vacinas
     // Chamada do metodo ajax para consultar o back-end
+    var dados = JSON.stringify({
+        Id: sessionStorage.Id, NomeCompleto: sessionStorage.NomeCompleto
+    });
     $.ajax({
-        // Chamando o back-end
-        url: 'http://localhost:5000/listar_vacinas',
-        // Metodo Get para buscar dados
-        method: 'GET',
-        // Tipo de dados que receberá
-        dataType: 'json',
-        // Caso não tenha erros, executará a função listar_agendamentos
-        success: listar_vacinas,
-        // Em caso de erro, imprimirá a mensagem
-        error: function() {
+        url: 'http://localhost:5000/listar_vacinas', // Chamando o back-end
+        method: 'POST', // Metodo Get para buscar dados
+        dataType: 'json', // Tipo de dados que receberá
+        contentType: 'application/json', // tipo dos dados enviados
+        data: dados, 
+        success: listar_vacinas, // Caso não tenha erros, executará a função listar_agendamentos 
+        error: function() { // Em caso de erro, imprimirá a mensagem
             alert("erro ao ler dados, verifique o backend");
         }
     });

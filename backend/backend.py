@@ -178,12 +178,19 @@ def atualizar_cadastro():
     resposta = jsonify({"resultado": "ok", "detalhes": "Mudanças executadas!", "usuario": cidadao.json()})
     return resposta
 
-@app.route("/listar_vacinas")
+@app.route("/listar_vacinas", methods=['post'])
 def listar_vacinas():
+    dados = request.get_json() #(force=True) dispensa Content-Type na requisição
     vacinas = db.session.query(Vacina).all()
+    agendamentos = db.session.query(Agendamento).all()
     retorno = []
+    for i in agendamentos:
+        if i.IdCidadao == int(dados['Id']):
+            retorno.append(i.json())
+
     for i in vacinas:
-        retorno.append(i.json())
+        if i.CidadaoId == int(dados['Id']):
+            retorno.append(i.json())
 
     resposta = jsonify(retorno)
     resposta.headers.add("Access-Control-Allow-Origin", "*")
