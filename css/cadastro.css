@@ -1,5 +1,5 @@
 /*Estilizando o a margem e borda do formulário*/
-form{
+.formularioCadastro{
 	border: 1px solid black;
 	border-radius: 10px;
 	padding: 3%;
@@ -32,10 +32,6 @@ form{
 h2{
 	text-align: center;
 	font-weight: bolder;
-}
-/*Estilizando a cor de quando um dado está errado*/
-.ativo{
-	background-color:  #0266A8;
 }
 .btn-site{
 	font-weight: 600;

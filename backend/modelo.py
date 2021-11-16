@@ -26,6 +26,7 @@ class Unidade_Saude(db.Model):
     Senha = db.Column(db.String(100))
     Cep = db.Column(db.String(50))
     Complemento = db.Column(db.String(100))
+    Type = 'Unidade_saude'
 
     # Formatação do print no terminal
     def __str__(self):
@@ -40,6 +41,7 @@ class Unidade_Saude(db.Model):
             "Complemento": self.Complemento,
             "Email": self.Email,
             "Senha": self.Senha,
+            "Type": self.Type
         }
 
 # Classe filho que representa um funcionário da und. de saúde
@@ -187,7 +189,7 @@ if __name__ == "__main__":
 
     # Inputs de informações
     us1 = Unidade_Saude(Nome = "Postinho da esquina", Cep = "10475221", Complemento = "Numero 14542", Email = "postinho@gmail.com", Senha = "postinho123")
-    us2 = Unidade_Saude(Nome = "Posto A", Cep = "12345-678", Complemento = "Numero 1549", Email = "postoA@gmail.com", Senha = "postAC123")
+    us2 = Unidade_Saude(Nome = "Posto A", Cep = "12345-678", Complemento = "Numero 1549", Email = "postoA@gmail.com", Senha = "postoA123")
     us3 = Unidade_Saude(Nome = "Posto B", Cep = "87654-321", Complemento = "Numero 753", Email = "postoB@gmail.com", Senha = "postoB123")
     us4 = Unidade_Saude(Nome = "Posto C", Cep = "87456-321", Complemento = "Numero 159", Email = "postoC@gmail.com", Senha = "postoC123")
 

@@ -80,19 +80,28 @@
 					<span class="tooltip">Informações</span>
 				</li>
 				<hr>
-				<div class="invisivel" id="FunCidadao">
-					<li>
-						<!-- Quarto item da lista -->
-						<a href="agendamento.html">
-							<!-- Icone de calendário + -->
-							<i class='bx bx-calendar-plus'></i>
-							<!-- Nome do item da lista -->
-							<span class="nome_link">Agendamento</span>
-						</a>
-						<!-- Tooltip -->
-						<span class="tooltip">Agendamento</span>
-					</li>
-				</div>
+				<li class="invisivel" id="FunCidadao">
+					<!-- Quarto item da lista -->
+					<a href="agendamento.html">
+						<!-- Icone de calendário + -->
+						<i class='bx bx-calendar-plus'></i>
+						<!-- Nome do item da lista -->
+						<span class="nome_link">Agendamento</span>
+					</a>
+					<!-- Tooltip -->
+					<span class="tooltip">Agendamento</span>
+				</li>
+				<li class="invisivel" id="FunUnidade">
+					<!-- Quarto item da lista -->
+					<a href="funcionarioOverview.html">
+						<!-- Icone de calendário + -->
+						<i class='bx bx-user-circle'></i>
+						<!-- Nome do item da lista -->
+						<span class="nome_link">Funcionários</span>
+					</a>
+					<!-- Tooltip -->
+					<span class="tooltip">Funcionários</span>
+				</li>
 			</ul>
 			<!-- Iniciando a parte do profile -->
 			<div class="profile_content invisivel">
@@ -103,10 +112,12 @@
 						<a href="usuario.html"><img src="../img/fotoperfil.jpg" alt="foto de perfil"></a>
 						<!-- Parte onde se escreve o nome e o trabalho do usuário -->
 						<div class="nome_trabalho">
-							<!-- Nome do usuário -->
-							<div class="Nome"></div>
-							<!-- Função dele -->
-							<div class="trabalho"></div>
+							<a href="usuario.html">
+								<!-- Nome do usuário -->
+								<div class="Nome"></div>
+								<!-- Função dele -->
+								<div class="trabalho"></div>
+							</a>
 						</div>
 					</div>
 					<!-- Botão de deslogar -->
@@ -130,8 +141,18 @@
 					</div>
 					<!-- Corpo onde fica o formulário -->
 					<div class="modal-body">
+						<div class="row" style="margin-bottom: 5px;">
+							<!-- Botões switch das abas de navegação -->
+							<div class="btn-group">
+								<button type="button" id="btnCidadao" class="btn btn-site ativo">Cidadão</button>
+								<button type="button" id="btnUnidade" class="btn btn-site"
+									style="border-left: 1px solid black;">Unidade
+									de Saúde</button>
+							</div>
+						</div>
+						<hr>
 						<!-- Alerta quando o usuário erra a senha ou email -->
-						<form id="logar">
+						<form id="logarCidadao">
 							<div class="row invisivel" id="LoginIncorreto">
 								<span>Email ou senha incorretos!</span>
 							</div>
@@ -140,7 +161,8 @@
 								<div class="col">
 									<div class="input-group">
 										<span class="input-group-text"><img src="../img/at.svg" alt="E-mail"></span>
-										<input type="email" class="form-control" id="loginEmail" placeholder="exemplo@gmail.com" required>
+										<input type="email" class="form-control" id="loginEmail"
+											placeholder="exemplo@gmail.com" required>
 									</div>
 								</div>
 							</div>
@@ -150,9 +172,39 @@
 								<div class="col">
 									<div class="input-group">
 										<span class="input-group-text"><img src="../img/key-fill.svg" alt="Senha"></span>
-										<input type="password" class="form-control" id="loginSenha" placeholder="exemplo123" required>
+										<input type="password" class="form-control" id="loginSenha" placeholder="exemplo123"
+											required>
 									</div>
+								</div>
+							</div>
+							<br>
+							<!-- Botão para fazer submit -->
+							<input type="submit" class="btn btn-site">
+						</form>
+						<form id="logarUnidade" class="invisivel">
+							<div class="row invisivel" id="LoginIncorretoUnidade">
+								<span>Email ou senha incorretos!</span>
+							</div>
+							<div class="row">
+								<!-- Input do email -->
+								<div class="col">
+									<div class="input-group">
+										<span class="input-group-text"><img src="../img/at.svg" alt="E-mail"></span>
+										<input type="email" class="form-control" id="loginEmailUnidade"
+											placeholder="exemplo@gmail.com" required>
 									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<!-- Input da senha -->
+								<div class="col">
+									<div class="input-group">
+										<span class="input-group-text"><img src="../img/key-fill.svg" alt="Senha"></span>
+										<input type="password" class="form-control" id="loginSenhaUnidade"
+											placeholder="exemplo1234" required>
+									</div>
+								</div>
 							</div>
 							<br>
 							<!-- Botão para fazer submit -->

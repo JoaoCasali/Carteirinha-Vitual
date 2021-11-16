@@ -181,6 +181,10 @@ body{
 	left: 0;
 	width: 100%;
 }
+.menu_lateral .profile_content a{
+	color: white;
+	text-decoration: none;
+}
 /* Posicionando e estilizando onde fica as informações */
 .menu_lateral .profile_content .profile{
 	position: relative;
@@ -350,4 +354,7 @@ p a:hover{
 }
 .green{
 	color: #198754;
+}
+.ativo{
+	background-color:  #0266A8;
 }

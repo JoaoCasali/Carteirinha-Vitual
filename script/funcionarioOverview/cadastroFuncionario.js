@@ -28,7 +28,7 @@ $(document).ready(function (){
         if (semErros) {
             // transforma os dados em um arquivo json
             var dados = JSON.stringify({
-                NomeCompleto: NomeCompleto, DtNascimento: DtNascimento, Genero: Genero, Cpf: Cpf, Email: Email, Senha: Senha, UnidadeSaudeId: 1
+                NomeCompleto: NomeCompleto, DtNascimento: DtNascimento, Genero: Genero, Cpf: Cpf, Email: Email, Senha: Senha, UnidadeSaudeId: sessionStorage.Id
             });
             // Faz o envio por meio do método ajax
             $.ajax({

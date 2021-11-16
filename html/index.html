@@ -1,212 +1,274 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <title>Carteira virtual</title>
-	    <meta charset="utf-8">
-	    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	    <meta name="description" content="SISTEMA DE CONTROLE DE VACINAÇÃO">
-  	    <meta name="keywords" content="Vacinação, corona, doenças, virus, vacina, sus">
- 	    <meta name="author" content="IFC Produções">
- 	    <meta http-equiv="refresh" content="300">
-		<!-- Link do bootstrap -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-		<!-- Link do jquerry -->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-		<!-- Icone de seguinga na aba -->
-		<link rel="shortcut icon" type="image/x-icon" href="../img/seringa-icon.png">
-		<!-- Estilo padrão no site -->
-		<link rel="stylesheet" type="text/css" href="../css/main.css">
-		<!-- Estilo da página -->
-		<link rel="stylesheet" type="text/css" href="../css/index.css">
-		<!-- Link para o js -->
-		<script src="../script/main.js"></script>
-		<script src="../script/index.js"></script>
-		<!-- Link para os icones -->
-		<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	</head>
-    <body>
-		<!-- Inicio do menu lateral  -->
-		<div class="menu_lateral">
-			<!-- Parte que fica  a logo e o botão para abrir o menu-->
-			<div class="logo_container">
-				<!-- Imagem da logo e nome -->
-				<div class="logo">
-					<!-- Icone de mais -->
-					<i class='bx bx-plus-medical'></i>
-					<!-- Nome do site -->
-					<div class="logo_nome">Carteirinha Virtual</div>
-				</div>
-				<!-- Botão para abrir o menu -->
-				<i class='bx bx-menu' id='botao'></i>
+
+<head>
+	<title>Carteira virtual</title>
+	<meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<meta name="description" content="SISTEMA DE CONTROLE DE VACINAÇÃO">
+	<meta name="keywords" content="Vacinação, corona, doenças, virus, vacina, sus">
+	<meta name="author" content="IFC Produções">
+	<meta http-equiv="refresh" content="300">
+	<!-- Link do bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+		crossorigin="anonymous"></script>
+	<!-- Link do jquerry -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<!-- Icone de seguinga na aba -->
+	<link rel="shortcut icon" type="image/x-icon" href="../img/seringa-icon.png">
+	<!-- Estilo padrão no site -->
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<!-- Estilo da página -->
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<!-- Link para o js -->
+	<script src="../script/main.js"></script>
+	<script src="../script/index.js"></script>
+	<!-- Link para os icones -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+	<!-- Inicio do menu lateral  -->
+	<div class="menu_lateral">
+		<!-- Parte que fica  a logo e o botão para abrir o menu-->
+		<div class="logo_container">
+			<!-- Imagem da logo e nome -->
+			<div class="logo">
+				<!-- Icone de mais -->
+				<i class='bx bx-plus-medical'></i>
+				<!-- Nome do site -->
+				<div class="logo_nome">Carteirinha Virtual</div>
 			</div>
-			<!-- Inicio da lista do menu -->
-			<ul class="lista">
-				<hr>
-				<!-- Primeiro item da lista -->
-				<li>
-					<!-- Link para a Home do site -->
-					<a href="index.html">
-						<!-- Icone Home -->
-						<i class='bx bx-home'></i>
-						<!-- Nome do item da lista -->
-						<span class="nome_link">Página inicial</span>
-					</a>
-					<!-- Tooltip -->
-					<span class="tooltip">Página inicial</span>
-				</li>
-				<!-- Segundo item da lista -->
-				<li>
-					<!-- Link para o a aba calendário -->
-					<a href="calendario.html">
-						<!-- Icone de calendário -->
-						<i class='bx bx-calendar'></i>
-						<!-- Nome do item da lista -->
-						<span class="nome_link">Calendario</span>
-					</a>
-					<!-- Tooltip -->
-					<span class="tooltip">Calendario</span>
-				</li>
-				<li>
-					<!-- Terceiro item da lista -->
-					<a href="info.html">
-						<!-- Icone de informação -->
-						<i class='bx bx-info-circle'></i>
-						<!-- Nome do item da lista -->
-						<span class="nome_link">Informações</span>
-					</a>
-					<!-- Tooltip -->
-					<span class="tooltip">Informações</span>
-				</li>
-				<hr>
-				<div class="invisivel" id="FunCidadao">
-					<li>
-						<!-- Quarto item da lista -->
-						<a href="agendamento.html">
-							<!-- Icone de calendário + -->
-							<i class='bx bx-calendar-plus'></i>
-							<!-- Nome do item da lista -->
-							<span class="nome_link">Agendamento</span>
-						</a>
-						<!-- Tooltip -->
-						<span class="tooltip">Agendamento</span>
-					</li>
-				</div>
-			</ul>
-			<!-- Iniciando a parte do profile -->
-			<div class="profile_content invisivel">
-				<!-- Conteudo -->
-				<div class="profile">
-					<div class="profile_details">
-						<!-- Imagem do usuário -->
-						<a href="usuario.html"><img src="../img/fotoperfil.jpg" alt="foto de perfil"></a>
-						<!-- Parte onde se escreve o nome e o trabalho do usuário -->
-						<div class="nome_trabalho">
+			<!-- Botão para abrir o menu -->
+			<i class='bx bx-menu' id='botao'></i>
+		</div>
+		<!-- Inicio da lista do menu -->
+		<ul class="lista">
+			<hr>
+			<!-- Primeiro item da lista -->
+			<li>
+				<!-- Link para a Home do site -->
+				<a href="index.html">
+					<!-- Icone Home -->
+					<i class='bx bx-home'></i>
+					<!-- Nome do item da lista -->
+					<span class="nome_link">Página inicial</span>
+				</a>
+				<!-- Tooltip -->
+				<span class="tooltip">Página inicial</span>
+			</li>
+			<!-- Segundo item da lista -->
+			<li>
+				<!-- Link para o a aba calendário -->
+				<a href="calendario.html">
+					<!-- Icone de calendário -->
+					<i class='bx bx-calendar'></i>
+					<!-- Nome do item da lista -->
+					<span class="nome_link">Calendario</span>
+				</a>
+				<!-- Tooltip -->
+				<span class="tooltip">Calendario</span>
+			</li>
+			<li>
+				<!-- Terceiro item da lista -->
+				<a href="info.html">
+					<!-- Icone de informação -->
+					<i class='bx bx-info-circle'></i>
+					<!-- Nome do item da lista -->
+					<span class="nome_link">Informações</span>
+				</a>
+				<!-- Tooltip -->
+				<span class="tooltip">Informações</span>
+			</li>
+			<hr>
+			<li class="invisivel" id="FunCidadao">
+				<!-- Quarto item da lista -->
+				<a href="agendamento.html">
+					<!-- Icone de calendário + -->
+					<i class='bx bx-calendar-plus'></i>
+					<!-- Nome do item da lista -->
+					<span class="nome_link">Agendamento</span>
+				</a>
+				<!-- Tooltip -->
+				<span class="tooltip">Agendamento</span>
+			</li>
+			<li class="invisivel" id="FunUnidade">
+				<!-- Quarto item da lista -->
+				<a href="funcionarioOverview.html">
+					<!-- Icone de calendário + -->
+					<i class='bx bx-user-circle'></i>
+					<!-- Nome do item da lista -->
+					<span class="nome_link">Funcionários</span>
+				</a>
+				<!-- Tooltip -->
+				<span class="tooltip">Funcionários</span>
+			</li>
+		</ul>
+		<!-- Iniciando a parte do profile -->
+		<div class="profile_content invisivel">
+			<!-- Conteudo -->
+			<div class="profile">
+				<div class="profile_details">
+					<!-- Imagem do usuário -->
+					<a href="usuario.html"><img src="../img/fotoperfil.jpg" alt="foto de perfil"></a>
+					<!-- Parte onde se escreve o nome e o trabalho do usuário -->
+					<div class="nome_trabalho">
+						<a href="usuario.html">
 							<!-- Nome do usuário -->
 							<div class="Nome"></div>
 							<!-- Função dele -->
 							<div class="trabalho"></div>
+						</a>
+					</div>
+				</div>
+				<!-- Botão de deslogar -->
+				<i class='bx bx-log-out' id="log_out"></i>
+			</div>
+		</div>
+		<div class="login_content">
+			<div class="login">
+				<i class='bx bx-log-in' id="log_in" data-bs-toggle="modal" data-bs-target="#modalLogin"></i>
+			</div>
+		</div>
+	</div>
+	<!-- Modal de Login -->
+	<div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- Cabeçalho do Modal -->
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Login</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<!-- Corpo onde fica o formulário -->
+				<div class="modal-body">
+					<div class="row" style="margin-bottom: 5px;">
+						<!-- Botões switch das abas de navegação -->
+						<div class="btn-group">
+							<button type="button" id="btnCidadao" class="btn btn-site ativo">Cidadão</button>
+							<button type="button" id="btnUnidade" class="btn btn-site"
+								style="border-left: 1px solid black;">Unidade
+								de Saúde</button>
 						</div>
 					</div>
-					<!-- Botão de deslogar -->
-					<i class='bx bx-log-out' id="log_out"></i>
-				</div>
-			</div>
-			<div class="login_content">
-				<div class="login">
-					<i class='bx bx-log-in' id="log_in" data-bs-toggle="modal" data-bs-target="#modalLogin"></i>
-				</div>
-			</div>
-		</div>
-		<!-- Modal de Login -->
-		<div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<!-- Cabeçalho do Modal -->
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Login</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<!-- Corpo onde fica o formulário -->
-					<div class="modal-body">
-						<!-- Alerta quando o usuário erra a senha ou email -->
-						<form id="logar">
-							<div class="row invisivel" id="LoginIncorreto">
-								<span>Email ou senha incorretos!</span>
-							</div>
-							<div class="row">
-								<!-- Input do email -->
-								<div class="col">
-									<div class="input-group">
-										<span class="input-group-text"><img src="../img/at.svg" alt="E-mail"></span>
-										<input type="email" class="form-control" id="loginEmail" placeholder="exemplo@gmail.com" required>
-									</div>
+					<hr>
+					<!-- Alerta quando o usuário erra a senha ou email -->
+					<form id="logarCidadao">
+						<div class="row invisivel" id="LoginIncorreto">
+							<span>Email ou senha incorretos!</span>
+						</div>
+						<div class="row">
+							<!-- Input do email -->
+							<div class="col">
+								<div class="input-group">
+									<span class="input-group-text"><img src="../img/at.svg" alt="E-mail"></span>
+									<input type="email" class="form-control" id="loginEmail"
+										placeholder="exemplo@gmail.com" required>
 								</div>
 							</div>
-							<br>
-							<div class="row">
-								<!-- Input da senha -->
-								<div class="col">
-									<div class="input-group">
-										<span class="input-group-text"><img src="../img/key-fill.svg" alt="Senha"></span>
-										<input type="password" class="form-control" id="loginSenha" placeholder="exemplo123" required>
-									</div>
-									</div>
+						</div>
+						<br>
+						<div class="row">
+							<!-- Input da senha -->
+							<div class="col">
+								<div class="input-group">
+									<span class="input-group-text"><img src="../img/key-fill.svg" alt="Senha"></span>
+									<input type="password" class="form-control" id="loginSenha" placeholder="exemplo123"
+										required>
+								</div>
 							</div>
-							<br>
-							<!-- Botão para fazer submit -->
-							<input type="submit" class="btn btn-site">
-						</form>
-					</div>
-					<!-- Rodapé do Modal -->
-					<div class="modal-footer">
-						<a href="cadastro.html">Não possui conta? Clique aqui!</a>
-					</div>
+						</div>
+						<br>
+						<!-- Botão para fazer submit -->
+						<input type="submit" class="btn btn-site">
+					</form>
+					<form id="logarUnidade" class="invisivel">
+						<div class="row invisivel" id="LoginIncorretoUnidade">
+							<span>Email ou senha incorretos!</span>
+						</div>
+						<div class="row">
+							<!-- Input do email -->
+							<div class="col">
+								<div class="input-group">
+									<span class="input-group-text"><img src="../img/at.svg" alt="E-mail"></span>
+									<input type="email" class="form-control" id="loginEmailUnidade"
+										placeholder="exemplo@gmail.com" required>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<!-- Input da senha -->
+							<div class="col">
+								<div class="input-group">
+									<span class="input-group-text"><img src="../img/key-fill.svg" alt="Senha"></span>
+									<input type="password" class="form-control" id="loginSenhaUnidade"
+										placeholder="exemplo1234" required>
+								</div>
+							</div>
+						</div>
+						<br>
+						<!-- Botão para fazer submit -->
+						<input type="submit" class="btn btn-site">
+					</form>
+				</div>
+				<!-- Rodapé do Modal -->
+				<div class="modal-footer">
+					<a href="cadastro.html">Não possui conta? Clique aqui!</a>
 				</div>
 			</div>
 		</div>
-		<!--Inicio do conteúdo da home-->
-		<div class="estilo">
+	</div>
+	<!--Inicio do conteúdo da home-->
+	<div class="estilo">
 		<!--Imagem ilustrada com o título-->
-			<img class="displayed" src="../img/img-home.jpg" alt="Imagem inicial">
-			<br>
+		<img class="displayed" src="../img/img-home.jpg" alt="Imagem inicial">
+		<br>
 		<!--Introdução do conteúdo apresentado-->
-			<h2>Tenha acesso as ferramentas disponíveis</h2><br>
+		<h2>Tenha acesso as ferramentas disponíveis</h2><br>
 		<!--Descrição do que o site faz-->
-			<div class="container">
-				<div class="row">
-					<!--Coluna 1-->
-					<div class="col topico">
-						<h4>Carteira de vacinação</h4>
-						<p>Tenha sempre a carteira de vacinação na palma da sua mão, sem riscos de perdas, monitore suas vacinas
-							pendentes e agendadas sem sair de casa.</p>
-					</div>
-					<!--Coluna 2-->
-					<div class="col topico">
-						<h4>Agendamento de vacinas</h4>
-						<p>O site oferecerá serviços que ultrapassam as barreiras de uma simples carteira de vacinação, como a 
-							função de agendar vacinas pelo próprio sistema online.</p>
-					</div>
-					<!--Coluna 3-->
-					<div class="col topico">
-						<h4>Agendamento de consultas</h4>
-						<p>será viável o procedimento de agendamento de consultas, informando
-							as especificações necessárias, como o local de agendamento e profissional de saúde responsável.</p>
-					</div>
-					<!--Coluna 4-->
-					<div class="col topico">
-						<h4>Acessibilidade</h4>
-						<p>Disponível para cidadãos e postos de saúde, o site apenas atenderá a demanda solicitada pelo SUS,
-							não estando inclusos hospitais e consultórios particulares.</p>
-					</div>
+		<div class="container">
+			<div class="row">
+				<!--Coluna 1-->
+				<div class="col topico">
+					<h4>Carteira de vacinação</h4>
+					<p>Tenha sempre a carteira de vacinação na palma da sua mão, sem riscos de perdas, monitore suas
+						vacinas
+						pendentes e agendadas sem sair de casa.</p>
+				</div>
+				<!--Coluna 2-->
+				<div class="col topico">
+					<h4>Agendamento de vacinas</h4>
+					<p>O site oferecerá serviços que ultrapassam as barreiras de uma simples carteira de vacinação, como
+						a
+						função de agendar vacinas pelo próprio sistema online.</p>
+				</div>
+				<!--Coluna 3-->
+				<div class="col topico">
+					<h4>Agendamento de consultas</h4>
+					<p>será viável o procedimento de agendamento de consultas, informando
+						as especificações necessárias, como o local de agendamento e profissional de saúde responsável.
+					</p>
+				</div>
+				<!--Coluna 4-->
+				<div class="col topico">
+					<h4>Acessibilidade</h4>
+					<p>Disponível para cidadãos e postos de saúde, o site apenas atenderá a demanda solicitada pelo SUS,
+						não estando inclusos hospitais e consultórios particulares.</p>
 				</div>
 			</div>
-			<br>
-		<!--Botão de cadastro-->
-		
-			<a href="cadastro.html"><button class="btn btn-site">Cadastre-se</button></a>
-
-			<br>
 		</div>
-    </body>
+		<br>
+		<!--Botão de cadastro-->
+
+		<a href="cadastro.html"><button class="btn btn-site">Cadastre-se</button></a>
+
+		<br>
+	</div>
+</body>
+
 </html>

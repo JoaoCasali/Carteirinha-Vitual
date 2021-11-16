@@ -20,12 +20,14 @@ def listar_pessoas():
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 
-@app.route("/listar_funcionarios")
+@app.route("/listar_funcionarios", methods=['post'])
 def listar_funcionarios():
+    dados = request.get_json() #(force=True) dispensa Content-Type na requisição
     funcionarios = db.session.query(Funcionario).all()
     retorno = []
     for i in funcionarios:
-        retorno.append(i.json())
+        if i.UnidadeSaudeId == int(dados['Id']):
+            retorno.append(i.json())
 
     resposta = jsonify(retorno)
     resposta.headers.add("Access-Control-Allow-Origin", "*")
@@ -48,6 +50,24 @@ def listar_unidade():
     retorno = []
     for i in pessoas:
         retorno.append(i.json())
+
+    resposta = jsonify(retorno)
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
+
+@app.route("/listar_vacinas", methods=['post'])
+def listar_vacinas():
+    dados = request.get_json() #(force=True) dispensa Content-Type na requisição
+    vacinas = db.session.query(Vacina).all()
+    agendamentos = db.session.query(Agendamento).all()
+    retorno = []
+    for i in agendamentos:
+        if i.IdCidadao == int(dados['Id']):
+            retorno.append(i.json())
+
+    for i in vacinas:
+        if i.CidadaoId == int(dados['Id']):
+            retorno.append(i.json())
 
     resposta = jsonify(retorno)
     resposta.headers.add("Access-Control-Allow-Origin", "*")
@@ -148,6 +168,17 @@ def login():
     resposta.headers.add("Access-Control-Allow-Origin", "*")
     return resposta
 
+@app.route("/login_Unidade", methods=['post'])
+def login_unidade():
+    dados = request.get_json() #(force=True) dispensa Content-Type na requisição
+    TodasPessoas = db.session.query(Unidade_Saude).all()
+    resposta = jsonify({"resultado": "erro", "detalhes": "Unidade de Saúde não encontrado"})
+    for i in TodasPessoas:
+        if i.Email == dados['Email'] and i.Senha == dados['Senha']:
+            resposta = jsonify({"resultado": "ok", "detalhes": "Usuário encontrado", "usuario": i.json()})
+    resposta.headers.add("Access-Control-Allow-Origin", "*")
+    return resposta
+
 ALLOWED_EXTENSIONS = set(['png', 'jpeg', 'jpg'])
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -178,22 +209,5 @@ def atualizar_cadastro():
     resposta = jsonify({"resultado": "ok", "detalhes": "Mudanças executadas!", "usuario": cidadao.json()})
     return resposta
 
-@app.route("/listar_vacinas", methods=['post'])
-def listar_vacinas():
-    dados = request.get_json() #(force=True) dispensa Content-Type na requisição
-    vacinas = db.session.query(Vacina).all()
-    agendamentos = db.session.query(Agendamento).all()
-    retorno = []
-    for i in agendamentos:
-        if i.IdCidadao == int(dados['Id']):
-            retorno.append(i.json())
-
-    for i in vacinas:
-        if i.CidadaoId == int(dados['Id']):
-            retorno.append(i.json())
-
-    resposta = jsonify(retorno)
-    resposta.headers.add("Access-Control-Allow-Origin", "*")
-    return resposta
 
 app.run(debug=True)
